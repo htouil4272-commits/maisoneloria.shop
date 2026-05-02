@@ -1,0 +1,360 @@
+{
+  "brand": {
+    "name": "MAISON ELORIA",
+    "nameAr": "دار إيلوريا",
+    "tagline": {
+      "fr": "L'art de vivre marocain",
+      "ar": "فنّ الحياة المغربية"
+    },
+    "domain": "maisoneloria.shop",
+    "whatsapp": "212600000000",
+    "email": "contact@maisoneloria.shop",
+    "instagram": "maisoneloria",
+    "tiktok": "maisoneloria",
+    "facebook": "maisoneloria"
+  },
+  "colors": [
+    {
+      "id": "cedre-atlas",
+      "name": { "fr": "Cèdre de l'Atlas", "ar": "أرز الأطلس" },
+      "originalName": "Marron chocolat",
+      "inspiration": { "fr": "Bois de cèdre des montagnes de l'Atlas", "ar": "خشب الأرز من جبال الأطلس" },
+      "hex": "#5C3A28",
+      "gradient": "linear-gradient(135deg, #6B4530 0%, #3D2418 100%)"
+    },
+    {
+      "id": "atlas-mist",
+      "name": { "fr": "Atlas Mist", "ar": "ضباب الأطلس" },
+      "originalName": "Gris",
+      "inspiration": { "fr": "Brume matinale des sommets", "ar": "ضباب الصباح فوق القمم" },
+      "hex": "#8E8B86",
+      "gradient": "linear-gradient(135deg, #A19E98 0%, #6B6863 100%)"
+    },
+    {
+      "id": "casablanca-night",
+      "name": { "fr": "Casablanca Night", "ar": "ليالي الدار البيضاء" },
+      "originalName": "Noir",
+      "inspiration": { "fr": "Nuits étoilées de Casablanca", "ar": "ليالي مرصعة بالنجوم" },
+      "hex": "#1F1B17",
+      "gradient": "linear-gradient(135deg, #2A2520 0%, #0F0C09 100%)"
+    },
+    {
+      "id": "sahara-sand",
+      "name": { "fr": "Sahara Sand", "ar": "رمال الصحراء" },
+      "originalName": "Beige",
+      "inspiration": { "fr": "Dunes dorées du désert", "ar": "كثبان رملية ذهبية" },
+      "hex": "#D4BFA0",
+      "gradient": "linear-gradient(135deg, #E5D2B5 0%, #B89F7E 100%)"
+    },
+    {
+      "id": "chefchaouen-blue",
+      "name": { "fr": "Chefchaouen Blue", "ar": "أزرق شفشاون" },
+      "originalName": "Turquoise",
+      "inspiration": { "fr": "La perle bleue du Rif", "ar": "اللؤلؤة الزرقاء للريف" },
+      "hex": "#3E7A8C",
+      "gradient": "linear-gradient(135deg, #5294A8 0%, #28586A 100%)"
+    },
+    {
+      "id": "marrakech-sunset",
+      "name": { "fr": "Marrakech Sunset", "ar": "غروب مراكش" },
+      "originalName": "Bordeaux",
+      "inspiration": { "fr": "Coucher de soleil sur la médina", "ar": "غروب الشمس على المدينة" },
+      "hex": "#6E2837",
+      "gradient": "linear-gradient(135deg, #8A3344 0%, #4A1924 100%)"
+    },
+    {
+      "id": "argan-glow",
+      "name": { "fr": "Argan Glow", "ar": "توهج الأرغان" },
+      "originalName": "Orange",
+      "inspiration": { "fr": "L'or liquide de Souss", "ar": "الذهب السائل لسوس" },
+      "hex": "#C97B5C",
+      "gradient": "linear-gradient(135deg, #E0936F 0%, #A85F42 100%)"
+    },
+    {
+      "id": "olive-fes",
+      "name": { "fr": "Olive de Fès", "ar": "زيتون فاس" },
+      "originalName": "Vert olive",
+      "inspiration": { "fr": "Oliveraies de la médina spirituelle", "ar": "بساتين الزيتون في المدينة الروحية" },
+      "hex": "#6B7C5C",
+      "gradient": "linear-gradient(135deg, #7E9070 0%, #4F5E42 100%)"
+    },
+    {
+      "id": "tanger-profond",
+      "name": { "fr": "Tanger Profond", "ar": "عمق طنجة" },
+      "originalName": "Bleu marine",
+      "inspiration": { "fr": "Profondeurs du détroit", "ar": "أعماق المضيق" },
+      "hex": "#1E2F4A",
+      "gradient": "linear-gradient(135deg, #2A4366 0%, #121C2E 100%)"
+    }
+  ],
+  "products": [
+    {
+      "id": "housse-chaise",
+      "slug": "housse-de-chaise",
+      "category": "covers",
+      "name": { "fr": "Housse de Chaise Premium", "ar": "غطاء كرسي بريميوم" },
+      "shortDesc": {
+        "fr": "Transformez vos chaises en quelques secondes avec nos housses extensibles 9 couleurs.",
+        "ar": "حوّلي كراسيكِ في ثوانٍ بأغطيتنا المرنة بـ 9 ألوان فاخرة."
+      },
+      "description": {
+        "fr": "La housse de chaise Maison Eloria est conçue pour s'adapter à toutes les formes de chaises grâce à son tissu extensible haut de gamme. Disponible en 9 couleurs inspirées des paysages marocains, elle apporte une élégance instantanée à votre intérieur.",
+        "ar": "غطاء كرسي ميزون إيلوريا مصمم ليلائم جميع أشكال الكراسي بفضل قماشه المرن عالي الجودة. متوفر بـ 9 ألوان مستوحاة من المناظر المغربية، يضفي أناقة فورية على ديكور منزلكِ."
+      },
+      "features": [
+        { "fr": "Tissu extensible haute qualité", "ar": "قماش مرن عالي الجودة", "icon": "shield" },
+        { "fr": "Installation en 30 secondes", "ar": "تركيب في 30 ثانية", "icon": "zap" },
+        { "fr": "Lavable en machine", "ar": "قابل للغسيل بالغسالة", "icon": "droplet" },
+        { "fr": "9 couleurs disponibles", "ar": "9 ألوان متوفرة", "icon": "palette" },
+        { "fr": "3 tailles : Standard / Large / XL", "ar": "3 مقاسات: عادي / كبير / XL", "icon": "ruler" },
+        { "fr": "Made in Morocco", "ar": "صُنع في المغرب", "icon": "flag" }
+      ],
+      "sizes": [
+        { "id": "standard", "name": { "fr": "Standard", "ar": "عادي" }, "desc": { "fr": "45-50cm assise", "ar": "45-50سم مقعد" } },
+        { "id": "large", "name": { "fr": "Large", "ar": "كبير" }, "desc": { "fr": "50-55cm assise", "ar": "50-55سم مقعد" } },
+        { "id": "xl", "name": { "fr": "XL", "ar": "كبير جداً" }, "desc": { "fr": "55-60cm assise", "ar": "55-60سم مقعد" } }
+      ],
+      "pricing": {
+        "single": { "price": 199, "compareAt": 299, "label": { "fr": "À l'unité", "ar": "قطعة واحدة" } },
+        "pack4": { "price": 699, "compareAt": 796, "label": { "fr": "Pack Découverte (4)", "ar": "حزمة الاكتشاف (4)" }, "save": 97 },
+        "pack6": { "price": 999, "compareAt": 1194, "label": { "fr": "Pack Famille (6)", "ar": "حزمة العائلة (6)" }, "save": 195, "featured": true },
+        "pack8": { "price": 1199, "compareAt": 1592, "label": { "fr": "Pack Tribu (8)", "ar": "حزمة القبيلة (8)" }, "save": 393 }
+      },
+      "badge": { "fr": "Best-seller", "ar": "الأكثر مبيعاً" }
+    },
+    {
+      "id": "chemin-table",
+      "slug": "chemin-de-table",
+      "category": "table",
+      "name": { "fr": "Chemin de Table", "ar": "مفرش طاولة" },
+      "shortDesc": {
+        "fr": "Sublimez votre table avec nos chemins de table assortis à vos housses.",
+        "ar": "أبرزي جمال طاولتكِ بمفارشنا المتناسقة مع أغطية الكراسي."
+      },
+      "description": {
+        "fr": "Le chemin de table Maison Eloria complète parfaitement votre décor de table. Tissé avec le même soin que nos housses de chaises, il existe dans les 9 mêmes couleurs pour un ensemble harmonieux digne des plus belles tables marocaines.",
+        "ar": "مفرش طاولة ميزون إيلوريا يكمل ديكور سفرتكِ بشكل مثالي. منسوج بنفس العناية التي توضع في أغطية الكراسي، ومتوفر بنفس الـ 9 ألوان لتجمع متناسق يليق بأجمل الطاولات المغربية."
+      },
+      "features": [
+        { "fr": "Coordonné aux housses", "ar": "متناسق مع الأغطية", "icon": "link" },
+        { "fr": "3 longueurs disponibles", "ar": "3 أطوال متوفرة", "icon": "ruler" },
+        { "fr": "Lavable", "ar": "قابل للغسيل", "icon": "droplet" }
+      ],
+      "sizes": [
+        { "id": "small", "name": { "fr": "140cm", "ar": "140سم" }, "desc": { "fr": "Table 4-6 pers.", "ar": "طاولة 4-6 أشخاص" } },
+        { "id": "medium", "name": { "fr": "180cm", "ar": "180سم" }, "desc": { "fr": "Table 6-8 pers.", "ar": "طاولة 6-8 أشخاص" } },
+        { "id": "large", "name": { "fr": "220cm", "ar": "220سم" }, "desc": { "fr": "Table 8-10 pers.", "ar": "طاولة 8-10 أشخاص" } }
+      ],
+      "pricing": {
+        "single": { "price": 149, "compareAt": 199, "label": { "fr": "À l'unité", "ar": "قطعة واحدة" } },
+        "pack2": { "price": 249, "compareAt": 298, "label": { "fr": "Pack Duo (2)", "ar": "حزمة ثنائية (2)" }, "save": 49 }
+      },
+      "badge": { "fr": "Coordonné", "ar": "متناسق" }
+    },
+    {
+      "id": "housse-coussin",
+      "slug": "housse-coussin",
+      "category": "cushions",
+      "name": { "fr": "Housse de Coussin", "ar": "غطاء وسادة" },
+      "shortDesc": {
+        "fr": "Renouvelez vos coussins en un instant. Disponibles en 4 tailles, 9 couleurs.",
+        "ar": "جدّدي وسائدكِ في لحظة. متوفرة بـ 4 مقاسات و 9 ألوان."
+      },
+      "description": {
+        "fr": "Les housses de coussins Maison Eloria sont l'accessoire indispensable pour rafraîchir votre salon. Faciles à enfiler grâce à leur fermeture invisible, elles transformeront vos vieux coussins en pièces design.",
+        "ar": "أغطية الوسائد من ميزون إيلوريا هي الإكسسوار الذي لا غنى عنه لتجديد صالونكِ. سهلة التركيب بفضل سحابها المخفي، ستحوّل وسائدكِ القديمة إلى قطع تصميم راقية."
+      },
+      "features": [
+        { "fr": "Fermeture invisible", "ar": "سحاب مخفي", "icon": "shield" },
+        { "fr": "4 tailles disponibles", "ar": "4 مقاسات متوفرة", "icon": "ruler" },
+        { "fr": "Lavable en machine", "ar": "قابل للغسيل", "icon": "droplet" }
+      ],
+      "sizes": [
+        { "id": "40", "name": { "fr": "40×40", "ar": "40×40" }, "desc": { "fr": "Standard", "ar": "عادي" } },
+        { "id": "45", "name": { "fr": "45×45", "ar": "45×45" }, "desc": { "fr": "Confort", "ar": "مريح" } },
+        { "id": "50", "name": { "fr": "50×50", "ar": "50×50" }, "desc": { "fr": "Grand", "ar": "كبير" } },
+        { "id": "lumbar", "name": { "fr": "30×50", "ar": "30×50" }, "desc": { "fr": "Lombaire", "ar": "ظهري" } }
+      ],
+      "pricing": {
+        "single": { "price": 89, "compareAt": 119, "label": { "fr": "À l'unité", "ar": "قطعة واحدة" } },
+        "pack4": { "price": 299, "compareAt": 356, "label": { "fr": "Pack Quatuor (4)", "ar": "حزمة رباعية (4)" }, "save": 57 },
+        "pack6": { "price": 399, "compareAt": 534, "label": { "fr": "Pack Famille (6)", "ar": "حزمة العائلة (6)" }, "save": 135 }
+      },
+      "badge": { "fr": "Nouveau", "ar": "جديد" }
+    }
+  ],
+  "bundles": [
+    {
+      "id": "pack-decouverte",
+      "name": { "fr": "Pack Découverte", "ar": "حزمة الاكتشاف" },
+      "desc": {
+        "fr": "Idéal pour rafraîchir 4 chaises en une couleur unique.",
+        "ar": "مثالية لتجديد 4 كراسي بلون واحد."
+      },
+      "items": [
+        { "product": "housse-chaise", "qty": 4 }
+      ],
+      "price": 699,
+      "compareAt": 796,
+      "save": 97,
+      "features": [
+        { "fr": "4 housses de chaise au choix", "ar": "4 أغطية كراسي حسب الاختيار" },
+        { "fr": "Une couleur, un look", "ar": "لون واحد، إطلالة موحدة" },
+        { "fr": "Livraison gratuite", "ar": "توصيل مجاني" }
+      ]
+    },
+    {
+      "id": "pack-famille",
+      "name": { "fr": "Pack Famille", "ar": "حزمة العائلة" },
+      "desc": {
+        "fr": "6 housses pour toute la famille — économisez 195 DH.",
+        "ar": "6 أغطية لكل العائلة — وفّري 195 درهم."
+      },
+      "items": [
+        { "product": "housse-chaise", "qty": 6 }
+      ],
+      "price": 999,
+      "compareAt": 1194,
+      "save": 195,
+      "features": [
+        { "fr": "6 housses de chaise", "ar": "6 أغطية كراسي" },
+        { "fr": "Mix de couleurs possible", "ar": "إمكانية مزج الألوان" },
+        { "fr": "Livraison gratuite", "ar": "توصيل مجاني" },
+        { "fr": "Cadeau surprise", "ar": "هدية مفاجأة" }
+      ]
+    },
+    {
+      "id": "pack-salon-complet",
+      "name": { "fr": "Pack Salon Complet", "ar": "حزمة الصالون الكاملة" },
+      "desc": {
+        "fr": "L'ensemble parfait : 6 housses + 4 coussins + 1 chemin de table.",
+        "ar": "المجموعة المثالية: 6 أغطية + 4 وسائد + 1 مفرش طاولة."
+      },
+      "items": [
+        { "product": "housse-chaise", "qty": 6 },
+        { "product": "housse-coussin", "qty": 4 },
+        { "product": "chemin-table", "qty": 1 }
+      ],
+      "price": 1299,
+      "compareAt": 1693,
+      "save": 394,
+      "featured": true,
+      "features": [
+        { "fr": "6 housses de chaise", "ar": "6 أغطية كراسي" },
+        { "fr": "4 housses de coussin", "ar": "4 أغطية وسائد" },
+        { "fr": "1 chemin de table", "ar": "1 مفرش طاولة" },
+        { "fr": "Livraison express gratuite", "ar": "توصيل سريع مجاني" },
+        { "fr": "Coffret cadeau premium", "ar": "علبة هدية فاخرة" }
+      ]
+    },
+    {
+      "id": "pack-diplomatique",
+      "name": { "fr": "Pack Diplomatique", "ar": "الحزمة الدبلوماسية" },
+      "desc": {
+        "fr": "L'expérience Maison Eloria au complet — pour les grandes occasions.",
+        "ar": "تجربة ميزون إيلوريا الكاملة — للمناسبات الكبرى."
+      },
+      "items": [
+        { "product": "housse-chaise", "qty": 6 },
+        { "product": "housse-coussin", "qty": 6 },
+        { "product": "chemin-table", "qty": 2 }
+      ],
+      "price": 1499,
+      "compareAt": 1891,
+      "save": 392,
+      "features": [
+        { "fr": "6 housses de chaise", "ar": "6 أغطية كراسي" },
+        { "fr": "6 housses de coussin", "ar": "6 أغطية وسائد" },
+        { "fr": "2 chemins de table", "ar": "2 مفرش طاولة" },
+        { "fr": "Livraison prioritaire 24h", "ar": "توصيل ذو أولوية في 24 ساعة" },
+        { "fr": "Carte de remerciement personnalisée", "ar": "بطاقة شكر مخصصة" }
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Fatima Z.",
+      "city": { "fr": "Casablanca", "ar": "الدار البيضاء" },
+      "rating": 5,
+      "text": {
+        "fr": "Mes chaises avaient 12 ans. En 5 minutes, mon salon a l'air neuf. Mes invités ont demandé où j'avais acheté mon nouveau mobilier !",
+        "ar": "كراسيي عمرها 12 سنة. في 5 دقائق، صالوني يبدو جديداً. ضيوفي سألوني من أين اشتريت الأثاث الجديد!"
+      },
+      "product": { "fr": "Pack Famille — Atlas Mist", "ar": "حزمة العائلة — ضباب الأطلس" }
+    },
+    {
+      "name": "Sara M.",
+      "city": { "fr": "Rabat", "ar": "الرباط" },
+      "rating": 5,
+      "text": {
+        "fr": "Qualité exceptionnelle pour un produit local. Le tissu est doux mais résistant, les couleurs magnifiques. J'ai commandé un deuxième pack.",
+        "ar": "جودة استثنائية لمنتج محلي. القماش ناعم لكن متين، الألوان رائعة. طلبت حزمة ثانية."
+      },
+      "product": { "fr": "Pack Salon Complet — Marrakech Sunset", "ar": "حزمة الصالون الكاملة — غروب مراكش" }
+    },
+    {
+      "name": "Khadija B.",
+      "city": { "fr": "Marrakech", "ar": "مراكش" },
+      "rating": 5,
+      "text": {
+        "fr": "Livré en 36 heures, paiement à la livraison, service client adorable sur WhatsApp. Tout était parfait pour Aïd.",
+        "ar": "وصلني في 36 ساعة، الدفع عند التسليم، خدمة عملاء رائعة على واتساب. كل شيء كان مثالياً للعيد."
+      },
+      "product": { "fr": "Pack Découverte — Cèdre de l'Atlas", "ar": "حزمة الاكتشاف — أرز الأطلس" }
+    },
+    {
+      "name": "Amina H.",
+      "city": { "fr": "Tanger", "ar": "طنجة" },
+      "rating": 5,
+      "text": {
+        "fr": "J'avais peur de la qualité après les déceptions des sites chinois. Maison Eloria a complètement changé ma perception. Made in Morocco, c'est l'avenir.",
+        "ar": "كنت قلقة من الجودة بعد خيبات المواقع الصينية. ميزون إيلوريا غيّرت قناعتي تماماً. صُنع في المغرب هو المستقبل."
+      },
+      "product": { "fr": "Pack Diplomatique — Tanger Profond", "ar": "الحزمة الدبلوماسية — عمق طنجة" }
+    }
+  ],
+  "faq": [
+    {
+      "q": { "fr": "Comment savoir quelle taille choisir ?", "ar": "كيف أعرف المقاس المناسب؟" },
+      "a": {
+        "fr": "Mesurez la largeur de l'assise de votre chaise. Standard : 45-50cm. Large : 50-55cm. XL : 55-60cm. En cas de doute, contactez-nous sur WhatsApp avec une photo de votre chaise et un mètre — nous vous conseillons gratuitement.",
+        "ar": "قيسي عرض مقعد كرسيكِ. عادي: 45-50سم. كبير: 50-55سم. كبير جداً: 55-60سم. عند الشك، تواصلي معنا على واتساب مع صورة كرسيكِ ومتر — نحن ننصحكِ مجاناً."
+      }
+    },
+    {
+      "q": { "fr": "Comment laver les housses ?", "ar": "كيف أغسل الأغطية؟" },
+      "a": {
+        "fr": "À la machine, programme délicat 30°C. Séchage à l'air libre recommandé. Pas de sèche-linge ni de javel. Le tissu garde sa forme et ses couleurs après plus de 50 lavages.",
+        "ar": "في الغسالة، برنامج ناعم 30°. يُفضّل التجفيف في الهواء الطلق. لا تستخدمي مجفف الملابس أو مبيض الكلور. القماش يحافظ على شكله وألوانه بعد أكثر من 50 غسلة."
+      }
+    },
+    {
+      "q": { "fr": "Combien de temps pour la livraison ?", "ar": "كم تستغرق مدة التوصيل؟" },
+      "a": {
+        "fr": "24 à 48 heures pour Casablanca, Rabat et Marrakech. 2 à 4 jours pour les autres villes du Maroc. Vous serez contacté(e) par WhatsApp pour confirmer votre commande sous 30 minutes.",
+        "ar": "24 إلى 48 ساعة للدار البيضاء والرباط ومراكش. من 2 إلى 4 أيام لباقي مدن المغرب. سنتواصل معكِ عبر واتساب لتأكيد طلبكِ خلال 30 دقيقة."
+      }
+    },
+    {
+      "q": { "fr": "Comment payer ma commande ?", "ar": "كيف أدفع طلبي؟" },
+      "a": {
+        "fr": "Paiement à la livraison (COD) — vous ne payez qu'une fois votre colis reçu et vérifié. Aucune avance demandée. Espèces uniquement à la livraison.",
+        "ar": "الدفع عند الاستلام — لا تدفعين إلا بعد استلام طردكِ والتحقق منه. لا حاجة لدفع أي شيء مقدماً. الدفع نقداً عند التسليم."
+      }
+    },
+    {
+      "q": { "fr": "Puis-je retourner ma commande ?", "ar": "هل يمكنني إرجاع الطلب؟" },
+      "a": {
+        "fr": "Oui — 14 jours pour changer d'avis. Si le produit ne vous plaît pas (taille, couleur, etc.), contactez-nous sur WhatsApp et nous échangerons ou rembourserons sans question.",
+        "ar": "نعم — لديكِ 14 يوماً لتغيير رأيكِ. إذا لم يعجبكِ المنتج (المقاس، اللون، إلخ)، تواصلي معنا على واتساب وسنستبدل أو نسترجع المبلغ بدون أسئلة."
+      }
+    },
+    {
+      "q": { "fr": "Les housses sont-elles vraiment fabriquées au Maroc ?", "ar": "هل الأغطية مصنوعة فعلاً في المغرب؟" },
+      "a": {
+        "fr": "Oui, 100%. Notre atelier est basé au Maroc, nos couturières sont marocaines, et nos tissus sont sélectionnés pour leur qualité supérieure. Vous pouvez nous rendre visite sur rendez-vous.",
+        "ar": "نعم، 100%. ورشتنا في المغرب، خياطاتنا مغربيات، وأقمشتنا مختارة بعناية لجودتها العالية. يمكنكِ زيارتنا بموعد مسبق."
+      }
+    }
+  ]
+}

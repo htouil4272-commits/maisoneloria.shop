@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Don't index dynamic pages with query strings duplicating content
+Disallow: /*?color=
+Disallow: /*?category=
+
+# Internal LP hub & confirmation pages should not be indexed
+Disallow: /lp/index.html
+Disallow: /lp/confirmation.html
+
+# Block AI/SEO scrapers (optional — comment out if you want them)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+Sitemap: https://maisoneloria.shop/sitemap.xml

@@ -1,0 +1,42 @@
+{
+  "name": "Maison Eloria — L'élégance marocaine",
+  "short_name": "Maison Eloria",
+  "description": "Housses de chaise, chemins de table et coussins en 9 couleurs marocaines. Livraison 24-48h, paiement à la livraison.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FAF6EE",
+  "theme_color": "#2A2520",
+  "lang": "fr",
+  "dir": "ltr",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "/assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Voir la collection",
+      "short_name": "Collection",
+      "url": "/shop.html",
+      "icons": [{ "src": "/assets/images/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Suivre une commande",
+      "short_name": "Suivi",
+      "url": "/track.html",
+      "icons": [{ "src": "/assets/images/favicon.svg", "sizes": "any" }]
+    }
+  ]
+}

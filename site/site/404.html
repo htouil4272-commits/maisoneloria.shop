@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2A2520" />
+  <title>404 — Page introuvable · Maison Eloria</title>
+  <meta name="robots" content="noindex,follow" />
+  <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg" />
+  <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <style>
+    .err-stage {
+      min-height: calc(100vh - 200px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-12) var(--space-6);
+      position: relative;
+      overflow: hidden;
+    }
+    .err-stage::before {
+      content: '404';
+      position: absolute;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(20rem, 50vw, 40rem);
+      color: rgba(201, 123, 92, 0.04);
+      pointer-events: none;
+      user-select: none;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+    .err-card { position: relative; z-index: 1; max-width: 540px; text-align: center; }
+    .err-eyebrow {
+      font-size: var(--text-xs);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+    }
+    .err-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+      font-weight: 500;
+      line-height: 1.1;
+      margin: 0 0 var(--space-4);
+    }
+    .err-title em { color: var(--color-terracotta); font-style: italic; }
+    .err-desc {
+      font-size: var(--text-lg);
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-8);
+    }
+    .err-actions {
+      display: flex;
+      gap: var(--space-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="./" class="brand-lockup" aria-label="Maison Eloria — On Air">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span class="brand-wordmark">
+            <span class="brand-name">maisoneloria</span>
+            <span class="brand-onair" aria-hidden="true">ON AIR</span>
+          </span>
+        </a>
+        <nav class="nav">
+          <a href="./" data-i18n="nav.home">Accueil</a>
+          <a href="./shop.html" data-i18n="nav.shop">Collection</a>
+          <a href="./about.html" data-i18n="nav.about">À propos</a>
+          <a href="./contact.html" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <button class="lang-switcher" data-lang-toggle>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span data-lang-current>العربية</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="err-stage">
+    <div class="err-card">
+      <span class="err-eyebrow" data-i18n="err404.eyebrow">Erreur 404</span>
+      <h1 class="err-title" data-i18n="err404.title"><em>Cette page</em><br>s'est égarée</h1>
+      <p class="err-desc" data-i18n="err404.desc">La page que vous cherchez n'existe pas, ou bien elle est déjà passée de mode. Retournons à l'élégance.</p>
+      <div class="err-actions">
+        <a href="./" class="btn btn-primary btn-lg" data-i18n="err404.home">Retour à l'accueil</a>
+        <a href="./shop.html" class="btn btn-outline btn-lg" data-i18n="err404.shop">Voir la collection</a>
+      </div>
+    </div>
+  </main>
+
+  <a href="#" data-whatsapp class="whatsapp-fab" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+  </a>
+
+  <script type="module">
+    import { initI18n } from './assets/js/i18n.js';
+    initI18n();
+    fetch('./assets/data/products.json').then((r) => r.json()).then((d) => {
+      const w = d?.brand?.whatsapp;
+      if (w) document.querySelectorAll('[data-whatsapp]').forEach((a) => { a.href = `https://wa.me/${w}`; });
+    }).catch(() => {});
+  </script>
+</body>
+</html>

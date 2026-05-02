@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2A2520" />
+  <title>Maison Eloria — L'élégance marocaine, chez vous</title>
+  <meta name="description" content="Maison Eloria — Housses de chaise, chemins de table et coussins en 9 couleurs inspirées du Maroc. Livraison 24-48h. Paiement à la livraison." />
+  <meta name="keywords" content="maison eloria, housse chaise maroc, couverture chaise, deco maroc, chemin de table maroc, marocain" />
+  <meta name="author" content="Maison Eloria" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://maisoneloria.shop/" />
+  <meta property="og:title" content="Maison Eloria — L'élégance marocaine, chez vous" />
+  <meta property="og:description" content="Housses premium en 9 couleurs marocaines. Livraison 24-48h, paiement à la livraison." />
+  <meta property="og:image" content="https://maisoneloria.shop/assets/images/og-image.jpg" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="ar_MA" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Maison Eloria — L'élégance marocaine" />
+  <meta name="twitter:description" content="Housses premium en 9 couleurs marocaines." />
+
+  <link rel="canonical" href="https://maisoneloria.shop/" />
+  <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg" />
+  <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.svg" />
+  <link rel="manifest" href="./manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" />
+
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="preload" as="fetch" href="./assets/data/products.json" crossorigin />
+  <link rel="modulepreload" href="./assets/js/main.js" />
+  <link rel="modulepreload" href="./assets/js/i18n.js" />
+  <link rel="modulepreload" href="./assets/js/cart.js" />
+  <link rel="modulepreload" href="./assets/js/cart-drawer.js" />
+  <link rel="modulepreload" href="./assets/js/api.js" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Maison Eloria",
+    "alternateName": "دار إيلوريا",
+    "description": "Maison Eloria — Élégance marocaine pour la maison. Housses de chaise, chemins de table, coussins.",
+    "url": "https://maisoneloria.shop",
+    "logo": "https://maisoneloria.shop/assets/images/logo.png",
+    "image": "https://maisoneloria.shop/assets/images/og-image.jpg",
+    "address": { "@type": "PostalAddress", "addressCountry": "MA" },
+    "priceRange": "89-1499 MAD",
+    "currenciesAccepted": "MAD",
+    "paymentAccepted": "Cash on Delivery",
+    "areaServed": "Morocco"
+  }
+  </script>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <span class="topbar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span data-i18n="topbar.shipping">Livraison gratuite dès 500 DH</span>
+        </span>
+        <span class="topbar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/></svg>
+          <span data-i18n="topbar.cod">Paiement à la livraison</span>
+        </span>
+        <span class="topbar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span data-i18n="topbar.delivery">24-48h</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="./" class="brand-lockup" aria-label="Maison Eloria — On Air">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span class="brand-wordmark">
+            <span class="brand-name">maisoneloria</span>
+            <span class="brand-onair" aria-hidden="true">ON AIR</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Navigation principale">
+          <a href="./" data-i18n="nav.home">Accueil</a>
+          <a href="./shop.html" data-i18n="nav.shop">Boutique</a>
+          <a href="#bundles" data-i18n="nav.bundles">Packs</a>
+          <a href="./about.html" data-i18n="nav.about">Notre Histoire</a>
+          <a href="./contact.html" data-i18n="nav.contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="lang-switcher" data-lang-toggle aria-label="Changer de langue">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span data-lang-current>العربية</span>
+          </button>
+
+          <button class="icon-btn" data-cart-open aria-label="Panier">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span class="cart-badge" data-cart-count style="display:none;">0</span>
+          </button>
+
+          <button class="menu-btn icon-btn" aria-label="Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content animate-fadeInUp">
+          <div class="eyebrow hero-eyebrow" data-i18n="hero.eyebrow">Nouveau · Collection Maroc</div>
+          <h1 class="hero-title" data-i18n="hero.title" data-i18n-html>L'élégance marocaine,<br><em>chez vous</em></h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">Housses de chaise premium, chemins de table et coussins en 9 couleurs inspirées du Maroc. Transformez votre intérieur en quelques secondes.</p>
+
+          <div class="hero-actions">
+            <a href="./shop.html" class="btn btn-accent btn-lg" data-i18n="hero.cta1">Découvrir la collection</a>
+            <a href="./about.html" class="btn btn-outline btn-lg" data-i18n="hero.cta2">Notre histoire</a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="hero-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span data-i18n="hero.meta1">Livraison 24-48h</span>
+            </span>
+            <span class="hero-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/></svg>
+              <span data-i18n="hero.meta2">Paiement à la livraison</span>
+            </span>
+            <span class="hero-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+              <span data-i18n="hero.meta3">Retour 14 jours</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-visual animate-fadeInUp animate-delay-2">
+          <svg class="hero-visual-svg" viewBox="0 0 480 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#C97B5C"/>
+                <stop offset="100%" stop-color="#6E2837"/>
+              </linearGradient>
+              <linearGradient id="hcover" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#E0A287"/>
+                <stop offset="100%" stop-color="#A85F42"/>
+              </linearGradient>
+              <linearGradient id="hcushion" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#D4B891"/>
+                <stop offset="100%" stop-color="#B89968"/>
+              </linearGradient>
+              <pattern id="hzellige" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                <g fill="none" stroke="rgba(245,237,224,0.07)" stroke-width="0.8">
+                  <path d="M30 0 L60 30 L30 60 L0 30 Z"/>
+                  <path d="M30 12 L48 30 L30 48 L12 30 Z"/>
+                  <circle cx="30" cy="30" r="3"/>
+                  <path d="M0 0 L60 60 M60 0 L0 60" opacity="0.3"/>
+                </g>
+              </pattern>
+              <pattern id="hweave" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+                <path d="M0 0 L6 6 M6 0 L0 6" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+              </pattern>
+              <filter id="hshadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000" flood-opacity="0.25"/>
+              </filter>
+            </defs>
+
+            <rect width="480" height="600" fill="url(#hbg)"/>
+            <rect width="480" height="600" fill="url(#hzellige)"/>
+
+            <ellipse cx="240" cy="540" rx="170" ry="14" fill="rgba(0,0,0,0.25)"/>
+
+            <g filter="url(#hshadow)">
+              <path d="M120 230 L120 200 Q120 180 140 180 L340 180 Q360 180 360 200 L360 230 Z" fill="url(#hcover)"/>
+              <rect x="120" y="225" width="240" height="240" rx="14" fill="url(#hcover)"/>
+              <rect x="120" y="225" width="240" height="240" rx="14" fill="url(#hweave)"/>
+              <path d="M125 240 L355 240" stroke="rgba(0,0,0,0.18)" stroke-width="0.8" stroke-dasharray="3,3" fill="none"/>
+              <path d="M125 460 L355 460" stroke="rgba(0,0,0,0.18)" stroke-width="0.8" stroke-dasharray="3,3" fill="none"/>
+              <path d="M120 280 Q240 290 360 280" stroke="rgba(0,0,0,0.12)" stroke-width="1" fill="none"/>
+              <text x="240" y="360" text-anchor="middle" fill="rgba(245,237,224,0.92)" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="92" font-weight="500">N</text>
+              <rect x="135" y="465" width="14" height="105" fill="#3D2418"/>
+              <rect x="331" y="465" width="14" height="105" fill="#3D2418"/>
+            </g>
+
+            <g filter="url(#hshadow)" transform="translate(60, 110) rotate(-12)">
+              <rect x="0" y="0" width="120" height="120" rx="10" fill="url(#hcushion)"/>
+              <rect x="0" y="0" width="120" height="120" rx="10" fill="url(#hweave)"/>
+              <text x="60" y="78" text-anchor="middle" fill="rgba(42,37,32,0.5)" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="42" font-weight="500">N</text>
+              <path d="M10 10 Q60 5 110 10 L110 110 Q60 115 10 110 Z" stroke="rgba(0,0,0,0.1)" stroke-width="1" fill="none"/>
+            </g>
+
+            <g filter="url(#hshadow)" transform="translate(330, 60) rotate(8)">
+              <rect x="0" y="0" width="100" height="100" rx="8" fill="#5A7A4A"/>
+              <rect x="0" y="0" width="100" height="100" rx="8" fill="url(#hweave)"/>
+              <circle cx="50" cy="50" r="22" fill="none" stroke="rgba(245,237,224,0.4)" stroke-width="1"/>
+              <circle cx="50" cy="50" r="14" fill="none" stroke="rgba(245,237,224,0.5)" stroke-width="1"/>
+              <text x="50" y="60" text-anchor="middle" fill="rgba(245,237,224,0.9)" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="22">N</text>
+            </g>
+
+            <circle cx="60" cy="500" r="3" fill="rgba(245,237,224,0.4)"/>
+            <circle cx="420" cy="430" r="2" fill="rgba(245,237,224,0.5)"/>
+            <circle cx="100" cy="40" r="2" fill="rgba(245,237,224,0.4)"/>
+            <circle cx="380" cy="510" r="3" fill="rgba(245,237,224,0.3)"/>
+            <path d="M30 60 L30 30 M15 45 L45 45" stroke="rgba(245,237,224,0.3)" stroke-width="1"/>
+            <path d="M450 250 L450 220 M435 235 L465 235" stroke="rgba(245,237,224,0.3)" stroke-width="1"/>
+          </svg>
+
+          <div class="hero-floating-card top-right">
+            <span style="color: #C97B5C;">⭐⭐⭐⭐⭐</span>
+            <span data-i18n="hero.floatingCard1">4.9 / 5 — 250+ avis</span>
+          </div>
+          <div class="hero-floating-card bottom-left">
+            <span data-i18n="hero.floatingCard2">🇲🇦 Made in Morocco</span>
+          </div>
+          <div class="hero-visual-label">
+            <span>MAISON ELORIA</span>
+            <span>EST. 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <div class="trust-item-title" data-i18n="trust.moroccoTitle">Fabriqué au Maroc</div>
+          <div class="trust-item-desc" data-i18n="trust.moroccoDesc">Atelier marocain</div>
+        </div>
+        <div class="trust-item">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <div class="trust-item-title" data-i18n="trust.shippingTitle">Livraison Express</div>
+          <div class="trust-item-desc" data-i18n="trust.shippingDesc">24-48h dans les grandes villes</div>
+        </div>
+        <div class="trust-item">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <div class="trust-item-title" data-i18n="trust.codTitle">Paiement à la Livraison</div>
+          <div class="trust-item-desc" data-i18n="trust.codDesc">COD — Aucune avance</div>
+        </div>
+        <div class="trust-item">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+          <div class="trust-item-title" data-i18n="trust.returnTitle">Retour 14 jours</div>
+          <div class="trust-item-desc" data-i18n="trust.returnDesc">Sans questions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto section" id="manifesto">
+    <div class="container">
+      <div class="manifesto-grid">
+        <div class="manifesto-content">
+          <span class="eyebrow" data-i18n="manifesto.eyebrow">Notre manifeste</span>
+          <h2 data-i18n="manifesto.title">Le Maroc mérite mieux<br>que des produits importés.</h2>
+          <p class="lead" data-i18n="manifesto.subtitle">Chaque maison marocaine raconte une histoire. Pourquoi la confier à un produit fabriqué à 10 000 km de chez vous ?</p>
+
+          <div class="manifesto-pillars">
+            <div class="manifesto-pillar">
+              <div class="manifesto-pillar-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div class="manifesto-pillar-content">
+                <h4 data-i18n="manifesto.pillar1.title">Cousu à la main, ici.</h4>
+                <p data-i18n="manifesto.pillar1.desc">Chaque pièce passe par les mains de couturières marocaines, dans notre atelier au Maroc.</p>
+              </div>
+            </div>
+            <div class="manifesto-pillar">
+              <div class="manifesto-pillar-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="manifesto-pillar-content">
+                <h4 data-i18n="manifesto.pillar2.title">Chez vous en 24-48h.</h4>
+                <p data-i18n="manifesto.pillar2.desc">Plus jamais d'attente de 25 jours. Votre commande part de Casablanca, pas de Shenzhen.</p>
+              </div>
+            </div>
+            <div class="manifesto-pillar">
+              <div class="manifesto-pillar-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <div class="manifesto-pillar-content">
+                <h4 data-i18n="manifesto.pillar3.title">Vous payez à la livraison.</h4>
+                <p data-i18n="manifesto.pillar3.desc">Aucune avance demandée. Aucun risque. Vous voyez, vous touchez, puis vous payez.</p>
+              </div>
+            </div>
+            <div class="manifesto-pillar">
+              <div class="manifesto-pillar-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <div class="manifesto-pillar-content">
+                <h4 data-i18n="manifesto.pillar4.title">Service WhatsApp humain.</h4>
+                <p data-i18n="manifesto.pillar4.desc">Une vraie personne vous répond, du Lundi au Samedi. Pas de bot, pas d'attente, juste de l'attention.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="manifesto-comparison">
+          <div class="manifesto-comparison-row head">
+            <div data-i18n="manifesto.compareThem">Importé</div>
+            <div data-i18n="manifesto.compareUs">Maison Eloria</div>
+          </div>
+          <div class="manifesto-comparison-row">
+            <div class="manifesto-comparison-cell bad"><span class="x">✕</span> <span data-i18n="manifesto.row1them">Livraison 15-25 jours</span></div>
+            <div class="manifesto-comparison-cell good"><span class="v">✓</span> <span data-i18n="manifesto.row1us">Livraison 24-48h</span></div>
+          </div>
+          <div class="manifesto-comparison-row">
+            <div class="manifesto-comparison-cell bad"><span class="x">✕</span> <span data-i18n="manifesto.row2them">2-3 couleurs basiques</span></div>
+            <div class="manifesto-comparison-cell good"><span class="v">✓</span> <span data-i18n="manifesto.row2us">9 couleurs marocaines</span></div>
+          </div>
+          <div class="manifesto-comparison-row">
+            <div class="manifesto-comparison-cell bad"><span class="x">✕</span> <span data-i18n="manifesto.row3them">Photos AliExpress copiées</span></div>
+            <div class="manifesto-comparison-cell good"><span class="v">✓</span> <span data-i18n="manifesto.row3us">Vraies photos, vrais foyers</span></div>
+          </div>
+          <div class="manifesto-comparison-row">
+            <div class="manifesto-comparison-cell bad"><span class="x">✕</span> <span data-i18n="manifesto.row4them">Aucun retour possible</span></div>
+            <div class="manifesto-comparison-cell good"><span class="v">✓</span> <span data-i18n="manifesto.row4us">Retour 14 jours sans question</span></div>
+          </div>
+          <div class="manifesto-comparison-row">
+            <div class="manifesto-comparison-cell bad"><span class="x">✕</span> <span data-i18n="manifesto.row5them">Service en anglais robotique</span></div>
+            <div class="manifesto-comparison-cell good"><span class="v">✓</span> <span data-i18n="manifesto.row5us">WhatsApp humain en darija</span></div>
+          </div>
+          <div class="manifesto-comparison-row">
+            <div class="manifesto-comparison-cell bad"><span class="x">✕</span> <span data-i18n="manifesto.row6them">Carte bancaire obligatoire</span></div>
+            <div class="manifesto-comparison-cell good"><span class="v">✓</span> <span data-i18n="manifesto.row6us">Paiement à la livraison (COD)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="categories.eyebrow">Notre Collection</span>
+        <h2 data-i18n="categories.title">Trois pièces pour transformer votre intérieur</h2>
+        <p data-i18n="categories.subtitle">Du salon à la salle à manger, choisissez les essentiels qui changent tout.</p>
+      </div>
+
+      <div class="categories-grid">
+        <a href="./shop.html?category=covers" class="category-card">
+          <div class="category-card-visual" style="background: linear-gradient(135deg, var(--color-terracotta) 0%, var(--color-wine) 100%);">
+            <svg class="category-card-svg" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <pattern id="cat-cover-w" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+                  <path d="M0 0 L6 6 M6 0 L0 6" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <ellipse cx="100" cy="135" rx="55" ry="5" fill="rgba(0,0,0,0.25)"/>
+              <path d="M62 50 L62 38 Q62 30 70 30 L130 30 Q138 30 138 38 L138 50 Z" fill="rgba(255,255,255,0.95)"/>
+              <rect x="62" y="48" width="76" height="80" rx="6" fill="rgba(255,255,255,0.95)"/>
+              <rect x="62" y="48" width="76" height="80" rx="6" fill="url(#cat-cover-w)"/>
+              <text x="100" y="100" text-anchor="middle" fill="rgba(201,123,92,0.7)" font-family="Georgia, serif" font-style="italic" font-size="32" font-weight="500">N</text>
+              <rect x="68" y="128" width="6" height="22" fill="rgba(58,40,30,0.6)"/>
+              <rect x="126" y="128" width="6" height="22" fill="rgba(58,40,30,0.6)"/>
+            </svg>
+          </div>
+          <div class="category-card-info">
+            <h3 class="category-card-name" data-i18n="categories.covers.name">Housses de Chaise</h3>
+            <p class="category-card-desc" data-i18n="categories.covers.desc">Transformez vos chaises en quelques secondes. 9 couleurs, 3 tailles, qualité premium.</p>
+            <div class="category-card-meta">
+              <div class="category-card-price">
+                <span data-i18n="categories.from">À partir de</span> <strong>199 DH</strong>
+              </div>
+              <svg class="category-card-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <a href="./shop.html?category=table" class="category-card">
+          <div class="category-card-visual" style="background: linear-gradient(135deg, var(--color-olive) 0%, var(--color-charcoal) 100%);">
+            <svg class="category-card-svg" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <pattern id="cat-table-w" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+                  <path d="M0 0 L6 6 M6 0 L0 6" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <ellipse cx="100" cy="142" rx="65" ry="4" fill="rgba(0,0,0,0.25)"/>
+              <rect x="35" y="80" width="130" height="6" fill="rgba(232,220,198,0.95)"/>
+              <rect x="42" y="86" width="6" height="56" fill="rgba(232,220,198,0.85)"/>
+              <rect x="152" y="86" width="6" height="56" fill="rgba(232,220,198,0.85)"/>
+              <path d="M70 80 L70 130 L130 130 L130 80 Z" fill="rgba(255,255,255,0.95)"/>
+              <path d="M70 80 L70 130 L130 130 L130 80 Z" fill="url(#cat-table-w)"/>
+              <path d="M65 80 L70 80 M130 80 L135 80" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+              <rect x="74" y="86" width="52" height="2" fill="rgba(184,153,104,0.8)"/>
+              <rect x="74" y="122" width="52" height="2" fill="rgba(184,153,104,0.8)"/>
+              <text x="100" y="115" text-anchor="middle" fill="rgba(107,124,92,0.8)" font-family="Georgia, serif" font-style="italic" font-size="22" font-weight="500">N</text>
+              <circle cx="55" cy="60" r="8" fill="rgba(255,255,255,0.25)"/>
+              <path d="M55 52 L55 68 M47 60 L63 60" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="category-card-info">
+            <h3 class="category-card-name" data-i18n="categories.table.name">Chemins de Table</h3>
+            <p class="category-card-desc" data-i18n="categories.table.desc">Habillez votre table comme un dressage de magazine. 3 longueurs, assortis aux housses.</p>
+            <div class="category-card-meta">
+              <div class="category-card-price">
+                <span data-i18n="categories.from">À partir de</span> <strong>149 DH</strong>
+              </div>
+              <svg class="category-card-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <a href="./shop.html?category=cushions" class="category-card">
+          <div class="category-card-visual" style="background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-terracotta-dark) 100%);">
+            <svg class="category-card-svg" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <pattern id="cat-cushion-w" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+                  <path d="M0 0 L6 6 M6 0 L0 6" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <ellipse cx="100" cy="142" rx="60" ry="3" fill="rgba(0,0,0,0.25)"/>
+
+              <g transform="translate(45, 60) rotate(-8)">
+                <rect x="0" y="0" width="70" height="70" rx="8" fill="rgba(255,255,255,0.95)"/>
+                <rect x="0" y="0" width="70" height="70" rx="8" fill="url(#cat-cushion-w)"/>
+                <path d="M5 5 Q35 0 65 5 L65 65 Q35 70 5 65 Z" stroke="rgba(0,0,0,0.1)" stroke-width="1" fill="none"/>
+                <text x="35" y="48" text-anchor="middle" fill="rgba(184,153,104,0.7)" font-family="Georgia, serif" font-style="italic" font-size="26">N</text>
+              </g>
+
+              <g transform="translate(95, 50) rotate(10)">
+                <rect x="0" y="0" width="80" height="80" rx="10" fill="rgba(255,255,255,0.85)"/>
+                <rect x="0" y="0" width="80" height="80" rx="10" fill="url(#cat-cushion-w)"/>
+                <path d="M5 5 Q40 0 75 5 L75 75 Q40 80 5 75 Z" stroke="rgba(0,0,0,0.1)" stroke-width="1" fill="none"/>
+                <text x="40" y="55" text-anchor="middle" fill="rgba(168,95,66,0.7)" font-family="Georgia, serif" font-style="italic" font-size="30">N</text>
+              </g>
+            </svg>
+          </div>
+          <div class="category-card-info">
+            <h3 class="category-card-name" data-i18n="categories.cushions.name">Housses de Coussin</h3>
+            <p class="category-card-desc" data-i18n="categories.cushions.desc">Renouvelez vos coussins en un instant. 4 tailles, fermeture invisible, design coordonné.</p>
+            <div class="category-card-meta">
+              <div class="category-card-price">
+                <span data-i18n="categories.from">À partir de</span> <strong>89 DH</strong>
+              </div>
+              <svg class="category-card-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="./shop.html" class="btn btn-primary btn-lg" data-i18n="common.shop">Voir toute la collection</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="beforeafter.eyebrow">La transformation Eloria</span>
+        <h2 data-i18n="beforeafter.title">Avant... Après</h2>
+        <p data-i18n="beforeafter.subtitle">Pas besoin de remplacer vos chaises — habillez-les.</p>
+      </div>
+      <div class="beforeafter-grid container-narrow" style="margin: 0 auto;">
+        <div class="beforeafter-card before">
+          <span class="beforeafter-label" data-i18n="beforeafter.before">Avant</span>
+          <svg class="beforeafter-illu" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <pattern id="ba-stains" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+                <circle cx="3" cy="3" r="1" fill="#9d8a78" opacity="0.45"/>
+                <circle cx="10" cy="9" r="1.5" fill="#7a6857" opacity="0.35"/>
+              </pattern>
+            </defs>
+            <rect x="0" y="170" width="240" height="30" fill="#d9d2c7"/>
+            <rect x="60" y="40" width="120" height="6" rx="2" fill="#8b7560"/>
+            <rect x="60" y="40" width="120" height="80" rx="6" fill="#a89378"/>
+            <rect x="60" y="40" width="120" height="80" rx="6" fill="url(#ba-stains)"/>
+            <rect x="68" y="120" width="8" height="50" fill="#5a4838"/>
+            <rect x="164" y="120" width="8" height="50" fill="#5a4838"/>
+            <rect x="58" y="118" width="124" height="6" rx="2" fill="#5a4838"/>
+            <line x1="62" y1="55" x2="178" y2="55" stroke="#5a4838" stroke-width="0.5" opacity="0.5" stroke-dasharray="3,2"/>
+            <circle cx="155" cy="80" r="4" fill="#7a6857" opacity="0.5"/>
+            <circle cx="90" cy="100" r="3" fill="#9d8a78" opacity="0.5"/>
+            <text x="120" y="155" text-anchor="middle" fill="#5a4838" font-family="serif" font-size="9" font-style="italic" opacity="0.5">2018 — fatiguée</text>
+          </svg>
+        </div>
+        <div class="beforeafter-card after">
+          <span class="beforeafter-label" data-i18n="beforeafter.after">Après</span>
+          <svg class="beforeafter-illu" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="ba-cover" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#C97B5C"/>
+                <stop offset="100%" stop-color="#A85F42"/>
+              </linearGradient>
+              <pattern id="ba-weave" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+                <path d="M0 0 L6 6 M6 0 L0 6" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect x="0" y="170" width="240" height="30" fill="#d9d2c7"/>
+            <rect x="56" y="36" width="128" height="92" rx="10" fill="url(#ba-cover)"/>
+            <rect x="56" y="36" width="128" height="92" rx="10" fill="url(#ba-weave)"/>
+            <rect x="58" y="38" width="124" height="14" rx="6" fill="rgba(255,255,255,0.15)"/>
+            <path d="M64 124 Q120 132 176 124" stroke="rgba(0,0,0,0.15)" stroke-width="2" fill="none"/>
+            <rect x="68" y="128" width="8" height="42" fill="#5a4838"/>
+            <rect x="164" y="128" width="8" height="42" fill="#5a4838"/>
+            <text x="120" y="100" text-anchor="middle" fill="rgba(255,255,255,0.95)" font-family="Georgia, serif" font-style="italic" font-size="14" font-weight="500">N</text>
+            <circle cx="200" cy="50" r="4" fill="#B89968"/>
+            <circle cx="200" cy="50" r="8" fill="none" stroke="#B89968" stroke-width="1" opacity="0.4"/>
+            <text x="120" y="158" text-anchor="middle" fill="#5a4838" font-family="serif" font-size="9" font-style="italic">aujourd'hui — 199 DH</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-cream" id="colors">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="colors.eyebrow">Notre palette</span>
+        <h2 data-i18n="colors.title">Neuf couleurs, mille histoires</h2>
+        <p data-i18n="colors.subtitle">Chaque couleur est inspirée d'un coin du Maroc — choisissez celle qui raconte votre histoire.</p>
+      </div>
+      <div class="products-grid" data-colors-grid></div>
+      <div class="text-center mt-8">
+        <a href="./shop.html" class="btn btn-primary btn-lg" data-i18n="common.shop">Voir la collection</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="bundles">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="bundles.eyebrow">Packs avantageux</span>
+        <h2 data-i18n="bundles.title">Composez votre intérieur</h2>
+        <p data-i18n="bundles.subtitle">Économisez jusqu'à 394 DH avec nos packs salon complets.</p>
+      </div>
+      <div class="bundles-grid" data-bundles-grid></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-visual"></div>
+        <div class="story-content">
+          <span class="eyebrow" data-i18n="story.eyebrow">Notre Histoire</span>
+          <h2 data-i18n="story.title">Une maison née au Maroc</h2>
+          <p data-i18n="story.p1">Maison Eloria est née d'une conviction simple : votre intérieur ne devrait pas dépendre de produits importés de Chine, livrés en 25 jours, photographiés sur AliExpress.</p>
+          <p data-i18n="story.p2">Nous avons créé une marque marocaine, fabriquée par des mains marocaines, pour des familles marocaines qui méritent l'élégance sans compromis. Nos housses sont conçues, cousues et expédiées du Maroc, avec un soin que les machines ne peuvent imiter.</p>
+          <blockquote class="story-quote" data-i18n="story.quote">« Votre hospitalité est votre fierté. Elle mérite ce qu'il y a de mieux. »</blockquote>
+          <a href="./about.html" class="btn btn-outline" data-i18n="story.cta">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="testimonials.eyebrow">Elles parlent de nous</span>
+        <h2 data-i18n="testimonials.title">Plus de 250 familles nous font confiance</h2>
+        <p data-i18n="testimonials.subtitle">Découvrez ce que nos clientes disent de Maison Eloria.</p>
+      </div>
+
+      <div class="rating-banner">
+        <div class="rating-banner-stars" aria-label="4.9 / 5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="rating-banner-score"><strong>4.9</strong> / 5</div>
+        <div class="rating-banner-divider"></div>
+        <div class="rating-banner-text" data-i18n="testimonials.aggregate">Note moyenne sur 250+ avis vérifiés</div>
+      </div>
+
+      <div class="testimonials-grid" data-testimonials-grid></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="faq.eyebrow">Vos questions</span>
+        <h2 data-i18n="faq.title">Questions fréquentes</h2>
+        <p data-i18n="faq.subtitle">Tout ce que vous devez savoir avant de commander.</p>
+      </div>
+      <div class="faq-list" data-faq-list></div>
+    </div>
+  </section>
+
+  <section class="cta-section section">
+    <div class="container">
+      <div class="cta-content">
+        <span class="eyebrow" style="color: var(--color-terracotta-light);">Newsletter</span>
+        <h2 data-i18n="cta.title" style="margin-top: 1rem;">Restez informée des nouveautés</h2>
+        <p data-i18n="cta.subtitle">Inscrivez-vous et recevez 10% de réduction sur votre première commande.</p>
+        <form class="newsletter-form" data-newsletter-form>
+          <input type="email" name="email" class="newsletter-input" required data-i18n-placeholder="cta.placeholder" placeholder="Votre adresse email" />
+          <button type="submit" class="btn btn-accent" data-i18n="cta.button">S'inscrire</button>
+        </form>
+        <p class="newsletter-feedback" data-newsletter-feedback aria-live="polite" style="margin-top: var(--space-3); min-height: 1.2em; font-size: var(--text-sm); opacity: 0.85;"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">MAISON ELORIA</div>
+          <p class="footer-tagline" data-i18n="footer.tagline">L'art de vivre marocain. Élégance locale, qualité supérieure.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/maisoneloria" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://tiktok.com/@maisoneloria" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+            </a>
+            <a href="https://facebook.com/maisoneloria" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" data-whatsapp aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" data-i18n="footer.shop">Boutique</h4>
+          <div class="footer-links">
+            <a href="./shop.html" data-i18n="nav.shop">Toute la collection</a>
+            <a href="./shop.html?category=covers">Housses de chaise</a>
+            <a href="./shop.html?category=table">Chemins de table</a>
+            <a href="./shop.html?category=cushions">Housses de coussin</a>
+            <a href="#bundles">Packs</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" data-i18n="footer.info">Informations</h4>
+          <div class="footer-links">
+            <a href="./about.html" data-i18n="nav.about">Notre histoire</a>
+            <a href="./track.html" data-i18n="footer.track">Suivre ma commande</a>
+            <a href="./legal.html#livraison" data-i18n="footer.shipping">Livraison</a>
+            <a href="./legal.html#retour" data-i18n="footer.returns">Retours</a>
+            <a href="./index.html#faq" data-i18n="footer.faq">FAQ</a>
+            <a href="./legal.html" data-i18n="footer.terms">CGV</a>
+            <a href="./privacy.html" data-i18n="footer.privacy">Confidentialité</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" data-i18n="footer.contact">Contact</h4>
+          <div class="footer-links">
+            <a href="mailto:contact@maisoneloria.shop">contact@maisoneloria.shop</a>
+            <a href="#" data-whatsapp>WhatsApp Business</a>
+            <a href="./contact.html" data-i18n="nav.contact">Formulaire</a>
+            <span style="color: rgba(245, 237, 224, 0.5); font-size: var(--text-sm);">Lun-Sam : 9h-19h</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Maison Eloria. Tous droits réservés. Fait avec amour au Maroc 🇲🇦</span>
+        <span>maisoneloria.shop</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" data-whatsapp class="whatsapp-fab" aria-label="WhatsApp" data-whatsapp-message="Bonjour Maison Eloria, j'ai une question sur vos produits.">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+  </a>
+
+  <div class="drawer-overlay" data-cart-overlay></div>
+  <aside class="drawer" data-cart-drawer aria-label="Panier" role="dialog">
+    <div class="drawer-header">
+      <h3 class="drawer-title" data-i18n="cart.title">Votre Panier</h3>
+      <button class="icon-btn" data-cart-close aria-label="Fermer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <div data-cart-items></div>
+      <div class="cart-empty" data-cart-empty>
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <p data-i18n="cart.empty" style="margin-top: 1rem;">Votre panier est vide</p>
+        <a href="./shop.html" class="btn btn-accent mt-6" data-i18n="cart.emptyAction">Découvrir la collection</a>
+      </div>
+    </div>
+
+    <div class="drawer-footer hidden" data-cart-summary></div>
+  </aside>
+
+  <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>

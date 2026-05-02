@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="40" fill="#2A2520"/>
+  <text x="90" y="120" text-anchor="middle"
+        fill="#F5EDE0"
+        font-family="'Cormorant Garamond', Georgia, serif"
+        font-style="italic"
+        font-size="110"
+        font-weight="500">N</text>
+  <circle cx="140" cy="44" r="9" fill="#C97B5C"/>
+</svg>
