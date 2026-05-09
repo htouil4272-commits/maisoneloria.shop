@@ -2,6 +2,8 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
+ARG CACHE_BUST=1
+
 COPY package.json ./
 
 ARG NEXT_PUBLIC_API_URL
