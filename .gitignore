@@ -1,0 +1,35 @@
+# Environment files
+.env
+*.env
+.env.local
+.env.*.local
+
+# Build artifacts
+frontend/.next/
+frontend/out/
+frontend/node_modules/
+frontend/package-lock.json
+
+# Archives & large files
+*.zip
+*.tar.gz
+eloria.tar.gz
+patch.tar.gz
+
+# IDE
+.cursor/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Scripts de déploiement temporaires
+fix_admin_pw.py
+fix_config.py
+fix_traefik.py
+test_order.py
+test_order.py
+test_order_v4.py
+test_admin_login.py
+zip-check/

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="100%" stop-color="#A88330"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#1B4332"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="url(#g)" stroke-width="1.2" opacity="0.6"/>
+  <text x="32" y="46" text-anchor="middle"
+    font-family="'Playfair Display', Georgia, serif" font-size="36"
+    font-weight="700" fill="url(#g)">M</text>
+</svg>

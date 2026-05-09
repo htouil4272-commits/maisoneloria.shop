@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="التوصيل والدفع عند الاستلام">
+  
+  <defs>
+    <linearGradient id="creamBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="100%" stop-color="#EFE8DC"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="primaryDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B4332"/>
+      <stop offset="100%" stop-color="#143326"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softer" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#creamBg)"/>
+  <!-- باب الدار -->
+  <rect x="80" y="120" width="240" height="380" rx="6" fill="#1B4332" stroke="#143326"/>
+  <rect x="100" y="140" width="200" height="140" rx="4" fill="#143326" opacity="0.6"/>
+  <rect x="100" y="300" width="200" height="180" rx="4" fill="#143326" opacity="0.45"/>
+  <circle cx="290" cy="310" r="6" fill="url(#goldShine)"/>
+  <!-- موصل -->
+  <g transform="translate(520, 360)">
+    <rect x="-60" y="-30" width="120" height="120" rx="60" fill="#3a86ff"/>
+    <circle cx="0" cy="-50" r="40" fill="#f3d4b5"/>
+    <rect x="-30" y="-90" width="60" height="36" rx="6" fill="#3a86ff"/>
+    <text x="-26" y="-66" font-family="'Inter', sans-serif" font-size="12" fill="#fff" font-weight="700">📦</text>
+  </g>
+  <!-- صندوق ميزون إلوريا فاليد -->
+  <g transform="translate(640, 360)">
+    <rect x="-46" y="-40" width="92" height="80" rx="6" fill="url(#primaryDeep)" filter="url(#soft)"/>
+    <rect x="-46" y="-40" width="92" height="20" fill="#C9A84C"/>
+    <text x="0" y="0" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
+      font-size="10" letter-spacing="2" font-weight="700" fill="url(#goldShine)">ELORIA</text>
+    <text x="0" y="22" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9"
+      fill="#fff" opacity="0.8">باك 6 — بيج</text>
+  </g>
+  <!-- علامات COD -->
+  <g transform="translate(660, 130)">
+    <rect x="-90" y="-30" width="180" height="60" rx="30" fill="#1B4332"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="url(#goldShine)">💳 الدفع عند الاستلام</text>
+  </g>
+  <text x="400" y="560" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="700" fill="#1B4332">توصيل لباب الدار — والدفع كيتم بعد ما تشوفي المنتج</text>
+</svg>

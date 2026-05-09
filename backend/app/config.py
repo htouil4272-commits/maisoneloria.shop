@@ -9,10 +9,15 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str = "postgresql+asyncpg://maisoneloria:maisoneloria@maisoneloria_database:5432/maisoneloria"
 
-    ALLOWED_ORIGINS: str = "https://maisoneloria.shop,https://www.maisoneloria.shop,http://localhost:3000"
+    ALLOWED_ORIGINS: str = (
+        "https://maisoneloria.shop,https://www.maisoneloria.shop,"
+        "http://localhost:3000,http://127.0.0.1:3000"
+    )
 
-    ADMIN_USERNAME: str = "admin"
-    ADMIN_PASSWORD: str = "changeme"
+    ADMIN_USERNAME: str = "Hamzaeloria01"
+    ADMIN_PASSWORD: str = "0668110109zaki"
+    # Si vide, on dérive la signature à partir de ADMIN_PASSWORD pour simplifier le déploiement.
+    ADMIN_TOKEN_SECRET: str = ""
 
     MAXMIND_LICENSE_KEY: str = ""
     MAXMIND_DB_PATH: str = "data/GeoLite2-City.mmdb"
@@ -20,8 +25,8 @@ class Settings(BaseSettings):
     GOOGLE_SHEETS_CREDENTIALS: str = ""
     GOOGLE_SHEETS_SPREADSHEET_ID: str = ""
 
-    FB_ACCESS_TOKEN: str = ""
-    FB_PIXEL_ID: str = ""
+    FB_ACCESS_TOKEN: str = "EAAbh69FmvrYBRZAZAI1HCvJHnTHAFghCUGr2ZB0i1iouej2wRefmBWBuFVtoCnPOkJUEot4jZA9xZA88e4wAf66RvhYZBP9tIJJVpYk0mmt3wlZBEfaC8onpDQbPYtjZAGEV9f3YWATW8kKXFiYpfEMLZBXcD4DHyrWZCuTxZCpFSFdV8bh4ZAyRUstAtmqxjdkZCfwZDZD"
+    FB_PIXEL_ID: str = "1544079200022148"
 
     TIKTOK_ACCESS_TOKEN: str = ""
     TIKTOK_PIXEL_ID: str = ""

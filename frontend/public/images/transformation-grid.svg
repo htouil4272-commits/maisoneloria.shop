@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 560" width="820" height="560" role="img" aria-label="تحوّلات حقيقية">
+  
+  <defs>
+    <linearGradient id="creamBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="100%" stop-color="#EFE8DC"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="primaryDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B4332"/>
+      <stop offset="100%" stop-color="#143326"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softer" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="820" height="560" fill="url(#creamBg)"/>
+  <text x="410" y="48" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
+    font-size="24" font-weight="700" fill="#1B4332">تحوّلات حقيقية في صالونات مغربية</text>
+  
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="380" height="240" rx="14" fill="#FAF7F2" stroke="url(#goldShine)" stroke-width="1.2"/>
+      <line x1="190" y1="20" x2="190" y2="220" stroke="#C9A84C" stroke-opacity="0.5" stroke-dasharray="3 3"/>
+      <text x="60" y="32" font-family="'Inter', sans-serif" font-size="11" letter-spacing="2" fill="#c94a4a" font-weight="700">قبل</text>
+      <text x="320" y="32" font-family="'Inter', sans-serif" font-size="11" letter-spacing="2" fill="#1B4332" font-weight="700">بعد</text>
+      <g transform="translate(95, 160) scale(0.45)">
+        <path fill="#a89578" stroke="#1B4332" stroke-width="2"
+          d="M -70 -60 C -70 -88 70 -92 70 -64 L 64 22 C 64 32 54 38 42 38 L -42 38 C -54 38 -64 32 -64 22 Z"/>
+        <path fill="#a89578" stroke="#1B4332" stroke-width="2"
+          d="M -70 30 L 70 30 L 86 56 C 88 68 78 76 62 76 L -62 76 C -78 76 -88 68 -86 56 Z"/>
+      </g>
+      <g transform="translate(285, 160) scale(0.45)">
+        <path fill="#722F37" stroke="#1B4332" stroke-width="2"
+          d="M -70 -60 C -70 -88 70 -88 70 -60 L 64 22 C 64 32 54 38 42 38 L -42 38 C -54 38 -64 32 -64 22 Z"/>
+        <path fill="#722F37" stroke="#1B4332" stroke-width="2"
+          d="M -70 30 L 70 30 L 86 56 C 88 68 78 76 62 76 L -62 76 C -78 76 -88 68 -86 56 Z"/>
+      </g>
+    </g>
+  
+    <g transform="translate(420, 70)">
+      <rect x="0" y="0" width="380" height="240" rx="14" fill="#FAF7F2" stroke="url(#goldShine)" stroke-width="1.2"/>
+      <line x1="190" y1="20" x2="190" y2="220" stroke="#C9A84C" stroke-opacity="0.5" stroke-dasharray="3 3"/>
+      <text x="60" y="32" font-family="'Inter', sans-serif" font-size="11" letter-spacing="2" fill="#c94a4a" font-weight="700">قبل</text>
+      <text x="320" y="32" font-family="'Inter', sans-serif" font-size="11" letter-spacing="2" fill="#1B4332" font-weight="700">بعد</text>
+      <g transform="translate(95, 160) scale(0.45)">
+        <path fill="#a89578" stroke="#1B4332" stroke-width="2"
+          d="M -70 -60 C -70 -88 70 -92 70 -64 L 64 22 C 64 32 54 38 42 38 L -42 38 C -54 38 -64 32 -64 22 Z"/>
+        <path fill="#a89578" stroke="#1B4332" stroke-width="2"
+          d="M -70 30 L 70 30 L 86 56 C 88 68 78 76 62 76 L -62 76 C -78 76 -88 68 -86 56 Z"/>
+      </g>
+      <g transform="translate(285, 160) scale(0.45)">
+        <path fill="#1B3A5C" stroke="#1B4332" stroke-width="2"
+          d="M -70 -60 C -70 -88 70 -88 70 -60 L 64 22 C 64 32 54 38 42 38 L -42 38 C -54 38 -64 32 -64 22 Z"/>
+        <path fill="#1B3A5C" stroke="#1B4332" stroke-width="2"
+          d="M -70 30 L 70 30 L 86 56 C 88 68 78 76 62 76 L -62 76 C -78 76 -88 68 -86 56 Z"/>
+      </g>
+    </g>
+  
+    <g transform="translate(20, 320)">
+      <rect x="0" y="0" width="380" height="240" rx="14" fill="#FAF7F2" stroke="url(#goldShine)" stroke-width="1.2"/>
+      <line x1="190" y1="20" x2="190" y2="220" stroke="#C9A84C" stroke-opacity="0.5" stroke-dasharray="3 3"/>
+      <text x="60" y="32" font-family="'Inter', sans-serif" font-size="11" letter-spacing="2" fill="#c94a4a" font-weight="700">قبل</text>
+      <text x="320" y="32" font-family="'Inter', sans-serif" font-size="11" letter-spacing="2" fill="#1B4332" font-weight="700">بعد</text>
+      <g transform="translate(95, 160) scale(0.45)">
+        <path fill="#a89578" stroke="#1B4332" stroke-width="2"
+          d="M -70 -60 C -70 -88 70 -92 70 -64 L 64 22 C 64 32 54 38 42 38 L -42 38 C -54 38 -64 32 -64 22 Z"/>
+        <path fill="#a89578" stroke="#1B4332" stroke-width="2"
+          d="M -70 30 L 70 30 L 86 56 C 88 68 78 76 62 76 L -62 76 C -78 76 -88 68 -86 56 Z"/>
+      </g>
+      <g transform="translate(285, 160) scale(0.45)">
+        <path fill="#D4C5A9" stroke="#1B4332" stroke-width="2"
+          d="M -70 -60 C -70 -88 70 -88 70 -60 L 64 22 C 64 32 54 38 42 38 L -42 38 C -54 38 -64 32 -64 22 Z"/>
+        <path fill="#D4C5A9" stroke="#1B4332" stroke-width="2"
+          d="M -70 30 L 70 30 L 86 56 C 88 68 78 76 62 76 L -62 76 C -78 76 -88 68 -86 56 Z"/>
+      </g>
+    </g>
+  
+    <g transform="translate(420, 320)">
+      <rect x="0" y="0" width="380" height="240" rx="14" fill="#FAF7F2" stroke="url(#goldShine)" stroke-width="1.2"/>
+      <line x1="190" y1="20" x2="190" y2="220" stroke="#C9A84C" stroke-opacity="0.5" stroke-dasharray="3 3"/>
+      <text x="60" y="32" font-family="'Inter', sans-serif" font-size="11" letter-spacing="2" fill="#c94a4a" font-weight="700">قبل</text>
+      <text x="320" y="32" font-family="'Inter', sans-serif" font-size="11" letter-spacing="2" fill="#1B4332" font-weight="700">بعد</text>
+      <g transform="translate(95, 160) scale(0.45)">
+        <path fill="#a89578" stroke="#1B4332" stroke-width="2"
+          d="M -70 -60 C -70 -88 70 -92 70 -64 L 64 22 C 64 32 54 38 42 38 L -42 38 C -54 38 -64 32 -64 22 Z"/>
+        <path fill="#a89578" stroke="#1B4332" stroke-width="2"
+          d="M -70 30 L 70 30 L 86 56 C 88 68 78 76 62 76 L -62 76 C -78 76 -88 68 -86 56 Z"/>
+      </g>
+      <g transform="translate(285, 160) scale(0.45)">
+        <path fill="#556B2F" stroke="#1B4332" stroke-width="2"
+          d="M -70 -60 C -70 -88 70 -88 70 -60 L 64 22 C 64 32 54 38 42 38 L -42 38 C -54 38 -64 32 -64 22 Z"/>
+        <path fill="#556B2F" stroke="#1B4332" stroke-width="2"
+          d="M -70 30 L 70 30 L 86 56 C 88 68 78 76 62 76 L -62 76 C -78 76 -88 68 -86 56 Z"/>
+      </g>
+    </g>
+</svg>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" width="800" height="700" role="img" aria-label="لقطة علوية لكراسي بألوان مختلفة">
+  
+  <defs>
+    <linearGradient id="creamBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="100%" stop-color="#EFE8DC"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="primaryDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B4332"/>
+      <stop offset="100%" stop-color="#143326"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softer" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <defs>
+    <pattern id="zellige2" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="80" height="80" fill="#F5EFE0"/>
+      <path d="M 0 40 L 40 0 L 80 40 L 40 80 Z" fill="#FAF7F2" stroke="#C9A84C" stroke-width="0.6" stroke-opacity="0.5"/>
+      <circle cx="40" cy="40" r="4" fill="#C9A84C" opacity="0.25"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="700" fill="url(#zellige2)"/>
+  <!-- طاولة وسط -->
+  <ellipse cx="400" cy="370" rx="200" ry="110" fill="#5b3d2a" opacity="0.95"/>
+  <ellipse cx="400" cy="370" rx="180" ry="98" fill="#7a5439"/>
+  <circle cx="400" cy="350" r="40" fill="url(#goldShine)" stroke="#1B4332" stroke-width="1"/>
+  <text x="400" y="358" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="14" letter-spacing="3" font-weight="700" fill="#1B4332">M</text>
+  
+    <g transform="translate(200, 220)">
+      <ellipse rx="62" ry="48" fill="#D4C5A9" stroke="#1B4332" stroke-width="1.5" filter="url(#soft)"/>
+      <ellipse rx="38" ry="28" fill="#1B4332" opacity="0.10"/>
+      <ellipse rx="14" ry="9" cy="-10" fill="#fff" opacity="0.35"/>
+    </g>
+    <g transform="translate(400, 180)">
+      <ellipse rx="62" ry="48" fill="#722F37" stroke="#1B4332" stroke-width="1.5" filter="url(#soft)"/>
+      <ellipse rx="38" ry="28" fill="#1B4332" opacity="0.10"/>
+      <ellipse rx="14" ry="9" cy="-10" fill="#fff" opacity="0.35"/>
+    </g>
+    <g transform="translate(600, 220)">
+      <ellipse rx="62" ry="48" fill="#1B3A5C" stroke="#1B4332" stroke-width="1.5" filter="url(#soft)"/>
+      <ellipse rx="38" ry="28" fill="#1B4332" opacity="0.10"/>
+      <ellipse rx="14" ry="9" cy="-10" fill="#fff" opacity="0.35"/>
+    </g>
+    <g transform="translate(200, 420)">
+      <ellipse rx="62" ry="48" fill="#2C2C2C" stroke="#1B4332" stroke-width="1.5" filter="url(#soft)"/>
+      <ellipse rx="38" ry="28" fill="#1B4332" opacity="0.10"/>
+      <ellipse rx="14" ry="9" cy="-10" fill="#fff" opacity="0.35"/>
+    </g>
+    <g transform="translate(400, 360)">
+      <ellipse rx="62" ry="48" fill="#F5F5F0" stroke="#1B4332" stroke-width="1.5" filter="url(#soft)"/>
+      <ellipse rx="38" ry="28" fill="#1B4332" opacity="0.10"/>
+      <ellipse rx="14" ry="9" cy="-10" fill="#fff" opacity="0.35"/>
+    </g>
+    <g transform="translate(600, 420)">
+      <ellipse rx="62" ry="48" fill="#556B2F" stroke="#1B4332" stroke-width="1.5" filter="url(#soft)"/>
+      <ellipse rx="38" ry="28" fill="#1B4332" opacity="0.10"/>
+      <ellipse rx="14" ry="9" cy="-10" fill="#fff" opacity="0.35"/>
+    </g>
+    <g transform="translate(200, 560)">
+      <ellipse rx="62" ry="48" fill="#6B4226" stroke="#1B4332" stroke-width="1.5" filter="url(#soft)"/>
+      <ellipse rx="38" ry="28" fill="#1B4332" opacity="0.10"/>
+      <ellipse rx="14" ry="9" cy="-10" fill="#fff" opacity="0.35"/>
+    </g>
+    <g transform="translate(400, 540)">
+      <ellipse rx="62" ry="48" fill="#FFFDD0" stroke="#1B4332" stroke-width="1.5" filter="url(#soft)"/>
+      <ellipse rx="38" ry="28" fill="#1B4332" opacity="0.10"/>
+      <ellipse rx="14" ry="9" cy="-10" fill="#fff" opacity="0.35"/>
+    </g>
+    <g transform="translate(600, 560)">
+      <ellipse rx="62" ry="48" fill="#8E8E8E" stroke="#1B4332" stroke-width="1.5" filter="url(#soft)"/>
+      <ellipse rx="38" ry="28" fill="#1B4332" opacity="0.10"/>
+      <ellipse rx="14" ry="9" cy="-10" fill="#fff" opacity="0.35"/>
+    </g>
+  <text x="400" y="680" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" fill="#1B4332" opacity="0.7">9 كراسي بألوان المجموعة</text>
+</svg>

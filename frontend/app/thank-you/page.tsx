@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CartItem } from '@/lib/types';
 import { formatPrice } from '@/lib/utils';
+import { WHATSAPP_NUMBER } from '@/lib/site-contact';
+import { trackEvent } from '@/lib/tracking';
 
 export default function ThankYouPage() {
   const [orderNumber, setOrderNumber] = useState('');
@@ -14,13 +16,29 @@ export default function ThankYouPage() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setOrderNumber(sessionStorage.getItem('orderNumber') || 'ME-XXXXX');
-      setOrderTotal(Number(sessionStorage.getItem('orderTotal')) || 0);
-      setCustomerName(sessionStorage.getItem('orderName') || '');
+      const total = Number(sessionStorage.getItem('orderTotal')) || 0;
+      const name = sessionStorage.getItem('orderName') || '';
+      const orderNum = sessionStorage.getItem('orderNumber') || 'ME-XXXXX';
+      let parsedItems: CartItem[] = [];
       try {
-        const items = JSON.parse(sessionStorage.getItem('orderItems') || '[]');
-        setOrderItems(items);
+        parsedItems = JSON.parse(sessionStorage.getItem('orderItems') || '[]');
       } catch {}
+
+      setOrderNumber(orderNum);
+      setOrderTotal(total);
+      setCustomerName(name);
+      setOrderItems(parsedItems);
+
+      if (total > 0 && !sessionStorage.getItem('purchaseTracked')) {
+        sessionStorage.setItem('purchaseTracked', '1');
+        trackEvent('Purchase', {
+          value: total,
+          currency: 'MAD',
+          num_items: parsedItems.length,
+          content_ids: parsedItems.map((i: CartItem) => i.colorId),
+          content_type: 'product',
+        });
+      }
     }
   }, []);
 
@@ -152,7 +170,7 @@ export default function ThankYouPage() {
           <span className="text-3xl block mb-2">🎁</span>
           <h3 className="font-bold text-primary text-lg mb-2">هدية ليك!</h3>
           <p className="text-gray-600 text-sm mb-3">
-            استعملي هاد الكود باش تستافدي من خصم 10% على الطلبية الجاية
+            استعمل هاد الكود باش تستفيد من خصم 10% على الطلبية الجاية
           </p>
           <div className="bg-white rounded-xl py-3 px-6 inline-block">
             <span className="font-mono font-bold text-gold text-2xl tracking-wider">{discountCode}</span>
@@ -166,10 +184,10 @@ export default function ThankYouPage() {
           transition={{ delay: 0.9 }}
           className="text-center space-y-4"
         >
-          <p className="text-gray-600 text-sm">شاركي التجربة ديالك مع صحاباتك 💕</p>
+          <p className="text-gray-600 text-sm">شارك التجربة ديالك مع صحابك 💕</p>
           <div className="flex justify-center gap-3">
             <a
-              href={`https://wa.me/?text=${encodeURIComponent('طلبت أغطية كراسي من ميزون إلوريا وعجبوني بزاف! 😍 شوفيهم: https://maisoneloria.ma')}`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('طلبت أغطية كراسي من ميزون إلوريا وعجبوني بزاف! 😍 شوفهم: https://maisoneloria.shop')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] text-white px-6 py-2 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity"
@@ -177,7 +195,7 @@ export default function ThankYouPage() {
               واتساب 💬
             </a>
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=https://maisoneloria.ma`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=https://maisoneloria.shop`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#1877F2] text-white px-6 py-2 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity"

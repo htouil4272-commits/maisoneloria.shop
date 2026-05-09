@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720" height="200" role="img" aria-label="Maison Eloria">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="55%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#A88330"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1F4E3A"/>
+      <stop offset="100%" stop-color="#143326"/>
+    </radialGradient>
+  </defs>
+  <!-- Mark (left in LTR file) -->
+  <g transform="translate(0,0)">
+    <circle cx="100" cy="100" r="92" fill="url(#bg)"/>
+    <circle cx="100" cy="100" r="86" fill="none" stroke="url(#g)" stroke-width="1.4" opacity="0.85"/>
+    <circle cx="100" cy="100" r="78" fill="none" stroke="url(#g)" stroke-width="0.7" opacity="0.55"/>
+    <g fill="url(#g)">
+      <circle cx="100" cy="42" r="2.6"/>
+      <path d="M88 50 L100 38 L112 50 L107 53 L100 47 L93 53 Z" opacity="0.85"/>
+    </g>
+    <path d="M58 138 C58 122 142 122 142 138" fill="none" stroke="url(#g)" stroke-width="1.2" opacity="0.45"/>
+    <text x="100" y="132" text-anchor="middle"
+          font-family="'Playfair Display', 'Times New Roman', Georgia, serif"
+          font-size="98" font-weight="700" fill="url(#g)" letter-spacing="-3">M</text>
+    <text x="100" y="160" text-anchor="middle"
+          font-family="'Inter', system-ui, sans-serif" font-size="8.5"
+          letter-spacing="3.5" fill="url(#g)" opacity="0.92">ELORIA</text>
+  </g>
+  <!-- Wordmark on the right -->
+  <g>
+    <text x="220" y="92"
+          font-family="'Playfair Display', 'Times New Roman', Georgia, serif"
+          font-size="58" font-weight="700"
+          fill="#1B4332">MAISON</text>
+    <text x="220" y="148"
+          font-family="'Playfair Display', 'Times New Roman', Georgia, serif"
+          font-size="58" font-weight="400" font-style="italic"
+          fill="url(#g)">Eloria</text>
+    <line x1="220" y1="160" x2="320" y2="160" stroke="url(#g)" stroke-width="1.4"/>
+    <text x="220" y="180"
+          font-family="'Inter', system-ui, sans-serif" font-size="11"
+          letter-spacing="3" fill="#1B4332" opacity="0.8">ART DE VIVRE • MAROC</text>
+  </g>
+</svg>

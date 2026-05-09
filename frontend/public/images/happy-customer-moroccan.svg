@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="عميلة راضية">
+  
+  <defs>
+    <linearGradient id="creamBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="100%" stop-color="#EFE8DC"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="primaryDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B4332"/>
+      <stop offset="100%" stop-color="#143326"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softer" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="600" height="600" fill="url(#creamBg)"/>
+  <circle cx="300" cy="300" r="240" fill="url(#goldShine)" opacity="0.15"/>
+  <!-- وشاح / حجاب -->
+  <path d="M 300 110 C 200 110 160 200 160 290 L 160 470 C 160 510 200 530 240 530 L 360 530 C 400 530 440 510 440 470 L 440 290 C 440 200 400 110 300 110 Z"
+    fill="#1B4332" stroke="#143326" stroke-width="1.5"/>
+  <!-- وجه -->
+  <ellipse cx="300" cy="290" rx="86" ry="100" fill="#f3d4b5"/>
+  <!-- ابتسامة -->
+  <path d="M 270 320 Q 300 340 330 320" fill="none" stroke="#8b5a3c" stroke-width="3" stroke-linecap="round"/>
+  <!-- عيون -->
+  <ellipse cx="270" cy="276" rx="6" ry="3" fill="#143326"/>
+  <ellipse cx="330" cy="276" rx="6" ry="3" fill="#143326"/>
+  <!-- خد -->
+  <circle cx="244" cy="306" r="10" fill="#e8a987" opacity="0.6"/>
+  <circle cx="356" cy="306" r="10" fill="#e8a987" opacity="0.6"/>
+  <!-- نجوم تقييم -->
+  <g transform="translate(300, 470)" fill="url(#goldShine)">
+    <polygon points="-60,-12 -56,-4 -48,-3 -54,3 -52,12 -60,7 -68,12 -66,3 -72,-3 -64,-4"/><polygon points="-30,-12 -26,-4 -18,-3 -24,3 -22,12 -30,7 -38,12 -36,3 -42,-3 -34,-4"/><polygon points="0,-12 4,-4 12,-3 6,3 8,12 0,7 -8,12 -6,3 -12,-3 -4,-4"/><polygon points="30,-12 34,-4 42,-3 36,3 38,12 30,7 22,12 24,3 18,-3 26,-4"/><polygon points="60,-12 64,-4 72,-3 66,3 68,12 60,7 52,12 54,3 48,-3 56,-4"/>
+  </g>
+</svg>

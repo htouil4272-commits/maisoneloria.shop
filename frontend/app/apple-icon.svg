@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="100%" stop-color="#A88330"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="36" fill="#1B4332"/>
+  <circle cx="90" cy="90" r="74" fill="none" stroke="url(#g)" stroke-width="2" opacity="0.65"/>
+  <text x="90" y="125" text-anchor="middle"
+    font-family="'Playfair Display', Georgia, serif" font-size="100"
+    font-weight="700" fill="url(#g)">M</text>
+  <text x="90" y="148" text-anchor="middle"
+    font-family="system-ui, sans-serif" font-size="9" letter-spacing="3"
+    fill="url(#g)" opacity="0.9">ELORIA</text>
+</svg>

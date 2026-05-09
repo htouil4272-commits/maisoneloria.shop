@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Maison Eloria">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="55%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#A88330"/>
+    </linearGradient>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1F4E3A"/>
+      <stop offset="100%" stop-color="#143326"/>
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="92" fill="url(#bgGrad)"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="url(#goldGrad)" stroke-width="1.4" opacity="0.85"/>
+  <circle cx="100" cy="100" r="78" fill="none" stroke="url(#goldGrad)" stroke-width="0.7" opacity="0.55"/>
+  <g fill="url(#goldGrad)">
+    <circle cx="100" cy="42" r="2.6"/>
+    <path d="M88 50 L100 38 L112 50 L107 53 L100 47 L93 53 Z" opacity="0.85"/>
+  </g>
+  <path d="M58 138 C58 122 142 122 142 138" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.45"/>
+  <text x="100" y="132" text-anchor="middle"
+        font-family="'Playfair Display', 'Times New Roman', Georgia, serif"
+        font-size="98" font-weight="700"
+        fill="url(#goldGrad)" letter-spacing="-3">M</text>
+  <text x="100" y="160" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif"
+        font-size="8.5" letter-spacing="3.5"
+        fill="url(#goldGrad)" opacity="0.92">ELORIA</text>
+  <g fill="url(#goldGrad)" opacity="0.85">
+    <circle cx="86" cy="172" r="1.5"/>
+    <circle cx="100" cy="172" r="2"/>
+    <circle cx="114" cy="172" r="1.5"/>
+  </g>
+</svg>

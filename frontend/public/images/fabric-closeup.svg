@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="قماش مطاطي عالي الجودة عن قرب">
+  
+  <defs>
+    <linearGradient id="creamBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="100%" stop-color="#EFE8DC"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="primaryDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B4332"/>
+      <stop offset="100%" stop-color="#143326"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softer" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <defs>
+    <pattern id="weave" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="14" height="14" fill="#E0CFA7"/>
+      <path d="M 0 7 L 14 7" stroke="#B89968" stroke-width="2"/>
+      <path d="M 7 0 L 7 14" stroke="#B89968" stroke-width="2"/>
+      <path d="M 0 0 L 14 14" stroke="#A88330" stroke-width="0.8" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="800" fill="#FAF7F2"/>
+  <rect x="60" y="60" width="680" height="680" rx="18" fill="url(#weave)" stroke="url(#goldShine)" stroke-width="3"/>
+  <!-- ظلال نسيج -->
+  <rect x="60" y="60" width="680" height="680" rx="18" fill="url(#goldShine)" opacity="0.06"/>
+  <!-- تكبير -->
+  <g transform="translate(540, 540)">
+    <circle r="120" fill="#FAF7F2" stroke="url(#goldShine)" stroke-width="3" filter="url(#soft)"/>
+    <circle r="100" fill="url(#weave)"/>
+    <line x1="0" y1="0" x2="100" y2="100" stroke="#1B4332" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  <text x="400" y="780" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
+    font-size="22" font-weight="700" fill="#1B4332">قماش مطاطي بنسج فرنسي 4 اتجاهات</text>
+</svg>

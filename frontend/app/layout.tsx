@@ -12,6 +12,8 @@ import RecentPurchaseToast from '@/components/shared/RecentPurchaseToast';
 import FacebookPixel from '@/components/tracking/FacebookPixel';
 import TikTokPixel from '@/components/tracking/TikTokPixel';
 import SnapchatPixel from '@/components/tracking/SnapchatPixel';
+import { Suspense } from 'react';
+import InternalAnalytics from '@/components/tracking/InternalAnalytics';
 
 const cairo = Cairo({
   subsets: ['arabic', 'latin'],
@@ -25,18 +27,54 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://maisoneloria.shop';
+
 export const metadata: Metadata = {
   title: 'ميزون إلوريا | أغطية كراسي فاخرة - Maison Eloria',
   description:
     'أغطية كراسي أنيقة وعملية بجودة عالية. توصيل مجاني لجميع المدن المغربية. الدفع عند الاستلام.',
   keywords: 'أغطية كراسي, كراسي, ديكور, منزل, مغرب, maison eloria',
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: '/',
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
   openGraph: {
     title: 'ميزون إلوريا | أغطية كراسي فاخرة',
-    description: 'أغطية كراسي أنيقة وعملية بجودة عالية. توصيل مجاني.',
+    description: 'أغطية كراسي أنيقة وعملية بجودة عالية. توصيل مجاني للمدن المغربية. الدفع عند الاستلام.',
     type: 'website',
     locale: 'ar_MA',
     siteName: 'Maison Eloria',
+    url: SITE_URL,
+    images: [
+      {
+        url: `${SITE_URL}/images/photos/hero-moroccan-salon.png`,
+        width: 1200,
+        height: 630,
+        alt: 'ميزون إلوريا — أغطية كراسي فاخرة مغربية',
+        type: 'image/png',
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ميزون إلوريا | أغطية كراسي فاخرة',
+    description: 'أغطية كراسي أنيقة وعملية بجودة عالية. توصيل مجاني.',
+    images: [`${SITE_URL}/images/photos/hero-moroccan-salon.png`],
+  },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#143326',
 };
 
 export default function RootLayout({
@@ -59,6 +97,9 @@ export default function RootLayout({
         <FacebookPixel />
         <TikTokPixel />
         <SnapchatPixel />
+        <Suspense fallback={null}>
+          <InternalAnalytics />
+        </Suspense>
       </body>
     </html>
   );

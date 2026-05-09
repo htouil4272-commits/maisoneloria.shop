@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { COLORS, PACKS, TRUST_BADGES } from '@/lib/constants';
-import { formatPrice } from '@/lib/utils';
+import { formatPrice, formatUnitPrice } from '@/lib/utils';
 import { useCartStore } from '@/lib/cart-store';
 import { trackEvent } from '@/lib/tracking';
 import { ProductColor, Pack } from '@/lib/types';
@@ -22,6 +22,16 @@ export default function ProductPage() {
   const [selectedPack, setSelectedPack] = useState<Pack>(PACKS[1]); // Default: Pack 6
   const addItem = useCartStore((s) => s.addItem);
 
+  useEffect(() => {
+    trackEvent('ViewContent', {
+      content_name: 'أغطية كراسي فاخرة - ميزون إلوريا',
+      content_ids: [COLORS[0].id],
+      content_type: 'product',
+      value: PACKS[1].price,
+      currency: 'MAD',
+    });
+  }, []);
+
   const handleAddToCart = () => {
     addItem(selectedColor.id, selectedPack.id);
     trackEvent('AddToCart', {
@@ -36,22 +46,22 @@ export default function ProductPage() {
   return (
     <>
       <section className="section-padding pb-8">
-        <div className="container-custom mx-auto">
+        <div className="container-custom mx-auto product-zone py-6 sm:py-8 px-3 sm:px-4">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Gallery */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
             >
               <ImageGallery selectedColor={selectedColor} />
             </motion.div>
 
             {/* Product Info */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               className="space-y-6"
             >
               {/* Title */}
@@ -62,9 +72,17 @@ export default function ProductPage() {
                   </div>
                   <span className="text-sm text-gray-500">(+5000 تقييم)</span>
                 </div>
-                <h1 className="font-playfair text-3xl sm:text-4xl font-bold text-primary">
-                  أغطية كراسي فاخرة
-                </h1>
+                <div className="flex items-center gap-2 flex-wrap mb-2">
+                  <span className="product-dots" aria-hidden>
+                    ···
+                  </span>
+                  <h1 className="font-playfair text-3xl sm:text-4xl font-bold text-primary">
+                    أغطية كراسي فاخرة
+                  </h1>
+                  <span className="product-dots" aria-hidden>
+                    ···
+                  </span>
+                </div>
                 <p className="text-gray-600 mt-2">
                   قماش مطاطي عالي الجودة — كيتناسب مع جميع الكراسي
                 </p>
@@ -80,11 +98,11 @@ export default function ProductPage() {
                     {formatPrice(selectedPack.originalPrice)}
                   </span>
                   <span className="bg-red-100 text-red-600 text-xs font-bold px-2 py-1 rounded-full">
-                    وفري {formatPrice(selectedPack.originalPrice - selectedPack.price)}
+                    وفّر {formatPrice(selectedPack.originalPrice - selectedPack.price)}
                   </span>
                 </div>
                 <p className="text-sm text-gray-500 mt-1">
-                  {Math.round(selectedPack.price / selectedPack.quantity)} درهم / القطعة
+                  {formatUnitPrice(selectedPack.price, selectedPack.quantity)} درهم / القطعة
                 </p>
               </div>
 
@@ -102,13 +120,13 @@ export default function ProductPage() {
                 onClick={handleAddToCart}
                 className="w-full bg-gold text-white font-bold py-4 px-8 rounded-xl text-lg hover:bg-gold-dark transition-all shadow-lg hover:shadow-xl active:scale-[0.98] relative pulse-ring"
               >
-                أضيفي للسلة — {formatPrice(selectedPack.price)} 🛒
+                أضف للسلة — {formatPrice(selectedPack.price)} 🛒
               </button>
 
               {/* COD Badge */}
-              <div className="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
-                <p className="text-green-700 font-bold text-sm">
-                  ✅ الدفع عند الاستلام — ما تخلصي حتى توصلك السلعة
+              <div className="bg-green-50 border-2 border-green-200 rounded-xl p-3 text-center">
+                <p className="text-green-800 font-bold text-sm">
+                  ✅ الدفع عند الاستلام — ما تخلص حتى توصلك السلعة فيدك
                 </p>
               </div>
 
@@ -135,6 +153,9 @@ export default function ProductPage() {
       <ContentSections />
       <ProductReviews />
       <CrossSells />
+
+      {/* مساحة آمنة في أسفل الصفحة لئلا يُحجب آخر محتوى تحت الزر العائم على الموبايل */}
+      <div className="h-24 lg:hidden" aria-hidden="true" />
 
       {/* Sticky Mobile CTA */}
       <StickyMobileCTA selectedColorId={selectedColor.id} selectedPack={selectedPack} />

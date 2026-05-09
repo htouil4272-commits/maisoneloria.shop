@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="تغليف فاخر">
+  
+  <defs>
+    <linearGradient id="creamBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="100%" stop-color="#EFE8DC"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="primaryDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B4332"/>
+      <stop offset="100%" stop-color="#143326"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softer" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#creamBg)"/>
+  <!-- ظل أرضي -->
+  <ellipse cx="400" cy="500" rx="240" ry="18" fill="#000" opacity="0.10"/>
+  <!-- صندوق -->
+  <g filter="url(#soft)">
+    <path d="M 200 240 L 600 240 L 660 320 L 660 480 L 140 480 L 140 320 Z"
+      fill="url(#primaryDeep)"/>
+    <path d="M 200 240 L 600 240 L 660 320 L 140 320 Z" fill="#1B4332"/>
+    <path d="M 600 240 L 660 320 L 660 480 L 600 400 Z" fill="#143326"/>
+  </g>
+  <!-- شريط ذهبي -->
+  <rect x="380" y="240" width="40" height="240" fill="url(#goldShine)"/>
+  <rect x="140" y="350" width="520" height="20" fill="url(#goldShine)" opacity="0.95"/>
+  <!-- عقدة -->
+  <g transform="translate(400, 360)">
+    <ellipse cx="-22" cy="0" rx="40" ry="22" fill="url(#goldShine)" stroke="#1B4332" stroke-width="0.8"/>
+    <ellipse cx="22" cy="0" rx="40" ry="22" fill="url(#goldShine)" stroke="#1B4332" stroke-width="0.8"/>
+    <rect x="-10" y="-12" width="20" height="24" fill="#C9A84C" stroke="#1B4332" stroke-width="0.6"/>
+  </g>
+  <!-- شعار على الصندوق -->
+  <text x="400" y="305" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
+    font-size="22" font-weight="700" letter-spacing="6" fill="url(#goldShine)">MAISON ELORIA</text>
+  <!-- ورقة شكر صغيرة -->
+  <rect x="100" y="140" width="160" height="100" rx="6" fill="#fff" stroke="#C9A84C" stroke-width="1.5" filter="url(#softer)" transform="rotate(-8 180 190)"/>
+  <text x="180" y="180" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
+    font-size="14" fill="#1B4332" transform="rotate(-8 180 190)">Merci ❤</text>
+  <text x="180" y="200" text-anchor="middle" font-family="'Inter', sans-serif"
+    font-size="9" letter-spacing="2" fill="#C9A84C" transform="rotate(-8 180 190)">— ELORIA</text>
+  <text x="400" y="560" text-anchor="middle" font-family="'Inter', sans-serif"
+    font-size="13" fill="#1B4332" opacity="0.7">تغليف فاخر — مغطى بشريط حريري ذهبي</text>
+</svg>

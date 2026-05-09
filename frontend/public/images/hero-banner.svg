@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="صالون مغربي مع أغطية كراسي ميزون إلوريا">
+  
+  <defs>
+    <linearGradient id="creamBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="100%" stop-color="#EFE8DC"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C879"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="primaryDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B4332"/>
+      <stop offset="100%" stop-color="#143326"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softer" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <!-- جدار -->
+  <rect width="1600" height="900" fill="url(#primaryDeep)"/>
+  <!-- نقش زليج خفيف -->
+  <g opacity="0.06" fill="#C9A84C">
+    <path d="M 80 62 L 98 80 L 80 98 L 62 80 Z"/><path d="M 190 62 L 208 80 L 190 98 L 172 80 Z"/><path d="M 300 62 L 318 80 L 300 98 L 282 80 Z"/><path d="M 410 62 L 428 80 L 410 98 L 392 80 Z"/><path d="M 520 62 L 538 80 L 520 98 L 502 80 Z"/><path d="M 630 62 L 648 80 L 630 98 L 612 80 Z"/><path d="M 740 62 L 758 80 L 740 98 L 722 80 Z"/><path d="M 850 62 L 868 80 L 850 98 L 832 80 Z"/><path d="M 960 62 L 978 80 L 960 98 L 942 80 Z"/><path d="M 1070 62 L 1088 80 L 1070 98 L 1052 80 Z"/><path d="M 1180 62 L 1198 80 L 1180 98 L 1162 80 Z"/><path d="M 1290 62 L 1308 80 L 1290 98 L 1272 80 Z"/><path d="M 1400 62 L 1418 80 L 1400 98 L 1382 80 Z"/><path d="M 1510 62 L 1528 80 L 1510 98 L 1492 80 Z"/><path d="M 80 172 L 98 190 L 80 208 L 62 190 Z"/><path d="M 190 172 L 208 190 L 190 208 L 172 190 Z"/><path d="M 300 172 L 318 190 L 300 208 L 282 190 Z"/><path d="M 410 172 L 428 190 L 410 208 L 392 190 Z"/><path d="M 520 172 L 538 190 L 520 208 L 502 190 Z"/><path d="M 630 172 L 648 190 L 630 208 L 612 190 Z"/><path d="M 740 172 L 758 190 L 740 208 L 722 190 Z"/><path d="M 850 172 L 868 190 L 850 208 L 832 190 Z"/><path d="M 960 172 L 978 190 L 960 208 L 942 190 Z"/><path d="M 1070 172 L 1088 190 L 1070 208 L 1052 190 Z"/><path d="M 1180 172 L 1198 190 L 1180 208 L 1162 190 Z"/><path d="M 1290 172 L 1308 190 L 1290 208 L 1272 190 Z"/><path d="M 1400 172 L 1418 190 L 1400 208 L 1382 190 Z"/><path d="M 1510 172 L 1528 190 L 1510 208 L 1492 190 Z"/><path d="M 80 282 L 98 300 L 80 318 L 62 300 Z"/><path d="M 190 282 L 208 300 L 190 318 L 172 300 Z"/><path d="M 300 282 L 318 300 L 300 318 L 282 300 Z"/><path d="M 410 282 L 428 300 L 410 318 L 392 300 Z"/><path d="M 520 282 L 538 300 L 520 318 L 502 300 Z"/><path d="M 630 282 L 648 300 L 630 318 L 612 300 Z"/><path d="M 740 282 L 758 300 L 740 318 L 722 300 Z"/><path d="M 850 282 L 868 300 L 850 318 L 832 300 Z"/><path d="M 960 282 L 978 300 L 960 318 L 942 300 Z"/><path d="M 1070 282 L 1088 300 L 1070 318 L 1052 300 Z"/><path d="M 1180 282 L 1198 300 L 1180 318 L 1162 300 Z"/><path d="M 1290 282 L 1308 300 L 1290 318 L 1272 300 Z"/><path d="M 1400 282 L 1418 300 L 1400 318 L 1382 300 Z"/><path d="M 1510 282 L 1528 300 L 1510 318 L 1492 300 Z"/><path d="M 80 392 L 98 410 L 80 428 L 62 410 Z"/><path d="M 190 392 L 208 410 L 190 428 L 172 410 Z"/><path d="M 300 392 L 318 410 L 300 428 L 282 410 Z"/><path d="M 410 392 L 428 410 L 410 428 L 392 410 Z"/><path d="M 520 392 L 538 410 L 520 428 L 502 410 Z"/><path d="M 630 392 L 648 410 L 630 428 L 612 410 Z"/><path d="M 740 392 L 758 410 L 740 428 L 722 410 Z"/><path d="M 850 392 L 868 410 L 850 428 L 832 410 Z"/><path d="M 960 392 L 978 410 L 960 428 L 942 410 Z"/><path d="M 1070 392 L 1088 410 L 1070 428 L 1052 410 Z"/><path d="M 1180 392 L 1198 410 L 1180 428 L 1162 410 Z"/><path d="M 1290 392 L 1308 410 L 1290 428 L 1272 410 Z"/><path d="M 1400 392 L 1418 410 L 1400 428 L 1382 410 Z"/><path d="M 1510 392 L 1528 410 L 1510 428 L 1492 410 Z"/><path d="M 80 502 L 98 520 L 80 538 L 62 520 Z"/><path d="M 190 502 L 208 520 L 190 538 L 172 520 Z"/><path d="M 300 502 L 318 520 L 300 538 L 282 520 Z"/><path d="M 410 502 L 428 520 L 410 538 L 392 520 Z"/><path d="M 520 502 L 538 520 L 520 538 L 502 520 Z"/><path d="M 630 502 L 648 520 L 630 538 L 612 520 Z"/><path d="M 740 502 L 758 520 L 740 538 L 722 520 Z"/><path d="M 850 502 L 868 520 L 850 538 L 832 520 Z"/><path d="M 960 502 L 978 520 L 960 538 L 942 520 Z"/><path d="M 1070 502 L 1088 520 L 1070 538 L 1052 520 Z"/><path d="M 1180 502 L 1198 520 L 1180 538 L 1162 520 Z"/><path d="M 1290 502 L 1308 520 L 1290 538 L 1272 520 Z"/><path d="M 1400 502 L 1418 520 L 1400 538 L 1382 520 Z"/><path d="M 1510 502 L 1528 520 L 1510 538 L 1492 520 Z"/><path d="M 80 612 L 98 630 L 80 648 L 62 630 Z"/><path d="M 190 612 L 208 630 L 190 648 L 172 630 Z"/><path d="M 300 612 L 318 630 L 300 648 L 282 630 Z"/><path d="M 410 612 L 428 630 L 410 648 L 392 630 Z"/><path d="M 520 612 L 538 630 L 520 648 L 502 630 Z"/><path d="M 630 612 L 648 630 L 630 648 L 612 630 Z"/><path d="M 740 612 L 758 630 L 740 648 L 722 630 Z"/><path d="M 850 612 L 868 630 L 850 648 L 832 630 Z"/><path d="M 960 612 L 978 630 L 960 648 L 942 630 Z"/><path d="M 1070 612 L 1088 630 L 1070 648 L 1052 630 Z"/><path d="M 1180 612 L 1198 630 L 1180 648 L 1162 630 Z"/><path d="M 1290 612 L 1308 630 L 1290 648 L 1272 630 Z"/><path d="M 1400 612 L 1418 630 L 1400 648 L 1382 630 Z"/><path d="M 1510 612 L 1528 630 L 1510 648 L 1492 630 Z"/><path d="M 80 722 L 98 740 L 80 758 L 62 740 Z"/><path d="M 190 722 L 208 740 L 190 758 L 172 740 Z"/><path d="M 300 722 L 318 740 L 300 758 L 282 740 Z"/><path d="M 410 722 L 428 740 L 410 758 L 392 740 Z"/><path d="M 520 722 L 538 740 L 520 758 L 502 740 Z"/><path d="M 630 722 L 648 740 L 630 758 L 612 740 Z"/><path d="M 740 722 L 758 740 L 740 758 L 722 740 Z"/><path d="M 850 722 L 868 740 L 850 758 L 832 740 Z"/><path d="M 960 722 L 978 740 L 960 758 L 942 740 Z"/><path d="M 1070 722 L 1088 740 L 1070 758 L 1052 740 Z"/><path d="M 1180 722 L 1198 740 L 1180 758 L 1162 740 Z"/><path d="M 1290 722 L 1308 740 L 1290 758 L 1272 740 Z"/><path d="M 1400 722 L 1418 740 L 1400 758 L 1382 740 Z"/><path d="M 1510 722 L 1528 740 L 1510 758 L 1492 740 Z"/><path d="M 80 832 L 98 850 L 80 868 L 62 850 Z"/><path d="M 190 832 L 208 850 L 190 868 L 172 850 Z"/><path d="M 300 832 L 318 850 L 300 868 L 282 850 Z"/><path d="M 410 832 L 428 850 L 410 868 L 392 850 Z"/><path d="M 520 832 L 538 850 L 520 868 L 502 850 Z"/><path d="M 630 832 L 648 850 L 630 868 L 612 850 Z"/><path d="M 740 832 L 758 850 L 740 868 L 722 850 Z"/><path d="M 850 832 L 868 850 L 850 868 L 832 850 Z"/><path d="M 960 832 L 978 850 L 960 868 L 942 850 Z"/><path d="M 1070 832 L 1088 850 L 1070 868 L 1052 850 Z"/><path d="M 1180 832 L 1198 850 L 1180 868 L 1162 850 Z"/><path d="M 1290 832 L 1308 850 L 1290 868 L 1272 850 Z"/><path d="M 1400 832 L 1418 850 L 1400 868 L 1382 850 Z"/><path d="M 1510 832 L 1528 850 L 1510 868 L 1492 850 Z"/>
+  </g>
+  <!-- قوس مغربي -->
+  <path d="M 1080 760 L 1080 380 C 1080 220 1380 220 1380 380 L 1380 760 Z"
+    fill="#FAF7F2" opacity="0.05" stroke="url(#goldShine)" stroke-width="2"/>
+  <!-- أرضية -->
+  <rect x="0" y="700" width="1600" height="200" fill="#0e2419"/>
+  <line x1="0" y1="710" x2="1600" y2="710" stroke="url(#goldShine)" stroke-width="1.5" opacity="0.3"/>
+  <!-- مجموعة كراسي -->
+  
+  <g transform="translate(380,600) scale(0.85)" aria-label="كرسي بيج">
+    <!-- ظل أرضي -->
+    <ellipse cx="0" cy="252" rx="138" ry="14" fill="#000" opacity="0.10"/>
+    <!-- مسند ظهر مغطى بنعومة طي القماش -->
+    <path filter="url(#soft)" fill="#D4C5A9" stroke="#1B4332" stroke-width="2"
+      d="M -132 -120 C -132 -160 132 -160 132 -120 L 122 38 C 122 52 108 60 92 60 L -92 60 C -108 60 -122 52 -122 38 Z"/>
+    <!-- خطوط طي عمودية على الظهر -->
+    <path d="M -78 -116 L -82 50  M 0 -130 L 0 56  M 78 -116 L 82 50"
+      fill="none" stroke="#1B4332" stroke-opacity="0.16" stroke-width="1.4"/>
+    <!-- خياطة ذهبية على الحدّ -->
+    <path d="M -130 -116 C -130 -154 130 -154 130 -116" fill="none"
+      stroke="url(#goldShine)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.55"/>
+    <!-- المقعد -->
+    <path filter="url(#soft)" fill="#D4C5A9" stroke="#1B4332" stroke-width="2"
+      d="M -132 52 L 132 52 L 162 102 C 166 122 148 138 120 138 L -120 138 C -148 138 -166 122 -162 102 Z"/>
+    <!-- التواء القماش على الجبهة -->
+    <path d="M -150 110 Q 0 156 150 110" fill="none" stroke="#1B4332" stroke-opacity="0.22" stroke-width="1.4"/>
+    <!-- الأرجل الخشبية -->
+    <g stroke="#3d2a1f" stroke-width="1">
+      <path fill="#6b4e3d" d="M -110 138 L -120 232 L -98 232 L -90 138 Z"/>
+      <path fill="#6b4e3d" d="M -34 138 L -42 232 L -20 232 L -12 138 Z"/>
+      <path fill="#6b4e3d" d="M 22 138 L 16 232 L 38 232 L 46 138 Z"/>
+      <path fill="#6b4e3d" d="M 100 138 L 90 232 L 112 232 L 122 138 Z"/>
+    </g>
+  </g>
+  
+  <g transform="translate(760,580) scale(1)" aria-label="كرسي بوردو">
+    <!-- ظل أرضي -->
+    <ellipse cx="0" cy="252" rx="138" ry="14" fill="#000" opacity="0.10"/>
+    <!-- مسند ظهر مغطى بنعومة طي القماش -->
+    <path filter="url(#soft)" fill="#722F37" stroke="#1B4332" stroke-width="2"
+      d="M -132 -120 C -132 -160 132 -160 132 -120 L 122 38 C 122 52 108 60 92 60 L -92 60 C -108 60 -122 52 -122 38 Z"/>
+    <!-- خطوط طي عمودية على الظهر -->
+    <path d="M -78 -116 L -82 50  M 0 -130 L 0 56  M 78 -116 L 82 50"
+      fill="none" stroke="#1B4332" stroke-opacity="0.16" stroke-width="1.4"/>
+    <!-- خياطة ذهبية على الحدّ -->
+    <path d="M -130 -116 C -130 -154 130 -154 130 -116" fill="none"
+      stroke="url(#goldShine)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.55"/>
+    <!-- المقعد -->
+    <path filter="url(#soft)" fill="#722F37" stroke="#1B4332" stroke-width="2"
+      d="M -132 52 L 132 52 L 162 102 C 166 122 148 138 120 138 L -120 138 C -148 138 -166 122 -162 102 Z"/>
+    <!-- التواء القماش على الجبهة -->
+    <path d="M -150 110 Q 0 156 150 110" fill="none" stroke="#1B4332" stroke-opacity="0.22" stroke-width="1.4"/>
+    <!-- الأرجل الخشبية -->
+    <g stroke="#3d2a1f" stroke-width="1">
+      <path fill="#6b4e3d" d="M -110 138 L -120 232 L -98 232 L -90 138 Z"/>
+      <path fill="#6b4e3d" d="M -34 138 L -42 232 L -20 232 L -12 138 Z"/>
+      <path fill="#6b4e3d" d="M 22 138 L 16 232 L 38 232 L 46 138 Z"/>
+      <path fill="#6b4e3d" d="M 100 138 L 90 232 L 112 232 L 122 138 Z"/>
+    </g>
+  </g>
+  
+  <g transform="translate(1180,600) scale(0.85)" aria-label="كرسي أزرق بحري">
+    <!-- ظل أرضي -->
+    <ellipse cx="0" cy="252" rx="138" ry="14" fill="#000" opacity="0.10"/>
+    <!-- مسند ظهر مغطى بنعومة طي القماش -->
+    <path filter="url(#soft)" fill="#1B3A5C" stroke="#1B4332" stroke-width="2"
+      d="M -132 -120 C -132 -160 132 -160 132 -120 L 122 38 C 122 52 108 60 92 60 L -92 60 C -108 60 -122 52 -122 38 Z"/>
+    <!-- خطوط طي عمودية على الظهر -->
+    <path d="M -78 -116 L -82 50  M 0 -130 L 0 56  M 78 -116 L 82 50"
+      fill="none" stroke="#1B4332" stroke-opacity="0.16" stroke-width="1.4"/>
+    <!-- خياطة ذهبية على الحدّ -->
+    <path d="M -130 -116 C -130 -154 130 -154 130 -116" fill="none"
+      stroke="url(#goldShine)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.55"/>
+    <!-- المقعد -->
+    <path filter="url(#soft)" fill="#1B3A5C" stroke="#1B4332" stroke-width="2"
+      d="M -132 52 L 132 52 L 162 102 C 166 122 148 138 120 138 L -120 138 C -148 138 -166 122 -162 102 Z"/>
+    <!-- التواء القماش على الجبهة -->
+    <path d="M -150 110 Q 0 156 150 110" fill="none" stroke="#1B4332" stroke-opacity="0.22" stroke-width="1.4"/>
+    <!-- الأرجل الخشبية -->
+    <g stroke="#3d2a1f" stroke-width="1">
+      <path fill="#6b4e3d" d="M -110 138 L -120 232 L -98 232 L -90 138 Z"/>
+      <path fill="#6b4e3d" d="M -34 138 L -42 232 L -20 232 L -12 138 Z"/>
+      <path fill="#6b4e3d" d="M 22 138 L 16 232 L 38 232 L 46 138 Z"/>
+      <path fill="#6b4e3d" d="M 100 138 L 90 232 L 112 232 L 122 138 Z"/>
+    </g>
+  </g>
+  <!-- نص -->
+  <text x="80" y="220" font-family="'Playfair Display', Georgia, serif" font-size="84" font-weight="700"
+    fill="#FAF7F2">Maison Eloria</text>
+  <text x="80" y="280" font-family="'Inter', sans-serif" font-size="22" letter-spacing="6"
+    fill="url(#goldShine)">L'ART DE VIVRE • MAROC</text>
+  <line x1="80" y1="306" x2="240" y2="306" stroke="url(#goldShine)" stroke-width="2"/>
+</svg>
