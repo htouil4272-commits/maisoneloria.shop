@@ -256,7 +256,17 @@ export default function AdminPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-      const data = await response.json();
+      let data: any = {};
+      try {
+        data = await response.json();
+      } catch {
+        if (response.status === 502 || response.status === 503) {
+          setLoginError('الخادم غير متاح حالياً (502). يرجى إعادة تشغيل الباكند من Easypanel والمحاولة مجدداً.');
+        } else {
+          setLoginError(`خطأ في الخادم (${response.status})`);
+        }
+        return;
+      }
       if (!response.ok || !data.success) {
         setLoginError(data.detail || data.error || 'بيانات الدخول غير صحيحة');
         return;
@@ -268,7 +278,7 @@ export default function AdminPage() {
       setUsername('');
       setPassword('');
     } catch {
-      setLoginError('تعذر الاتصال بالخادم');
+      setLoginError('تعذر الاتصال بالخادم — تحقق من أن الباكند يعمل في Easypanel');
     } finally {
       setIsLoggingIn(false);
     }
