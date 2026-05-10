@@ -55,9 +55,10 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${SITE_URL}/images/photos/hero-moroccan-salon.png`,
+        secureUrl: `${SITE_URL}/images/photos/hero-moroccan-salon.png`,
         width: 1200,
         height: 630,
-        alt: 'ميزون إلوريا — أغطية كراسي فاخرة مغربية',
+        alt: 'Maison Eloria — أغطية كراسي فاخرة',
         type: 'image/png',
       },
     ],
