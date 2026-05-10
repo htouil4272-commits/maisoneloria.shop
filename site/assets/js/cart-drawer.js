@@ -7,6 +7,69 @@ import { getCurrentLang, t } from './i18n.js';
 import { cart } from './cart.js';
 import { renderShippingProgress } from './conversion.js';
 
+export function initMobileNav() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+
+  // Ensure hamburger button exists; inject it if the page omitted it
+  let menuBtn = document.querySelector('.menu-btn');
+  if (!menuBtn) {
+    menuBtn = document.createElement('button');
+    menuBtn.className = 'menu-btn icon-btn';
+    menuBtn.setAttribute('aria-label', 'Menu');
+    menuBtn.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
+    const actions = document.querySelector('.header-actions');
+    if (actions) actions.appendChild(menuBtn);
+  }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'mobile-nav-overlay';
+
+  const panel = document.createElement('div');
+  panel.className = 'mobile-nav-panel';
+  panel.setAttribute('role', 'dialog');
+  panel.setAttribute('aria-modal', 'true');
+  panel.setAttribute('aria-label', 'Navigation');
+
+  document.body.appendChild(overlay);
+  document.body.appendChild(panel);
+
+  const buildPanel = () => {
+    const links = Array.from(nav.querySelectorAll('a'));
+    panel.innerHTML = `
+      <div class="mobile-nav-header">
+        <span class="mobile-nav-title">Maison Eloria</span>
+        <button class="mobile-nav-close icon-btn" aria-label="Fermer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-links">
+        ${links.map((a) => `<a href="${a.getAttribute('href')}">${a.textContent.trim()}</a>`).join('')}
+      </nav>
+    `;
+    panel.querySelector('.mobile-nav-close').addEventListener('click', close);
+    panel.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+  };
+
+  const open = () => {
+    buildPanel();
+    overlay.classList.add('open');
+    panel.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const close = () => {
+    overlay.classList.remove('open');
+    panel.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  menuBtn.addEventListener('click', open);
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  window.addEventListener('lang:changed', () => { if (panel.classList.contains('open')) buildPanel(); });
+}
+
 export function initCartDrawer() {
   const overlay = document.querySelector('[data-cart-overlay]');
   const drawer = document.querySelector('[data-cart-drawer]');
@@ -42,6 +105,7 @@ export function initCartDrawer() {
   });
 
   updateBadge();
+  initMobileNav();
 }
 
 function updateBadge() {

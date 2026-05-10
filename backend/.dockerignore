@@ -1,6 +1,7 @@
 __pycache__
 *.pyc
 *.pyo
+*.pyd
 .env
 .venv
 venv
@@ -10,3 +11,6 @@ data/GeoLite2-City.mmdb
 *.egg-info
 dist
 build
+.pytest_cache
+*.log
+README.md

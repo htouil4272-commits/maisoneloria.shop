@@ -2,16 +2,24 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-COPY . .
-
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NEXT_PUBLIC_FB_PIXEL_ID=1544079200022148
+ENV NEXT_PUBLIC_TT_PIXEL_ID=D80AC3RC77U9TECLM010
 ENV NEXT_PUBLIC_SITE_URL=https://maisoneloria.shop
 
-RUN npm install --legacy-peer-deps
+# Copy only dependency files first — this layer is cached and reused
+# on every rebuild as long as package files don't change
+COPY package.json package-lock.json ./
 
-RUN npm run build
+RUN npm ci --legacy-peer-deps
 
+# Copy the rest of the source after deps are installed
+COPY . .
+
+# --max-old-space-size prevents silent OOM kills on low-RAM VPS (< 2 GB)
+RUN NODE_OPTIONS="--max-old-space-size=1536" npm run build
+
+# ── Runtime image ─────────────────────────────────────────────────────────
 FROM node:18-alpine
 
 WORKDIR /app
@@ -19,6 +27,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV NEXT_PUBLIC_FB_PIXEL_ID=1544079200022148
+ENV NEXT_PUBLIC_TT_PIXEL_ID=D80AC3RC77U9TECLM010
 ENV NEXT_PUBLIC_SITE_URL=https://maisoneloria.shop
 ENV BACKEND_URL=http://backend:8000
 

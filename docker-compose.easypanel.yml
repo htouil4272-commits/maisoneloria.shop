@@ -24,8 +24,8 @@ services:
       DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://maisoneloria:maisoneloria@maisoneloria_database:5432/maisoneloria}
       ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://maisoneloria.shop,https://www.maisoneloria.shop}
       ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Hamzatouil00@}
-      ADMIN_TOKEN_SECRET: ${ADMIN_TOKEN_SECRET:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-changeme}
+      ADMIN_TOKEN_SECRET: ${ADMIN_TOKEN_SECRET:-change-this-secret-in-production}
       MAXMIND_LICENSE_KEY: ${MAXMIND_LICENSE_KEY:-}
       MAXMIND_DB_PATH: ${MAXMIND_DB_PATH:-data/GeoLite2-City.mmdb}
       GOOGLE_SHEETS_CREDENTIALS: ${GOOGLE_SHEETS_CREDENTIALS:-}
@@ -41,9 +41,9 @@ services:
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/api/health').getcode()==200 else 1)"]
       interval: 30s
-      timeout: 5s
+      timeout: 10s
       retries: 5
-      start_period: 30s
+      start_period: 120s
 
   frontend:
     container_name: maisoneloria_frontend
@@ -55,14 +55,14 @@ services:
         NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://maisoneloria.shop}
         NEXT_PUBLIC_WHATSAPP_NUMBER: ${NEXT_PUBLIC_WHATSAPP_NUMBER:-212754127109}
         NEXT_PUBLIC_FB_PIXEL_ID: ${NEXT_PUBLIC_FB_PIXEL_ID:-}
-        NEXT_PUBLIC_TT_PIXEL_ID: ${NEXT_PUBLIC_TT_PIXEL_ID:-}
+        NEXT_PUBLIC_TT_PIXEL_ID: ${NEXT_PUBLIC_TT_PIXEL_ID:-D80AC3RC77U9TECLM010}
         NEXT_PUBLIC_SC_PIXEL_ID: ${NEXT_PUBLIC_SC_PIXEL_ID:-}
     restart: unless-stopped
     expose:
       - "3000"
     depends_on:
       backend:
-        condition: service_healthy
+        condition: service_started
 
 volumes:
   maxmind_data:

@@ -3079,3 +3079,88 @@ p { font-size: var(--text-base); line-height: 1.7; color: var(--color-text-soft)
 .animate-delay-1 { animation-delay: 0.1s; }
 .animate-delay-2 { animation-delay: 0.2s; }
 .animate-delay-3 { animation-delay: 0.3s; }
+
+/* ============================================================
+   MOBILE NAV DRAWER
+   ============================================================ */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(42, 37, 32, 0.55);
+  z-index: calc(var(--z-sticky) + 50);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.mobile-nav-overlay.open { display: block; }
+
+.mobile-nav-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(320px, 85vw);
+  height: 100%;
+  height: 100dvh;
+  background: var(--color-cream-light);
+  z-index: calc(var(--z-sticky) + 51);
+  transform: translateX(110%);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6) var(--space-6) var(--space-10);
+  box-shadow: -4px 0 32px rgba(42, 37, 32, 0.18);
+  overflow-y: auto;
+}
+.mobile-nav-panel.open { transform: translateX(0); }
+
+[dir="rtl"] .mobile-nav-panel {
+  right: auto;
+  left: 0;
+  transform: translateX(-110%);
+}
+[dir="rtl"] .mobile-nav-panel.open { transform: translateX(0); }
+
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-4);
+}
+
+.mobile-nav-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-charcoal);
+  letter-spacing: -0.01em;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav-links a {
+  display: block;
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  text-decoration: none;
+  padding: var(--space-4) var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.mobile-nav-links a:hover {
+  color: var(--color-terracotta);
+  padding-left: var(--space-4);
+}
+
+[dir="rtl"] .mobile-nav-links a:hover {
+  padding-left: var(--space-2);
+  padding-right: var(--space-4);
+}
+
+.mobile-nav-links a:last-child { border-bottom: none; }
