@@ -52,6 +52,22 @@ class Settings(BaseSettings):
     def allowed_origins_list(self) -> List[str]:
         return [o.strip() for o in self.ALLOWED_ORIGINS.split(",") if o.strip()]
 
+    @property
+    def async_database_url(self) -> str:
+        """Return DATABASE_URL guaranteed to use the asyncpg driver.
+
+        EasyPanel (and many tutorials) set the URL with the plain
+        'postgresql://' or 'postgres://' scheme.  SQLAlchemy async
+        requires 'postgresql+asyncpg://'.  Auto-correct silently so the
+        app never crashes at import time because of a wrong scheme.
+        """
+        url = self.DATABASE_URL
+        if url.startswith("postgres://"):
+            url = "postgresql+asyncpg://" + url[len("postgres://"):]
+        elif url.startswith("postgresql://") and "+asyncpg" not in url:
+            url = "postgresql+asyncpg://" + url[len("postgresql://"):]
+        return url
+
     def validate_secrets(self) -> None:
         """Log warnings for misconfigured secrets at startup."""
         if self.ADMIN_TOKEN_SECRET and _SHELL_UNSAFE_RE.search(self.ADMIN_TOKEN_SECRET):
@@ -66,10 +82,14 @@ class Settings(BaseSettings):
                 "Neither ADMIN_TOKEN_SECRET nor ADMIN_PASSWORD is set. "
                 "Admin tokens will be signed with the insecure fallback 'change-me'."
             )
-        if not self.DATABASE_URL.startswith("postgresql+asyncpg://"):
+        if not self.async_database_url.startswith("postgresql+asyncpg://"):
             logger.error(
-                "DATABASE_URL must use 'postgresql+asyncpg://' driver for async SQLAlchemy. "
-                f"Current value starts with: {self.DATABASE_URL[:30]!r}"
+                "DATABASE_URL could not be normalised to postgresql+asyncpg://. "
+                f"Raw value starts with: {self.DATABASE_URL[:40]!r}"
+            )
+        else:
+            logger.info(
+                f"DATABASE_URL driver: OK — {self.async_database_url[:45]}..."
             )
 
     class Config:
