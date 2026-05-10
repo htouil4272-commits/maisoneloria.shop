@@ -20,6 +20,7 @@ ENV NODE_ENV=production
 ENV PORT=3000
 ENV NEXT_PUBLIC_FB_PIXEL_ID=1544079200022148
 ENV NEXT_PUBLIC_SITE_URL=https://maisoneloria.shop
+ENV BACKEND_URL=http://backend:8000
 
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/public ./public
