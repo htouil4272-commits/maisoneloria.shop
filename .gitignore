@@ -32,3 +32,8 @@ test_order.py
 test_order_v4.py
 test_admin_login.py
 zip-check/
+
+# Fichiers contenant des identifiants — NE JAMAIS committer dans un repo public
+EASYPANEL_NOW.md
+DEPLOY_NOW.ps1
+UPDATE_PHONE_AND_BUILD.ps1
