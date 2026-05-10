@@ -23,9 +23,12 @@ services:
       DEBUG: "false"
       DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://maisoneloria:maisoneloria@maisoneloria_database:5432/maisoneloria}
       ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://maisoneloria.shop,https://www.maisoneloria.shop}
-      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-changeme}
-      ADMIN_TOKEN_SECRET: ${ADMIN_TOKEN_SECRET:-change-this-secret-in-production}
+      # REQUIRED — Set these in EasyPanel > App > Environment before deploying.
+      # ADMIN_PASSWORD must be at least 8 characters and must not be a common default.
+      # Generate ADMIN_TOKEN_SECRET with: python -c "import secrets; print(secrets.token_hex(32))"
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_TOKEN_SECRET: ${ADMIN_TOKEN_SECRET:-}
       MAXMIND_LICENSE_KEY: ${MAXMIND_LICENSE_KEY:-}
       MAXMIND_DB_PATH: ${MAXMIND_DB_PATH:-data/GeoLite2-City.mmdb}
       GOOGLE_SHEETS_CREDENTIALS: ${GOOGLE_SHEETS_CREDENTIALS:-}
