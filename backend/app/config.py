@@ -56,20 +56,35 @@ class Settings(BaseSettings):
     def async_database_url(self) -> str:
         """Return DATABASE_URL guaranteed to use the asyncpg driver.
 
-        EasyPanel (and many tutorials) set the URL with the plain
-        'postgresql://' or 'postgres://' scheme.  SQLAlchemy async
-        requires 'postgresql+asyncpg://'.  Auto-correct silently so the
-        app never crashes at import time because of a wrong scheme.
+        Auto-corrects common mistakes:
+        - 'postgres://'     → 'postgresql+asyncpg://'  (Heroku/Railway style)
+        - 'postgresql://'   → 'postgresql+asyncpg://'  (missing driver suffix)
+        - Literal placeholders like <DB_PASSWORD> are replaced with 'PLACEHOLDER'
+          so the URL is at least parseable; the connection will fail gracefully
+          at runtime rather than crashing at import time.
         """
-        url = self.DATABASE_URL
+        url = self.DATABASE_URL or ""
+        # Sanitise literal angle-bracket placeholders that break URL parsing
+        if "<" in url or ">" in url:
+            import re as _re
+            url = _re.sub(r"<[^>]*>", "PLACEHOLDER", url)
         if url.startswith("postgres://"):
             url = "postgresql+asyncpg://" + url[len("postgres://"):]
         elif url.startswith("postgresql://") and "+asyncpg" not in url:
             url = "postgresql+asyncpg://" + url[len("postgresql://"):]
+        if not url:
+            url = "postgresql+asyncpg://maisoneloria:PLACEHOLDER@maisoneloria_database:5432/maisoneloria"
         return url
 
     def validate_secrets(self) -> None:
-        """Log warnings for misconfigured secrets at startup."""
+        """Log warnings/errors for misconfigured env vars at startup."""
+        if "<" in self.DATABASE_URL or ">" in self.DATABASE_URL:
+            logger.error(
+                "DATABASE_URL contains a literal placeholder (< or >). "
+                "Open EasyPanel → backend → Environment and replace "
+                "<DB_PASSWORD> with your real Postgres password. "
+                "Get it from: EasyPanel → maisoneloria_database → Connect."
+            )
         if self.ADMIN_TOKEN_SECRET and _SHELL_UNSAFE_RE.search(self.ADMIN_TOKEN_SECRET):
             logger.warning(
                 "ADMIN_TOKEN_SECRET contains shell-unsafe characters (#, $, %%, ^, etc.). "
@@ -82,15 +97,9 @@ class Settings(BaseSettings):
                 "Neither ADMIN_TOKEN_SECRET nor ADMIN_PASSWORD is set. "
                 "Admin tokens will be signed with the insecure fallback 'change-me'."
             )
-        if not self.async_database_url.startswith("postgresql+asyncpg://"):
-            logger.error(
-                "DATABASE_URL could not be normalised to postgresql+asyncpg://. "
-                f"Raw value starts with: {self.DATABASE_URL[:40]!r}"
-            )
-        else:
-            logger.info(
-                f"DATABASE_URL driver: OK — {self.async_database_url[:45]}..."
-            )
+        logger.info(
+            f"DATABASE_URL (effective): {self.async_database_url[:60]}..."
+        )
 
     class Config:
         env_file = ".env"
