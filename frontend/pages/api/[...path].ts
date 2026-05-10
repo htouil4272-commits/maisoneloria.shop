@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const BACKEND_URL = process.env.BACKEND_URL || 'http://backend:8000';
@@ -9,49 +10,55 @@ export const config = {
   },
 };
 
+function readBody(req: NextApiRequest): Promise<Buffer> {
+  return new Promise((resolve, reject) => {
+    const chunks: Buffer[] = [];
+    req.on('data', (chunk: Buffer) => chunks.push(chunk));
+    req.on('end', () => resolve(Buffer.concat(chunks)));
+    req.on('error', reject);
+  });
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const segments = req.query.path as string[];
+  const segments = Array.isArray(req.query.path) ? req.query.path : [req.query.path as string];
   const pathStr = segments.join('/');
-  const rawUrl = req.url || '';
-  const queryStr = rawUrl.includes('?') ? rawUrl.substring(rawUrl.indexOf('?')) : '';
+  const rawUrl: string = req.url || '';
+  const qIdx = rawUrl.indexOf('?');
+  const queryStr = qIdx >= 0 ? rawUrl.substring(qIdx) : '';
   const targetUrl = `${BACKEND_URL}/api/${pathStr}${queryStr}`;
 
   const forwardHeaders: Record<string, string> = {};
-  if (req.headers['content-type']) forwardHeaders['content-type'] = req.headers['content-type'] as string;
-  if (req.headers['authorization']) forwardHeaders['authorization'] = req.headers['authorization'] as string;
-  if (req.headers['cookie']) forwardHeaders['cookie'] = req.headers['cookie'] as string;
+  const ct = req.headers['content-type'];
+  if (ct) forwardHeaders['content-type'] = Array.isArray(ct) ? ct[0] : ct;
+  const auth = req.headers['authorization'];
+  if (auth) forwardHeaders['authorization'] = Array.isArray(auth) ? auth[0] : auth;
+  const cookie = req.headers['cookie'];
+  if (cookie) forwardHeaders['cookie'] = Array.isArray(cookie) ? cookie[0] : cookie;
 
-  const hasBody = !['GET', 'HEAD'].includes(req.method || 'GET');
-  let body: Buffer | undefined;
-
+  const method = req.method || 'GET';
+  const hasBody = !['GET', 'HEAD'].includes(method);
+  let bodyBuffer: Buffer | undefined;
   if (hasBody) {
-    body = await new Promise<Buffer>((resolve, reject) => {
-      const chunks: Buffer[] = [];
-      req.on('data', (chunk: Buffer) => chunks.push(chunk));
-      req.on('end', () => resolve(Buffer.concat(chunks)));
-      req.on('error', reject);
-    });
+    bodyBuffer = await readBody(req);
   }
 
   try {
     const upstream = await fetch(targetUrl, {
-      method: req.method,
+      method,
       headers: forwardHeaders,
-      body: hasBody && body ? body : undefined,
-      // @ts-ignore
-      duplex: 'half',
+      body: hasBody && bodyBuffer && bodyBuffer.length > 0 ? bodyBuffer : undefined,
       cache: 'no-store',
-    });
+    } as any);
 
-    const responseBody = await upstream.text();
-    const ct = upstream.headers.get('content-type') || 'application/json';
+    const responseText = await upstream.text();
+    const contentType = upstream.headers.get('content-type') ?? 'application/json';
 
-    res.setHeader('Content-Type', ct);
+    res.setHeader('Content-Type', contentType);
     res.setHeader('Cache-Control', 'no-store');
-    res.status(upstream.status).send(responseBody);
+    res.status(upstream.status).send(responseText);
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : String(err);
-    console.error(`[proxy] ${req.method} ${targetUrl} =>`, message);
-    res.status(503).json({ detail: 'Backend unavailable', target: targetUrl, error: message });
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error(`[proxy] ${method} ${targetUrl} =>`, msg);
+    res.status(503).json({ detail: 'Backend unavailable', target: targetUrl, error: msg });
   }
 }
