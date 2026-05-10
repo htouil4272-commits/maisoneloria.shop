@@ -1,11 +1,9 @@
 ################################################################################
 # docker-compose pour EasyPanel — Maison Eloria
 #
-# Pré-requis : un service Postgres existant nommé `maisoneloria_database`
-# accessible sur le réseau interne d'EasyPanel.
-#
-# Ce fichier peut être utilisé tel quel via "App > Compose" dans EasyPanel,
-# ou ses services peuvent être créés un à un via "App > Build from Dockerfile".
+# NOTE: EasyPanel builds each service individually from the repo root.
+# The root Dockerfile handles the backend build (COPY backend/ .).
+# This docker-compose is kept for local dev and documentation only.
 ################################################################################
 version: "3.9"
 
@@ -13,7 +11,7 @@ services:
   backend:
     container_name: maisoneloria_backend
     build:
-      context: ./backend
+      context: .
       dockerfile: Dockerfile
     restart: unless-stopped
     expose:
@@ -21,11 +19,8 @@ services:
     environment:
       APP_ENV: production
       DEBUG: "false"
-      DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://maisoneloria:maisoneloria@maisoneloria_database:5432/maisoneloria}
-      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://maisoneloria.shop,https://www.maisoneloria.shop}
-      # REQUIRED — Set these in EasyPanel > App > Environment before deploying.
-      # ADMIN_PASSWORD must be at least 8 characters and must not be a common default.
-      # Generate ADMIN_TOKEN_SECRET with: python -c "import secrets; print(secrets.token_hex(32))"
+      DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://postgres:password@database:5432/maisoneloria}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://maisoneloria.shop,https://www.maisoneloria.shop,https://api.maisoneloria.shop}
       ADMIN_USERNAME: ${ADMIN_USERNAME:-}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
       ADMIN_TOKEN_SECRET: ${ADMIN_TOKEN_SECRET:-}
@@ -42,7 +37,7 @@ services:
     volumes:
       - maxmind_data:/app/data
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/api/health').getcode()==200 else 1)"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -53,19 +48,27 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-}
-        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://maisoneloria.shop}
-        NEXT_PUBLIC_WHATSAPP_NUMBER: ${NEXT_PUBLIC_WHATSAPP_NUMBER:-212754127109}
-        NEXT_PUBLIC_FB_PIXEL_ID: ${NEXT_PUBLIC_FB_PIXEL_ID:-}
-        NEXT_PUBLIC_TT_PIXEL_ID: ${NEXT_PUBLIC_TT_PIXEL_ID:-D80AC3RC77U9TECLM010}
-        NEXT_PUBLIC_SC_PIXEL_ID: ${NEXT_PUBLIC_SC_PIXEL_ID:-}
     restart: unless-stopped
+    environment:
+      BACKEND_URL: http://backend:8000
     expose:
       - "3000"
     depends_on:
       backend:
         condition: service_started
 
+  database:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: maisoneloria
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    expose:
+      - "5432"
+
 volumes:
   maxmind_data:
+  pg_data:

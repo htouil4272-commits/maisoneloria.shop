@@ -1,7 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://backend:8000';
+const BACKEND_URLS = (process.env.BACKEND_URL || 'http://backend:8000')
+  .split(',')
+  .map((u) => u.trim())
+  .filter(Boolean);
+
+if (BACKEND_URLS.length === 0) {
+  BACKEND_URLS.push('http://backend:8000');
+}
 
 export const config = {
   api: {
@@ -25,7 +32,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const rawUrl: string = req.url || '';
   const qIdx = rawUrl.indexOf('?');
   const queryStr = qIdx >= 0 ? rawUrl.substring(qIdx) : '';
-  const targetUrl = `${BACKEND_URL}/api/${pathStr}${queryStr}`;
 
   const forwardHeaders: Record<string, string> = {};
   const ct = req.headers['content-type'];
@@ -42,23 +48,35 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     bodyBuffer = await readBody(req);
   }
 
-  try {
-    const upstream = await fetch(targetUrl, {
-      method,
-      headers: forwardHeaders,
-      body: hasBody && bodyBuffer && bodyBuffer.length > 0 ? bodyBuffer : undefined,
-      cache: 'no-store',
-    } as any);
+  let lastError = '';
 
-    const responseText = await upstream.text();
-    const contentType = upstream.headers.get('content-type') ?? 'application/json';
+  for (const baseUrl of BACKEND_URLS) {
+    const targetUrl = `${baseUrl}/api/${pathStr}${queryStr}`;
+    try {
+      const upstream = await fetch(targetUrl, {
+        method,
+        headers: forwardHeaders,
+        body: hasBody && bodyBuffer && bodyBuffer.length > 0 ? bodyBuffer : undefined,
+        cache: 'no-store',
+        signal: AbortSignal.timeout(10000),
+      } as any);
 
-    res.setHeader('Content-Type', contentType);
-    res.setHeader('Cache-Control', 'no-store');
-    res.status(upstream.status).send(responseText);
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.error(`[proxy] ${method} ${targetUrl} =>`, msg);
-    res.status(503).json({ detail: 'Backend unavailable', target: targetUrl, error: msg });
+      const responseText = await upstream.text();
+      const contentType = upstream.headers.get('content-type') ?? 'application/json';
+
+      res.setHeader('Content-Type', contentType);
+      res.setHeader('Cache-Control', 'no-store');
+      res.status(upstream.status).send(responseText);
+      return;
+    } catch (err: unknown) {
+      lastError = err instanceof Error ? err.message : String(err);
+      console.error(`[proxy] ${method} ${targetUrl} => ${lastError}`);
+    }
   }
+
+  res.status(503).json({
+    detail: 'Backend unavailable',
+    tried: BACKEND_URLS.map((u) => `${u}/api/${pathStr}`),
+    error: lastError,
+  });
 }

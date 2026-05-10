@@ -15,7 +15,7 @@ const nextConfig = {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://maisoneloria.shop',
   },
   async rewrites() {
-    const backendUrl = process.env.BACKEND_URL || 'http://backend:8000';
+    const backendUrl = (process.env.BACKEND_URL || 'http://backend:8000').split(',')[0].trim();
     return [
       {
         source: '/api/:path*',

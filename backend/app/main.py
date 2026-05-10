@@ -48,8 +48,11 @@ async def lifespan(app: FastAPI):
 
     run_migrations()
 
-    from app.services.fraud import fraud_service
-    await fraud_service.initialize()
+    try:
+        from app.services.fraud import fraud_service
+        await fraud_service.initialize()
+    except Exception as exc:
+        logger.error(f"Fraud service init failed (non-fatal): {exc}")
 
     logger.info("Server ready — /api/health is live")
     yield

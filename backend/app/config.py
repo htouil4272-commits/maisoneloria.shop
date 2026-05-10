@@ -19,6 +19,7 @@ class Settings(BaseSettings):
 
     ALLOWED_ORIGINS: str = (
         "https://maisoneloria.shop,https://www.maisoneloria.shop,"
+        "https://api.maisoneloria.shop,"
         "http://localhost:3000,http://127.0.0.1:3000"
     )
 
@@ -106,5 +107,9 @@ class Settings(BaseSettings):
         env_file_encoding = "utf-8"
 
 
-settings = Settings()
-settings.validate_secrets()
+try:
+    settings = Settings()
+    settings.validate_secrets()
+except Exception as _exc:
+    logger.error(f"Failed to load settings: {_exc}")
+    settings = Settings()  # fallback with defaults
