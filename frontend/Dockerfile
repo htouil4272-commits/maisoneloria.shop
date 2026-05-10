@@ -2,35 +2,20 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-ARG CACHE_BUST=1
-
-COPY package.json ./
-
-ARG NEXT_PUBLIC_API_URL
-ARG NEXT_PUBLIC_SITE_URL
-ARG NEXT_PUBLIC_FB_PIXEL_ID
-ARG NEXT_PUBLIC_TT_PIXEL_ID
-ARG NEXT_PUBLIC_SC_PIXEL_ID
-ARG NEXT_PUBLIC_WHATSAPP_NUMBER
+COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
-ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
-ENV NEXT_PUBLIC_FB_PIXEL_ID=${NEXT_PUBLIC_FB_PIXEL_ID}
-ENV NEXT_PUBLIC_TT_PIXEL_ID=${NEXT_PUBLIC_TT_PIXEL_ID}
-ENV NEXT_PUBLIC_SC_PIXEL_ID=${NEXT_PUBLIC_SC_PIXEL_ID}
-ENV NEXT_PUBLIC_WHATSAPP_NUMBER=${NEXT_PUBLIC_WHATSAPP_NUMBER}
+ENV NEXT_PUBLIC_FB_PIXEL_ID=1544079200022148
+ENV NEXT_PUBLIC_SITE_URL=https://maisoneloria.shop
 
-RUN npm install --legacy-peer-deps
-
-COPY . .
+RUN npm install --legacy-peer-deps --prefer-offline || npm install --legacy-peer-deps
 
 RUN npm run build
 
 FROM nginx:alpine
 
 COPY --from=builder /app/out /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 3000
 
