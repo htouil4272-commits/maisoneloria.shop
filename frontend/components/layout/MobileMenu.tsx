@@ -1,15 +1,46 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { NAV_LINKS } from '@/lib/constants';
+import { WHATSAPP_NUMBER } from '@/lib/site-contact';
+
+function normalizePathname(path: string) {
+  if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
+  return path || '/';
+}
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  currentPath: string;
 }
 
-export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose, currentPath }: MobileMenuProps) {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const prev = document.body.style.overflow;
+    const prevPos = document.body.style.position;
+    const prevTop = document.body.style.top;
+    const scrollY = window.scrollY;
+
+    // iOS Safari fix: position:fixed is required to prevent background scroll
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+
+    return () => {
+      document.body.style.overflow = prev;
+      document.body.style.position = prevPos;
+      document.body.style.top = prevTop;
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+    };
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -19,24 +50,36 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 z-50"
+            className="fixed inset-0 z-[110] bg-black/60"
           />
           <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 bottom-0 w-80 bg-cream z-50 shadow-2xl"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="fixed inset-0 z-[120] min-h-[100dvh] w-screen overflow-y-auto bg-cream shadow-2xl"
+            role="dialog"
+            aria-modal="true"
+            aria-label="القائمة الرئيسية"
           >
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                    <span className="text-gold font-playfair font-bold text-xl">M</span>
+            <div className="min-h-[100dvh] p-5 pt-[calc(1.25rem+env(safe-area-inset-top,0px))]">
+              <div className="flex items-center justify-between border-b border-primary/10 pb-5 mb-6">
+                <div className="flex items-center gap-2.5">
+                  <img
+                    src="/images/brand/logo-mark.svg"
+                    alt="Maison Eloria"
+                    width={40}
+                    height={40}
+                    className="w-10 h-10"
+                  />
+                  <div className="leading-tight">
+                    <span className="font-playfair text-primary font-bold text-lg block">
+                      Maison Eloria
+                    </span>
+                    <span className="text-[10px] text-gold tracking-[0.2em] block">
+                      ميزون إلوريا
+                    </span>
                   </div>
-                  <span className="font-playfair text-primary font-bold text-lg">
-                    Maison Eloria
-                  </span>
                 </div>
                 <button
                   onClick={onClose}
@@ -56,23 +99,30 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </button>
               </div>
 
-              <nav className="space-y-2">
-                {NAV_LINKS.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={onClose}
-                    className="block py-3 px-4 text-primary font-medium hover:bg-primary/5 rounded-xl transition-colors text-lg"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+              <nav className="space-y-3">
+                {NAV_LINKS.map((link) => {
+                  const active = normalizePathname(link.href) === currentPath;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={onClose}
+                      className={`block py-4 px-4 rounded-2xl transition-colors text-lg ${
+                        active
+                          ? 'bg-gold/15 text-primary font-bold border-e-4 border-gold shadow-sm'
+                          : 'bg-white text-primary font-medium hover:bg-primary/5'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
               </nav>
 
-              <div className="mt-8 p-4 bg-primary/5 rounded-xl">
+              <div className="mt-8 p-5 bg-primary/5 rounded-2xl">
                 <p className="text-sm text-primary/70 mb-2">تواصل معانا</p>
                 <a
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212600000000'}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-primary font-medium"

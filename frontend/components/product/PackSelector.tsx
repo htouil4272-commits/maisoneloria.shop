@@ -2,7 +2,7 @@
 
 import { PACKS } from '@/lib/constants';
 import { Pack } from '@/lib/types';
-import { formatPrice, calculateDiscount } from '@/lib/utils';
+import { formatPrice, calculateDiscount, formatUnitPrice } from '@/lib/utils';
 
 interface PackSelectorProps {
   selectedPack: Pack;
@@ -12,13 +12,13 @@ interface PackSelectorProps {
 export default function PackSelector({ selectedPack, onSelect }: PackSelectorProps) {
   return (
     <div>
-      <h3 className="font-bold text-primary mb-3">اختاري الباك:</h3>
+      <h3 className="font-bold text-primary mb-3">اختار الباك:</h3>
       <div className="space-y-3">
         {PACKS.map((pack) => {
           const isSelected = selectedPack.id === pack.id;
           const discount = calculateDiscount(pack.originalPrice, pack.price);
           const isPopular = pack.id === 'pack-6';
-          const isBestValue = pack.id === 'pack-9';
+          const isBestValue = pack.id === 'pack-8';
 
           return (
             <button
@@ -32,8 +32,8 @@ export default function PackSelector({ selectedPack, onSelect }: PackSelectorPro
             >
               {pack.badgeAr && (
                 <span
-                  className={`absolute -top-2.5 left-4 text-xs font-bold px-3 py-0.5 rounded-full ${
-                    isPopular ? 'bg-gold text-white' : 'bg-primary text-white'
+                  className={`absolute -top-4 left-4 whitespace-nowrap z-10 ${
+                    isPopular ? 'badge-popular' : 'badge-value'
                   }`}
                 >
                   {pack.badgeAr}
@@ -52,7 +52,7 @@ export default function PackSelector({ selectedPack, onSelect }: PackSelectorPro
                   <div>
                     <p className="font-bold text-primary">{pack.labelAr}</p>
                     <p className="text-xs text-gray-500">
-                      {Math.round(pack.price / pack.quantity)} درهم / القطعة
+                      {formatUnitPrice(pack.price, pack.quantity)} درهم / القطعة
                     </p>
                   </div>
                 </div>
@@ -61,7 +61,7 @@ export default function PackSelector({ selectedPack, onSelect }: PackSelectorPro
                     {formatPrice(pack.originalPrice)}
                   </p>
                   <p className="font-bold text-primary text-lg">{formatPrice(pack.price)}</p>
-                  <p className="text-xs text-green-600 font-bold">وفري {discount}%</p>
+                  <p className="text-xs text-green-600 font-bold">وفّر {discount}%</p>
                 </div>
               </div>
             </button>

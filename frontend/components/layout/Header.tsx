@@ -2,21 +2,32 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useCartStore } from '@/lib/cart-store';
 import { NAV_LINKS } from '@/lib/constants';
 import MobileMenu from './MobileMenu';
 
+function normalizePathname(path: string) {
+  if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
+  return path || '/';
+}
+
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2">
-      <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-        <span className="text-gold font-playfair font-bold text-xl">M</span>
-      </div>
-      <div className="hidden sm:block">
-        <span className="font-playfair text-primary font-bold text-lg leading-tight block">
+    <Link href="/" className="flex items-center gap-2.5" aria-label="Maison Eloria — الرئيسية">
+      <img
+        src="/images/brand/logo-mark.svg"
+        alt="Maison Eloria"
+        width={40}
+        height={40}
+        className="w-10 h-10 select-none"
+        draggable={false}
+      />
+      <div className="hidden sm:block leading-tight">
+        <span className="font-playfair text-primary font-bold text-lg block tracking-wide">
           Maison Eloria
         </span>
-        <span className="text-[10px] text-primary/60 leading-tight block">
+        <span className="text-[10px] text-gold/90 tracking-[0.25em] uppercase block">
           ميزون إلوريا
         </span>
       </div>
@@ -60,24 +71,39 @@ function CartIcon() {
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const currentPath = normalizePathname(pathname);
 
   return (
-    <header className="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-primary/10">
+    <header className="sticky top-0 z-[100] bg-cream/95 backdrop-blur-md border-b border-primary/10">
       <div className="container-custom mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo - right side in RTL */}
         <Logo />
 
         {/* Nav - center (desktop) */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-primary/70 hover:text-primary font-medium transition-colors text-sm"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-7">
+          {NAV_LINKS.map((link) => {
+            const active = normalizePathname(link.href) === currentPath;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative font-medium text-sm transition-colors px-1 py-1 ${
+                  active
+                    ? 'text-primary font-bold'
+                    : 'text-primary/65 hover:text-primary'
+                }`}
+              >
+                {link.label}
+                {active && (
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-[3px] w-6 rounded-full bg-gradient-to-r from-gold to-gold-dark"
+                  />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Cart + Hamburger - left side in RTL */}
@@ -102,7 +128,11 @@ export default function Header() {
         </div>
       </div>
 
-      <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <MobileMenu
+        isOpen={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        currentPath={currentPath}
+      />
     </header>
   );
 }

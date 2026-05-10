@@ -3,6 +3,9 @@ export interface ProductColor {
   name: string;
   nameAr: string;
   hex: string;
+  image?: string;
+  /** CSS object-position لعرض المكان الصحيح من الصورة (مثلاً عند استخدام لقطة عريضة) */
+  imagePosition?: string;
 }
 
 export interface Pack {
@@ -31,6 +34,7 @@ export interface CartItem {
 export interface OrderData {
   name: string;
   phone: string;
+  city: string;
   items: CartItem[];
   total: number;
   utm_source?: string;

@@ -1,0 +1,8 @@
+name = "maisoneloria"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "out"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "maisoneloria-orders"
+database_id = "9042cce6-3a98-417e-962a-eddc7762fd99"

@@ -7,10 +7,14 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* لا نضع overflow:hidden على html لأنه يكسر التمرير في iOS Safari */
   }
 
   body {
     @apply font-cairo bg-cream text-gray-800;
+    overflow-x: clip;
+    /* يمنع منطقة سحب أفقية على iOS */
+    overscroll-behavior-x: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -19,6 +23,15 @@
 
   ::selection {
     @apply bg-primary/20 text-primary;
+  }
+
+  /* إيقاف الحركات للمستخدمين الذين يفضلون تقليلها */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -54,11 +67,13 @@
   }
 
   .badge-popular {
-    @apply bg-gold text-white text-xs font-bold px-3 py-1 rounded-full;
+    @apply bg-gradient-to-r from-amber-500 to-gold text-white text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg border border-yellow-300/30 tracking-wide flex items-center justify-center gap-1;
+    box-shadow: 0 4px 14px rgba(201, 168, 76, 0.4);
   }
 
   .badge-value {
-    @apply bg-primary text-white text-xs font-bold px-3 py-1 rounded-full;
+    @apply bg-gradient-to-r from-emerald-600 to-primary text-white text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg border border-emerald-400/30 tracking-wide flex items-center justify-center gap-1;
+    box-shadow: 0 4px 14px rgba(20, 51, 38, 0.3);
   }
 
   .gradient-text {
@@ -68,6 +83,52 @@
 
   .glass-card {
     @apply bg-white/80 backdrop-blur-md rounded-2xl border border-white/20;
+  }
+
+  /* تمييز أقسام المنتجات بالموقع: شريط ذهبي + خلفية خفيفة
+     على الموبايل يقل الإطار ليتناسب مع الشاشات الصغيرة بدون فيض أفقي */
+  .product-zone {
+    @apply border-gold bg-gradient-to-l from-gold/[0.06] to-transparent rounded-2xl py-1;
+    border-inline-start-width: 0;
+    padding-inline-start: 0.5rem;
+    padding-inline-end: 0.25rem;
+  }
+  @media (min-width: 640px) {
+    .product-zone {
+      border-inline-start-width: 4px;
+      padding-inline-start: 1rem;
+      padding-inline-end: 0.5rem;
+    }
+  }
+
+  /* نقاط ذهبية بجانب عناوين المنتجات (⋯) */
+  .product-dots {
+    @apply text-gold font-bold tracking-[0.25em] select-none opacity-90;
+  }
+
+  /* لمسة تحريرية للصور: إطار ذهبي رفيع + ظل ناعم + vignette داخلي خفيف
+     (لا يلمس القماش — فقط حاشية حول الصورة) */
+  .photo-editorial {
+    @apply relative overflow-hidden rounded-3xl ring-1 ring-gold/30 shadow-[0_30px_60px_-25px_rgba(20,51,38,0.45)];
+  }
+  .photo-editorial::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none rounded-3xl;
+    box-shadow: inset 0 0 0 1px rgba(201, 168, 76, 0.18),
+                inset 0 -120px 80px -80px rgba(20, 51, 38, 0.18);
+  }
+
+  /* بطاقة منتج بإطار رخامي داخلي */
+  .photo-card {
+    @apply relative overflow-hidden rounded-2xl bg-cream-dark/40
+           ring-1 ring-gold/25 transition-all duration-300
+           hover:ring-gold/55 hover:shadow-2xl;
+  }
+  .photo-card img {
+    @apply transition-transform duration-700;
+  }
+  .photo-card:hover img {
+    transform: scale(1.04);
   }
 }
 
@@ -131,21 +192,37 @@
   animation: slideInFromBottom 0.5s ease-out;
 }
 
-/* Pulse ring for CTA */
+/* حلقة نبض على زر CTA — معزولة داخل الزر فلا تحدث overflow أفقي
+   ولا تسبب اهتزاز الصفحة على الموبايل */
 @keyframes pulseRing {
   0% {
-    transform: scale(1);
-    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(201, 168, 76, 0);
   }
   100% {
-    transform: scale(1.3);
-    opacity: 0;
+    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
   }
 }
 
-.pulse-ring::before {
-  content: '';
-  @apply absolute inset-0 rounded-xl;
-  animation: pulseRing 2s ease-out infinite;
-  border: 2px solid currentColor;
+.pulse-ring {
+  animation: pulseRing 2.2s ease-out infinite;
+  /* لا transform → لا layout shift */
+}
+
+/* Floating animation for trust badges */
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+  /* تلميح للمتصفح بأن العنصر سيتحرك → تركيب على طبقة منفصلة (يمنع repaint) */
+  will-change: transform;
 }

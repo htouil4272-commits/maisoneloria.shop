@@ -14,7 +14,7 @@ export default function ProductReviews() {
           className="text-center mb-8"
         >
           <h2 className="font-playfair text-2xl sm:text-3xl font-bold text-primary mb-2">
-            آراء العميلات 💬
+            آراء زبائننا 💬
           </h2>
           <div className="flex justify-center items-center gap-1 text-gold text-xl">
             {'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}

@@ -3,6 +3,7 @@
 import { CartItem as CartItemType } from '@/lib/types';
 import { useCartStore } from '@/lib/cart-store';
 import { formatPrice } from '@/lib/utils';
+import { COLORS } from '@/lib/constants';
 
 interface CartItemProps {
   item: CartItemType;
@@ -11,14 +12,24 @@ interface CartItemProps {
 export default function CartItem({ item }: CartItemProps) {
   const updateQuantity = useCartStore((s) => s.updateQuantity);
   const removeItem = useCartStore((s) => s.removeItem);
+  const colorImage = COLORS.find((c) => c.id === item.colorId)?.image;
 
   return (
     <div className="flex gap-3 bg-cream rounded-xl p-3">
-      {/* Color swatch / image placeholder */}
-      <div
-        className="w-20 h-20 rounded-xl flex-shrink-0"
-        style={{ backgroundColor: item.colorHex }}
-      />
+      <div className="w-20 h-20 rounded-xl flex-shrink-0 overflow-hidden bg-gray-100">
+        {colorImage ? (
+          <img
+            src={colorImage}
+            alt={`غطاء كرسي لون ${item.colorNameAr}`}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div
+            className="w-full h-full"
+            style={{ backgroundColor: item.colorHex }}
+          />
+        )}
+      </div>
 
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-2">

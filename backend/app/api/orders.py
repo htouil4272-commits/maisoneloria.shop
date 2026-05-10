@@ -61,7 +61,8 @@ async def create_order(
             total=order.total,
             delivery_estimate="2-4 أيام عمل",
             created_at=order.created_at,
-        ).model_dump(),
+        ).model_dump(mode="json"),
+        "message": "شكراً لك، طلبك قيد المراجعة وسنتواصل معك قريباً لتأكيده.",
     }
 
 

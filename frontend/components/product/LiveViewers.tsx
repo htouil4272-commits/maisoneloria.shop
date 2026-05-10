@@ -20,7 +20,7 @@ export default function LiveViewers() {
         <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
       </span>
       <span className="text-gray-600">
-        <span className="font-bold text-primary">{viewers}</span> شخص كيشوفو هاد المنتوج دابا
+        <span className="font-bold text-primary">{viewers}</span> شخص كيشوفو هاد المنتج دابا
       </span>
     </div>
   );

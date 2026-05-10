@@ -6,11 +6,12 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-https://api.maisoneloria.shop}
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-}
         - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://maisoneloria.shop}
         - NEXT_PUBLIC_FB_PIXEL_ID=${FB_PIXEL_ID:-}
-        - NEXT_PUBLIC_TIKTOK_PIXEL_ID=${TIKTOK_PIXEL_ID:-}
-        - NEXT_PUBLIC_SNAP_PIXEL_ID=${SNAP_PIXEL_ID:-}
+        - NEXT_PUBLIC_TT_PIXEL_ID=${TIKTOK_PIXEL_ID:-}
+        - NEXT_PUBLIC_SC_PIXEL_ID=${SNAP_PIXEL_ID:-}
+        - NEXT_PUBLIC_WHATSAPP_NUMBER=${NEXT_PUBLIC_WHATSAPP_NUMBER:-212754127109}
     ports:
       - "3000:3000"
     restart: unless-stopped
@@ -28,18 +29,18 @@ services:
       - APP_HOST=0.0.0.0
       - APP_PORT=8000
       - SECRET_KEY=${SECRET_KEY:-change-me-in-production}
-      - DATABASE_URL=postgres://maisoneloria:maisoneloria@maisoneloria_database:5432/maisoneloria?sslmode=disable
-      - ALLOWED_ORIGINS=https://maisoneloria.shop,https://www.maisoneloria.shop
+      - DATABASE_URL=postgresql+asyncpg://maisoneloria:maisoneloria@db:5432/maisoneloria
+      - ALLOWED_ORIGINS=https://maisoneloria.shop,https://www.maisoneloria.shop,http://localhost:3000
       - MAXMIND_LICENSE_KEY=${MAXMIND_LICENSE_KEY:-}
       - MAXMIND_DB_PATH=./data/GeoLite2-City.mmdb
-      - GOOGLE_SHEETS_CREDENTIALS_JSON=${GOOGLE_SHEETS_CREDENTIALS_JSON:-{}}
+      - GOOGLE_SHEETS_CREDENTIALS=${GOOGLE_SHEETS_CREDENTIALS:-}
       - GOOGLE_SHEETS_SPREADSHEET_ID=${GOOGLE_SHEETS_SPREADSHEET_ID:-}
       - FB_PIXEL_ID=${FB_PIXEL_ID:-}
-      - FB_CAPI_ACCESS_TOKEN=${FB_CAPI_ACCESS_TOKEN:-}
+      - FB_ACCESS_TOKEN=${FB_ACCESS_TOKEN:-}
       - TIKTOK_PIXEL_ID=${TIKTOK_PIXEL_ID:-}
-      - TIKTOK_CAPI_ACCESS_TOKEN=${TIKTOK_CAPI_ACCESS_TOKEN:-}
+      - TIKTOK_ACCESS_TOKEN=${TIKTOK_ACCESS_TOKEN:-}
       - SNAP_PIXEL_ID=${SNAP_PIXEL_ID:-}
-      - SNAP_CAPI_TOKEN=${SNAP_CAPI_TOKEN:-}
+      - SNAP_ACCESS_TOKEN=${SNAP_ACCESS_TOKEN:-}
       - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:-change-me-in-production}
     volumes:
@@ -48,9 +49,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    networks:
-      - default
-      - maisoneloria_network
 
   db:
     image: postgres:16-alpine
@@ -73,8 +71,3 @@ volumes:
   pgdata:
   maxmind_data:
 
-networks:
-  maisoneloria_network:
-    external: true
-    name: maisoneloria_network
-  default:

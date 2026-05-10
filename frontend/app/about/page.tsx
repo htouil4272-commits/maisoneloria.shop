@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { IMAGES } from '@/lib/constants';
 
 const values = [
-  { emoji: '💎', title: 'الجودة أولاً', description: 'كنختارو أفضل الأقمشة لضمان منتوج ممتاز يدوم طويلاً.' },
-  { emoji: '🤝', title: 'ثقة العميلة', description: 'أكثر من 5000 عميلة واثقة فينا — رضاك هو أولويتنا.' },
-  { emoji: '🇲🇦', title: 'فخر مغربي', description: 'منتوج مصمم بحب للبيت المغربي ولكل سيدة مغربية.' },
-  { emoji: '♻️', title: 'استدامة', description: 'بدل ما تشريي كراسي جداد، جددي اللي عندك بحل ذكي واقتصادي.' },
+  { emoji: '💎', title: 'الجودة أولاً', description: 'كنختارو أفضل الأقمشة لضمان منتج ممتاز يدوم طويلاً.' },
+  { emoji: '🤝', title: 'ثقة الزبون', description: 'أكثر من 5000 زبون واثق فينا — رضاك هو أولويتنا.' },
+  { emoji: '🇲🇦', title: 'فخر مغربي', description: 'منتج مصمم بحب للبيت المغربي ولكل عائلة مغربية.' },
+  { emoji: '♻️', title: 'استدامة', description: 'بدل ما تشري كراسي جداد، جدّد اللي عندك بحل ذكي واقتصادي.' },
 ];
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
@@ -48,7 +49,7 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 }
 
 const stats = [
-  { target: 5000, suffix: '+', label: 'عميلة راضية' },
+  { target: 5000, suffix: '+', label: 'زبون راضي' },
   { target: 15000, suffix: '+', label: 'طلبية مسلمة' },
   { target: 40, suffix: '+', label: 'مدينة مغربية' },
   { target: 98, suffix: '%', label: 'نسبة الرضا' },
@@ -58,22 +59,32 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="section-padding bg-gradient-to-bl from-cream via-cream to-primary/5">
-        <div className="container-custom mx-auto max-w-4xl text-center">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <img
+          src={IMAGES.moroccanSalon}
+          alt="صالون مغربي حقيقي مع أغطية كراسي ميزون إلوريا"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 container-custom mx-auto max-w-4xl text-center px-4 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6">
-              <span className="text-gold font-playfair font-bold text-3xl">M</span>
-            </div>
-            <h1 className="font-playfair text-4xl sm:text-5xl font-bold text-primary mb-6">
+            <img
+              src="/images/brand/logo-mark.svg"
+              alt="Maison Eloria"
+              width={96}
+              height={96}
+              className="w-24 h-24 mx-auto mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+            />
+            <h1 className="font-playfair text-4xl sm:text-5xl font-bold text-white mb-6 text-shadow-lg">
               من نحن؟ 🏠
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              ميزون إلوريا هي علامة مغربية متخصصة فأغطية الكراسي الفاخرة. بدينا من فكرة بسيطة: 
-              كل سيدة مغربية تستحق دار زوينة بثمن معقول. حنا كنأمنو بلي التجديد ما خاصوش يكون غالي، 
-              ولهادشي قدمنا حل ذكي — أغطية كراسي أنيقة بجودة عالية كتحول أي كرسي لقطعة ديكور فاخرة.
+            <p className="text-lg text-white/90 leading-relaxed max-w-2xl mx-auto text-shadow">
+              ميزون إلوريا هي علامة مغربية متخصصة فأغطية الكراسي الفاخرة. بدينا من فكرة بسيطة:
+              كل عائلة مغربية تستحق دار زوينة بثمن معقول. كنأمنو بلي التجديد ما خاصوش يكون غالي،
+              ولهاد الشي قدّمنا حل ذكي — أغطية كراسي أنيقة بجودة عالية كتحوّل أي كرسي لقطعة ديكور فاخرة.
             </p>
           </motion.div>
         </div>
@@ -89,18 +100,86 @@ export default function AboutPage() {
             className="space-y-6 text-gray-600 leading-relaxed text-lg"
           >
             <h2 className="font-playfair text-3xl font-bold text-primary">قصتنا 📖</h2>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-3xl overflow-hidden shadow-lg"
+            >
+              <img
+                src={IMAGES.lifestyle}
+                alt="صالون مغربي أنيق مع أغطية كراسي ميزون إلوريا"
+                className="w-full h-auto object-cover"
+              />
+            </motion.div>
+
             <p>
-              بدات القصة ملي لاحظنا بلي بزاف ديال السيدات كيبغيو يجددو الديكور ديال الدار ديالهم، 
-              ولكن الميزانية ما كتسمحش. شراء كراسي جداد غالي بزاف، والكراسي القديمة كيبداو يبانو قدام مع الوقت.
+              بدات القصة ملي لاحظنا بلي بزاف ديال العائلات المغربية بغاو يجددو ديكور دارهم،
+              ولكن الميزانية ما كتسمحش. شراء كراسي جداد غالي بزاف، والكراسي القديمة كيبداو يبانو متعبين مع الوقت.
             </p>
             <p>
-              هنا جات فكرة ميزون إلوريا — أغطية كراسي بقماش مطاطي ممتاز، سهلة التركيب وسهلة التنظيف، 
-              بألوان عصرية تناسب كل ذوق وكل ديكور. والأهم من هادشي، بثمن معقول يناسب الجميع.
+              هنا جات فكرة ميزون إلوريا — أغطية كراسي بقماش مطاطي ممتاز، سهلة التركيب وسهلة التنظيف،
+              بألوان عصرية كتناسب كل ذوق وكل ديكور. والأهم من هادشي، بثمن معقول كيناسب الجميع.
             </p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-3xl overflow-hidden shadow-lg"
+            >
+              <img
+                src={IMAGES.packaging}
+                alt="تغليف فاخر ومحمي لأغطية ميزون إلوريا"
+                className="w-full h-auto object-cover"
+              />
+            </motion.div>
+
             <p>
-              اليوم، أكثر من 5000 عميلة مغربية فاقت من 40 مدينة اختارو ميزون إلوريا باش يجددو ديكور ديارهم. 
-              وحنا كنستمرو فتقديم أفضل جودة بأفضل ثمن، مع خدمة عملاء ممتازة وتوصيل مجاني لكل المدن.
+              اليوم، أكثر من 5000 زبون مغربي من أكثر من 40 مدينة اختار ميزون إلوريا باش يجدد ديكور داره.
+              وحنا كنستمرو فتقديم أحسن جودة بأحسن ثمن، مع خدمة زبائن ممتازة وتوصيل مجاني لجميع المدن.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Customer Section */}
+      <section className="section-padding bg-cream">
+        <div className="container-custom mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <h2 className="font-playfair text-3xl font-bold text-primary mb-4">
+              زبائننا كيشهدو 💬
+            </h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-lg"
+          >
+            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-gold/30 flex-shrink-0 shadow-lg">
+              <img
+                src={IMAGES.happyCustomer}
+                alt="زبون مغربي راضي مع أغطية كراسي ميزون إلوريا"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="text-center sm:text-right flex-1">
+              <p className="text-lg sm:text-xl text-primary leading-relaxed font-medium mb-3">
+                &ldquo;من أحسن الحاجات اللي شريت لداري! الكراسي ولاو كأنهم جداد والضيوف ديالي
+                كيسولوني من فين شريتهم. شكراً ميزون إلوريا على الجودة الممتازة!&rdquo;
+              </p>
+              <div className="flex items-center justify-center sm:justify-start gap-2">
+                <span className="text-gold">⭐⭐⭐⭐⭐</span>
+                <span className="font-bold text-primary">— نورة من مراكش</span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

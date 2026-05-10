@@ -6,19 +6,19 @@ const steps = [
   {
     number: '1',
     emoji: '🎨',
-    title: 'اختاري اللون والباك',
+    title: 'اختار اللون والباك',
     description: '9 ألوان أنيقة و3 باكات تناسب احتياجاتك',
   },
   {
     number: '2',
     emoji: '📦',
-    title: 'أكدي الطلب',
-    description: 'غير الاسم ورقم الهاتف، والدفع عند الاستلام',
+    title: 'أكّد الطلب',
+    description: 'اكتب الاسم ورقم الهاتف فقط — الدفع كيتم عند الاستلام',
   },
   {
     number: '3',
     emoji: '🏠',
-    title: 'استمتعي بديكور جديد',
+    title: 'استمتع بديكور جديد',
     description: 'التوصيل خلال 24-72 ساعة لباب دارك',
   },
 ];
@@ -34,9 +34,9 @@ export default function HowItWorks() {
           className="text-center mb-12"
         >
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-primary mb-4">
-            كيفاش تطلبي؟ 🛒
+            كيفاش تطلب؟ 🛒
           </h2>
-          <p className="text-gray-600">3 خطوات بسيطة وتوصلك السلعة لباب دارك</p>
+          <p className="text-gray-600">3 خطوات بسيطة وتوصلك السلعة لباب الدار</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 relative">

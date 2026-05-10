@@ -71,7 +71,7 @@ export default function ExitIntentPopup() {
               ما تمشيش بلا هدية! 🎉
             </h2>
             <p className="text-gray-600 mb-4">
-              استعملي الكود هادا وستافدي من خصم خاص على الطلبية ديالك
+              استعمل هاد الكود وستفيد من خصم خاص على الطلبية ديالك
             </p>
 
             <div className="bg-gold/10 rounded-xl py-3 px-4 mb-4">
@@ -84,7 +84,7 @@ export default function ExitIntentPopup() {
               onClick={handleDismiss}
               className="btn-gold w-full block"
             >
-              استفيدي من العرض 🛒
+              استفد من العرض 🛒
             </Link>
           </motion.div>
         </>

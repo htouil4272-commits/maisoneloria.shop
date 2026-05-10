@@ -8,6 +8,7 @@ import { getRandomCity, getRandomInt } from '@/lib/utils';
 const names = [
   'فاطمة', 'أمينة', 'نورة', 'سعاد', 'خديجة', 'مريم', 'حنان', 'سناء',
   'ليلى', 'زينب', 'رشيدة', 'نادية', 'عائشة', 'سلمى', 'إيمان',
+  'يوسف', 'محمد', 'كريم', 'هشام', 'أنس', 'عمر', 'إلياس', 'رضا', 'بدر',
 ];
 
 function getRandomName() {
@@ -71,10 +72,10 @@ export default function RecentPurchaseToast() {
                 {toast.name} من {toast.city}
               </p>
               <p className="text-xs text-gray-500">
-                طلبات أغطية كراسي — {toast.color}
+                طلب أغطية كراسي — {toast.color}
               </p>
               <p className="text-[10px] text-gray-400 mt-0.5">
-                قبل {toast.minutes} دقائق
+                قبل {toast.minutes} دقيقة
               </p>
             </div>
           </div>

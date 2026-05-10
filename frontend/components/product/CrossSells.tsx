@@ -12,16 +12,24 @@ export default function CrossSells() {
 
   return (
     <section className="section-padding">
-      <div className="container-custom mx-auto">
+      <div className="container-custom mx-auto product-zone py-6 sm:py-8 px-3 sm:px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-8"
         >
-          <h2 className="font-playfair text-2xl font-bold text-primary">
-            كمّلي الديكور ديالك 🏠
-          </h2>
+          <div className="flex items-center justify-center gap-2 flex-wrap mb-2">
+            <span className="product-dots" aria-hidden>
+              ···
+            </span>
+            <h2 className="font-playfair text-2xl font-bold text-primary">
+              كمّل الديكور ديالك 🏠
+            </h2>
+            <span className="product-dots" aria-hidden>
+              ···
+            </span>
+          </div>
           <p className="text-gray-600 text-sm mt-1">ألوان أخرى غادي تعجبك</p>
         </motion.div>
 
@@ -34,11 +42,19 @@ export default function CrossSells() {
               viewport={{ once: true }}
               className="card"
             >
-              {/* Product image placeholder */}
-              <div
-                className="aspect-square"
-                style={{ backgroundColor: color.hex }}
-              />
+              {/* Product image */}
+              <div className="aspect-square relative overflow-hidden bg-cream-dark/30">
+                {color.image ? (
+                  <img
+                    src={color.image}
+                    alt={`غطاء كرسي لون ${color.nameAr}`}
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: color.imagePosition || 'center' }}
+                  />
+                ) : (
+                  <div className="w-full h-full" style={{ backgroundColor: color.hex }} />
+                )}
+              </div>
               <div className="p-3">
                 <p className="font-bold text-primary text-sm">{color.nameAr}</p>
                 <p className="text-sm text-gray-500">{formatPrice(defaultPack.price)}</p>
@@ -46,7 +62,7 @@ export default function CrossSells() {
                   onClick={() => addItem(color.id, defaultPack.id)}
                   className="mt-2 w-full bg-primary/10 text-primary font-bold text-xs py-2 rounded-lg hover:bg-primary hover:text-white transition-all"
                 >
-                  أضيفي للسلة
+                  أضف للسلة
                 </button>
               </div>
             </motion.div>

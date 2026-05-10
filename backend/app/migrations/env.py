@@ -7,10 +7,16 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
+from app.config import settings
 from app.database import Base
-from app.models import Order, Lead
+from app.models import Order, Lead, AnalyticsEvent
 
 config = context.config
+
+# Surcharge la chaîne de connexion alembic.ini par celle des settings (lue depuis
+# l'environnement). Cela permet à un même conteneur de se connecter à n'importe
+# quelle base sans rebuild d'image.
+config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)

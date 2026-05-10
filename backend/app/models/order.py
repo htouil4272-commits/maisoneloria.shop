@@ -32,5 +32,6 @@ class Order(Base):
     ttclid: Mapped[str | None] = mapped_column(String(255))
     sclid: Mapped[str | None] = mapped_column(String(255))
     fb_event_id: Mapped[str | None] = mapped_column(String(255))
+    notes: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(server_default=func.now(), onupdate=func.now())

@@ -1,0 +1,68 @@
+################################################################################
+# docker-compose pour EasyPanel — Maison Eloria
+#
+# Pré-requis : un service Postgres existant nommé `maisoneloria_database`
+# accessible sur le réseau interne d'EasyPanel.
+#
+# Ce fichier peut être utilisé tel quel via "App > Compose" dans EasyPanel,
+# ou ses services peuvent être créés un à un via "App > Build from Dockerfile".
+################################################################################
+version: "3.9"
+
+services:
+  backend:
+    container_name: maisoneloria_backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    expose:
+      - "8000"
+    environment:
+      APP_ENV: production
+      DEBUG: "false"
+      DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://maisoneloria:maisoneloria@maisoneloria_database:5432/maisoneloria}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://maisoneloria.shop,https://www.maisoneloria.shop}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Hamzatouil00@}
+      ADMIN_TOKEN_SECRET: ${ADMIN_TOKEN_SECRET:-}
+      MAXMIND_LICENSE_KEY: ${MAXMIND_LICENSE_KEY:-}
+      MAXMIND_DB_PATH: ${MAXMIND_DB_PATH:-data/GeoLite2-City.mmdb}
+      GOOGLE_SHEETS_CREDENTIALS: ${GOOGLE_SHEETS_CREDENTIALS:-}
+      GOOGLE_SHEETS_SPREADSHEET_ID: ${GOOGLE_SHEETS_SPREADSHEET_ID:-}
+      FB_PIXEL_ID: ${FB_PIXEL_ID:-}
+      FB_ACCESS_TOKEN: ${FB_ACCESS_TOKEN:-}
+      TIKTOK_PIXEL_ID: ${TIKTOK_PIXEL_ID:-}
+      TIKTOK_ACCESS_TOKEN: ${TIKTOK_ACCESS_TOKEN:-}
+      SNAP_PIXEL_ID: ${SNAP_PIXEL_ID:-}
+      SNAP_ACCESS_TOKEN: ${SNAP_ACCESS_TOKEN:-}
+    volumes:
+      - maxmind_data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/api/health').getcode()==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  frontend:
+    container_name: maisoneloria_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://maisoneloria.shop}
+        NEXT_PUBLIC_WHATSAPP_NUMBER: ${NEXT_PUBLIC_WHATSAPP_NUMBER:-212754127109}
+        NEXT_PUBLIC_FB_PIXEL_ID: ${NEXT_PUBLIC_FB_PIXEL_ID:-}
+        NEXT_PUBLIC_TT_PIXEL_ID: ${NEXT_PUBLIC_TT_PIXEL_ID:-}
+        NEXT_PUBLIC_SC_PIXEL_ID: ${NEXT_PUBLIC_SC_PIXEL_ID:-}
+    restart: unless-stopped
+    expose:
+      - "3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  maxmind_data:

@@ -39,9 +39,9 @@ export default function ReviewsCarousel() {
           className="text-center mb-12"
         >
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-primary mb-4">
-            شنو قالو العميلات ديالنا 💬
+            شنو قالو زبائننا 💬
           </h2>
-          <p className="text-gray-600">+5000 عميلة راضية فجميع المدن المغربية</p>
+          <p className="text-gray-600">+5000 زبون راضي فجميع المدن المغربية</p>
         </motion.div>
 
         <div className="relative">

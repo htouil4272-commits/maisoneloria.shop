@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { IMAGES } from '@/lib/constants';
 
 const comparisons = [
   { feature: 'الثمن', us: 'ابتداءً من 250 درهم للباك', them: '+1000 درهم لكرسي واحد' },
@@ -14,7 +15,7 @@ const comparisons = [
 export default function ComparisonTable() {
   return (
     <section className="section-padding bg-white">
-      <div className="container-custom mx-auto max-w-3xl">
+      <div className="container-custom mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,9 +25,34 @@ export default function ComparisonTable() {
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-primary mb-4">
             علاش ميزون إلوريا؟ 🏆
           </h2>
-          <p className="text-gray-600">قارني بين أغطية الكراسي ديالنا وشراء كراسي جداد</p>
+          <p className="text-gray-600">قارن بين أغطية ميزون إلوريا وشراء كراسي جداد</p>
         </motion.div>
 
+        {/* Quality Comparison Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-10"
+        >
+          <div className="photo-editorial">
+            <img
+              src={IMAGES.qualityComparison}
+              alt="القماش ديال ميزون إلوريا — تفصيل وأناقة"
+              className="w-full h-auto block"
+            />
+          </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-4 text-lg sm:text-xl font-bold text-primary"
+          >
+            القماش ديالنا مختلف — ما كيتقارنش مع اللي كاين فالسوق
+          </motion.p>
+        </motion.div>
+
+        {/* Comparison Table */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

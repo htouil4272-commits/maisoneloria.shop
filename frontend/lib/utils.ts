@@ -1,11 +1,25 @@
 import { clsx, type ClassValue } from 'clsx';
 
+import type { OrderData } from './types';
+
+/** Sum of line totals in MAD (2 decimals) — must match backend validation. */
+export function computeOrderTotalMAD(items: OrderData['items']): number {
+  const n = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  return Math.round(n * 100) / 100;
+}
+
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
 
 export function formatPrice(price: number): string {
   return `${price} درهم`;
+}
+
+export function formatUnitPrice(total: number, quantity: number): string {
+  const unitPrice = total / quantity;
+  if (quantity === 8 && !Number.isInteger(unitPrice)) return unitPrice.toFixed(1);
+  return String(Math.round(unitPrice));
 }
 
 export function calculateDiscount(original: number, sale: number): number {

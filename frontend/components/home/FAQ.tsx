@@ -54,7 +54,7 @@ export default function FAQ() {
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-primary mb-4">
             أسئلة شائعة ❓
           </h2>
-          <p className="text-gray-600">الأجوبة على الأسئلة اللي كتتسألو بزاف</p>
+          <p className="text-gray-600">الأجوبة على الأسئلة اللي كنتسولو عليها بزاف</p>
         </motion.div>
 
         <div className="space-y-3">

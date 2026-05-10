@@ -2,86 +2,103 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { CURRENCY_AR, IMAGES } from '@/lib/constants';
+import { trackClick } from '@/lib/tracking';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-bl from-cream via-cream to-primary/5">
-      <div className="container-custom mx-auto px-4 py-16 sm:py-20 lg:py-28">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Text Content */}
+    <section className="relative min-h-[640px] sm:min-h-[100svh] flex items-center overflow-hidden">
+      <img
+        src={IMAGES.moroccanSalon}
+        alt="صالون أنيق مع أغطية كراسي ميزون إلوريا — أزرق، بوردو، بيج"
+        className="absolute inset-0 w-full h-full object-cover"
+        fetchPriority="high"
+        decoding="async"
+      />
+      {/* تدرّج للقراءة — يتركّز يميناً (RTL) ويترك يسار الصورة بارزاً */}
+      <div className="absolute inset-0 bg-gradient-to-l from-black/85 via-black/55 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(0,0,0,0.5),transparent_60%)]" />
+
+      <div className="relative z-10 container-custom mx-auto px-4 py-20 sm:py-24 lg:py-32">
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block bg-gold/10 text-gold font-bold text-sm px-4 py-2 rounded-full mb-6">
-              🏠 جددي ديكور دارك بأقل ثمن
-            </span>
-            <h1 className="font-playfair text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight mb-6">
-              حولي الكراسي ديالك
+            <motion.span
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="inline-block bg-gold/90 text-white font-bold text-base sm:text-lg px-5 py-2.5 rounded-full mb-6 shadow-lg"
+            >
+              ابتداءً من 47.5 {CURRENCY_AR} للقطعة
+            </motion.span>
+
+            <h1 className="font-playfair text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 text-shadow-lg">
+              حوّل كراسي بيتك
               <br />
               <span className="text-gold">لقطع ديكور فاخرة</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg">
+
+            <p className="text-lg sm:text-xl text-white/90 mb-8 leading-relaxed max-w-lg text-shadow">
               أغطية كراسي أنيقة وعملية، بقماش مطاطي ممتاز كيتناسب مع جميع الكراسي.
-              جودة عالية بثمن معقول.
+              جودة عالية بثمن معقول، توصيل مجاني والدفع عند الاستلام.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/product" className="btn-primary text-lg relative pulse-ring">
-                اطلبي دابا 🛒
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/product"
+                onClick={() => trackClick('hero_cta_order')}
+                className="btn-gold text-lg sm:text-xl py-4 px-10 text-center relative pulse-ring"
+              >
+                اطلب دابا 🛒
               </Link>
-              <Link href="/collection" className="btn-outline text-lg">
-                شوفي المجموعة
+              <Link
+                href="/collection"
+                onClick={() => trackClick('hero_cta_collection')}
+                className="border-2 border-white text-white font-bold py-4 px-10 rounded-xl text-lg text-center hover:bg-white hover:text-primary transition-all duration-300"
+              >
+                شوف المجموعة
               </Link>
             </div>
 
-            {/* Trust Row */}
-            <div className="flex flex-wrap items-center gap-6 mt-8 text-sm text-gray-500">
-              <span className="flex items-center gap-1">🚚 توصيل مجاني</span>
-              <span className="flex items-center gap-1">💳 الدفع عند الاستلام</span>
-              <span className="flex items-center gap-1">⭐ +5000 عميلة</span>
-            </div>
-          </motion.div>
-
-          {/* Hero Image Placeholder */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
-          >
-            {/* Replace with real lifestyle image */}
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-gold/20 to-primary/10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <span className="text-6xl">🪑</span>
-                  </div>
-                  <p className="text-primary/40 text-sm">صورة المنتوج</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Badge */}
             <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-              className="absolute -bottom-4 -right-4 sm:bottom-4 sm:right-4 bg-white rounded-2xl shadow-lg p-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="mt-6"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">⭐</span>
-                </div>
-                <div>
-                  <p className="font-bold text-primary text-sm">+5000 عميلة راضية</p>
-                  <p className="text-xs text-gray-500">ثقة ورضا 100%</p>
-                </div>
-              </div>
+              <span className="inline-flex items-center gap-3 bg-white/95 text-primary font-bold text-lg sm:text-xl px-6 py-3 rounded-2xl shadow-xl floating">
+                💳 الدفع عند الاستلام
+              </span>
             </motion.div>
+
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-6 text-sm sm:text-base text-white/80">
+              <span className="flex items-center gap-1.5">🚚 توصيل مجاني</span>
+              <span className="flex items-center gap-1.5">🔄 إرجاع مجاني</span>
+              <span className="flex items-center gap-1.5">⭐ +5000 زبون</span>
+            </div>
           </motion.div>
         </div>
       </div>
+
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+        className="hidden lg:block absolute bottom-8 left-8 z-10 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-4"
+        style={{ willChange: 'transform' }}
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center">
+            <span className="text-2xl">⭐</span>
+          </div>
+          <div>
+            <p className="font-bold text-primary text-sm">+5000 زبون راضي</p>
+            <p className="text-xs text-gray-500">ثقة ورضا 100%</p>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

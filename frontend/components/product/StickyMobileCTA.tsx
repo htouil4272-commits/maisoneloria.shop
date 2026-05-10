@@ -3,6 +3,7 @@
 import { Pack } from '@/lib/types';
 import { formatPrice } from '@/lib/utils';
 import { useCartStore } from '@/lib/cart-store';
+import { trackClick } from '@/lib/tracking';
 
 interface StickyMobileCTAProps {
   selectedColorId: string;
@@ -11,13 +12,21 @@ interface StickyMobileCTAProps {
 
 export default function StickyMobileCTA({ selectedColorId, selectedPack }: StickyMobileCTAProps) {
   const addItem = useCartStore((s) => s.addItem);
+  const isCartOpen = useCartStore((s) => s.isOpen);
+  const isCheckoutOpen = useCartStore((s) => s.isCheckoutOpen);
 
   const handleAdd = () => {
+    trackClick('add_to_cart_sticky', { pack: selectedPack.id, color: selectedColorId });
     addItem(selectedColorId, selectedPack.id);
   };
 
+  if (isCartOpen || isCheckoutOpen) return null;
+
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-gray-200 p-3 lg:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+    <div
+      className="fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-gray-200 px-3 pt-3 lg:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.1)]"
+      style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom, 0px))' }}
+    >
       <div className="flex items-center justify-between gap-3">
         <div>
           <p className="font-bold text-primary text-lg">{formatPrice(selectedPack.price)}</p>
@@ -27,7 +36,7 @@ export default function StickyMobileCTA({ selectedColorId, selectedPack }: Stick
           onClick={handleAdd}
           className="flex-1 bg-gold text-white font-bold py-3 px-6 rounded-xl hover:bg-gold-dark transition-all active:scale-[0.98] shadow-lg"
         >
-          أضيفي للسلة 🛒
+          أضف للسلة 🛒
         </button>
       </div>
     </div>

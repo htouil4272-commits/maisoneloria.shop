@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { PACKS, PRICE_PER_PIECE } from '@/lib/constants';
-import { formatPrice, calculateDiscount } from '@/lib/utils';
+import { formatPrice, calculateDiscount, formatUnitPrice } from '@/lib/utils';
 
 export default function OffersSection() {
   return (
@@ -19,11 +19,11 @@ export default function OffersSection() {
             🔥 عرض محدود
           </span>
           <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-primary mb-4">
-            اختاري الباك ديالك 🎁
+            اختار الباك ديالك 🎁
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             ثمن القطعة الواحدة: <span className="line-through text-red-500">{PRICE_PER_PIECE} درهم</span>
-            {' '}— وفري أكثر مع الباكات ديالنا
+            {' '}— وفّر أكثر مع الباكات ديالنا
           </p>
         </motion.div>
 
@@ -31,8 +31,8 @@ export default function OffersSection() {
           {PACKS.map((pack, i) => {
             const discount = calculateDiscount(pack.originalPrice, pack.price);
             const isPopular = pack.id === 'pack-6';
-            const isBestValue = pack.id === 'pack-9';
-            const pricePerPiece = Math.round(pack.price / pack.quantity);
+            const isBestValue = pack.id === 'pack-8';
+            const pricePerPiece = formatUnitPrice(pack.price, pack.quantity);
 
             return (
               <motion.div
@@ -41,7 +41,7 @@ export default function OffersSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className={`relative card p-6 text-center ${
+                className={`relative card overflow-visible p-6 text-center ${
                   isPopular
                     ? 'border-2 border-gold ring-4 ring-gold/10 scale-105'
                     : isBestValue
@@ -51,7 +51,7 @@ export default function OffersSection() {
               >
                 {pack.badgeAr && (
                   <span
-                    className={`absolute -top-3 right-1/2 translate-x-1/2 ${
+                    className={`absolute -top-4 right-1/2 translate-x-1/2 whitespace-nowrap z-10 ${
                       isPopular ? 'badge-popular' : 'badge-value'
                     }`}
                   >
@@ -76,7 +76,7 @@ export default function OffersSection() {
                 </div>
 
                 <div className="bg-green-50 text-green-700 font-bold text-sm py-2 px-4 rounded-full inline-block mb-4">
-                  وفري {discount}% — أي {formatPrice(pack.originalPrice - pack.price)}
+                  وفّر {discount}% — أي {formatPrice(pack.originalPrice - pack.price)}
                 </div>
 
                 <Link
@@ -87,7 +87,7 @@ export default function OffersSection() {
                       : 'bg-primary text-white hover:bg-primary-light'
                   }`}
                 >
-                  اطلبي دابا
+                  اطلب دابا
                 </Link>
 
                 <p className="text-xs text-gray-400 mt-3">🚚 توصيل مجاني | 💳 الدفع عند الاستلام</p>

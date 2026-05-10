@@ -2,6 +2,10 @@
 
 import Link from 'next/link';
 import { SITE_NAME_AR } from '@/lib/constants';
+import {
+  PHONE_DISPLAY_NATIONAL,
+  CONTACT_EMAIL,
+} from '@/lib/site-contact';
 
 export default function Footer() {
   return (
@@ -10,17 +14,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center">
-                <span className="text-gold font-playfair font-bold text-xl">M</span>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src="/images/brand/logo-mark.svg"
+                alt="Maison Eloria"
+                width={56}
+                height={56}
+                className="w-14 h-14"
+              />
               <div>
                 <span className="font-playfair font-bold text-lg block">Maison Eloria</span>
-                <span className="text-xs text-white/60 block">{SITE_NAME_AR}</span>
+                <span className="text-xs text-gold/80 tracking-[0.2em] block">{SITE_NAME_AR}</span>
               </div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed">
-              أغطية كراسي فاخرة بجودة عالية. نحولو الكراسي ديالك لقطع ديكور أنيقة.
+              أغطية كراسي فاخرة بجودة عالية — كنحوّلو الكراسي ديالك لقطع ديكور أنيقة بثمن معقول.
             </p>
           </div>
 
@@ -30,7 +38,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><Link href="/" className="text-white/70 hover:text-white transition-colors text-sm">الرئيسية</Link></li>
               <li><Link href="/collection" className="text-white/70 hover:text-white transition-colors text-sm">المجموعة</Link></li>
-              <li><Link href="/product" className="text-white/70 hover:text-white transition-colors text-sm">المنتوج</Link></li>
+              <li><Link href="/product" className="text-white/70 hover:text-white transition-colors text-sm">المنتج</Link></li>
               <li><Link href="/about" className="text-white/70 hover:text-white transition-colors text-sm">من نحن</Link></li>
               <li><Link href="/contact" className="text-white/70 hover:text-white transition-colors text-sm">اتصل بنا</Link></li>
             </ul>
@@ -40,8 +48,10 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-gold mb-4">خدمة العملاء</h4>
             <ul className="space-y-2">
-              <li className="text-white/70 text-sm">📞 +212 6 00 00 00 00</li>
-              <li className="text-white/70 text-sm">📧 contact@maisoneloria.ma</li>
+              <li className="text-white/70 text-sm">
+                📞 <span dir="ltr">{PHONE_DISPLAY_NATIONAL}</span>
+              </li>
+              <li className="text-white/70 text-sm">📧 {CONTACT_EMAIL}</li>
               <li className="text-white/70 text-sm">⏰ من الإثنين إلى السبت: 9h - 18h</li>
             </ul>
           </div>

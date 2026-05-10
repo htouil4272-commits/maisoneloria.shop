@@ -29,18 +29,26 @@ export default function CollectionPage() {
 
   return (
     <section className="section-padding">
-      <div className="container-custom mx-auto">
+      <div className="container-custom mx-auto product-zone py-6 sm:py-8 px-3 sm:px-4">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-10"
         >
-          <h1 className="font-playfair text-3xl sm:text-4xl font-bold text-primary mb-3">
-            المجموعة الكاملة ✨
-          </h1>
+          <div className="flex items-center justify-center gap-3 flex-wrap mb-3">
+            <span className="product-dots" aria-hidden>
+              ···
+            </span>
+            <h1 className="font-playfair text-3xl sm:text-4xl font-bold text-primary">
+              المجموعة الكاملة ✨
+            </h1>
+            <span className="product-dots" aria-hidden>
+              ···
+            </span>
+          </div>
           <p className="text-gray-600 max-w-xl mx-auto">
-            اختاري اللون المفضل ديالك من 9 ألوان أنيقة تناسب كل ديكور
+            اختار اللون المفضل ديالك من 9 ألوان أنيقة تناسب كل ديكور
           </p>
         </motion.div>
 
@@ -85,14 +93,15 @@ export default function CollectionPage() {
               transition={{ delay: i * 0.05 }}
               className="card group"
             >
-              {/* Product image placeholder */}
-              <div
-                className="aspect-square relative overflow-hidden"
-                style={{ backgroundColor: color.hex }}
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-5xl opacity-30">🪑</span>
-                </div>
+              <div className="aspect-square relative overflow-hidden">
+                <img
+                  src={color.image}
+                  alt={`غطاء كرسي لون ${color.nameAr}`}
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: color.imagePosition || 'center' }}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
 
                 {/* Quick add overlay */}

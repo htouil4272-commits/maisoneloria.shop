@@ -32,6 +32,7 @@ class OrderItemSchema(BaseModel):
 class OrderCreateSchema(BaseModel):
     customer_name: str
     customer_phone: str
+    customer_city: str
     items: List[OrderItemSchema]
     total: Decimal
     page_url: Optional[str] = None
@@ -57,6 +58,14 @@ class OrderCreateSchema(BaseModel):
         v = v.strip().replace(" ", "")
         if not MOROCCAN_PHONE_REGEX.match(v):
             raise ValueError("رقم الهاتف غير صالح. يجب أن يبدأ بـ 06 أو 07 متبوعاً بـ 8 أرقام")
+        return v
+
+    @field_validator("customer_city")
+    @classmethod
+    def validate_city(cls, v: str) -> str:
+        v = v.strip()
+        if len(v) < 2:
+            raise ValueError("المرجو اختيار المدينة")
         return v
 
     @field_validator("items")

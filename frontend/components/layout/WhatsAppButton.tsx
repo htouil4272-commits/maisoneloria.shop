@@ -1,17 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { WHATSAPP_NUMBER } from '@/lib/site-contact';
 
 export default function WhatsAppButton() {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212600000000';
+  const phone = WHATSAPP_NUMBER;
   const message = encodeURIComponent('مرحبا، بغيت نستفسر على أغطية الكراسي ديالكم');
+  // على صفحة المنتج، عند الموبايل، نرفعه فوق شريط CTA السفلي
+  const pathname = usePathname() || '';
+  const isProduct = pathname === '/product' || pathname.startsWith('/product/');
+  const bottomClass = isProduct ? 'bottom-24 lg:bottom-6' : 'bottom-6';
 
   return (
     <motion.a
       href={`https://wa.me/${phone}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 left-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+      className={`fixed ${bottomClass} left-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow`}
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ delay: 1, type: 'spring', stiffness: 200 }}
