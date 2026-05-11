@@ -14,6 +14,8 @@ COPY package.json package-lock.json ./
 RUN npm ci --legacy-peer-deps
 
 # Copy the rest of the source after deps are installed
+ARG CACHE_BUSTER=20260512_0135
+RUN echo "Busting cache: $CACHE_BUSTER"
 COPY . .
 
 # --max-old-space-size prevents silent OOM kills on low-RAM VPS (< 2 GB)
