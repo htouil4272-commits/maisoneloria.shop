@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend } from 'recharts';
 import { Eye, MousePointerClick, DollarSign, TrendingUp, RefreshCw, Bell, BellOff, LogOut, Search } from 'lucide-react';
 
@@ -93,6 +93,7 @@ export default function AdminPage() {
   const [error, setError] = useState('');
   const [actionLoadingId, setActionLoadingId] = useState<number | null>(null);
   const [knownOrderIds, setKnownOrderIds] = useState<Set<number>>(new Set());
+  const knownOrderIdsRef = useRef<Set<number>>(new Set());
   const [newOrderToast, setNewOrderToast] = useState<string | null>(null);
   const [muted, setMuted] = useState(false);
 
@@ -110,7 +111,7 @@ export default function AdminPage() {
     setCounts({});
     setStats(null);
     setChartData([]);
-    setKnownOrderIds(new Set());
+    knownOrderIdsRef.current = new Set();
     if (typeof window !== 'undefined') {
       window.sessionStorage.removeItem(STORAGE_KEY);
     }
@@ -169,8 +170,9 @@ export default function AdminPage() {
         setCounts(data.counts || {});
         setOrders((previous) => {
           const previousIds = new Set(previous.map((o) => o.id));
-          const newOrders = data.orders.filter((o) => !previousIds.has(o.id) && !knownOrderIds.has(o.id));
-          if (knownOrderIds.size > 0 && newOrders.length > 0) {
+          const currentKnown = knownOrderIdsRef.current;
+          const newOrders = data.orders.filter((o) => !previousIds.has(o.id) && !currentKnown.has(o.id));
+          if (currentKnown.size > 0 && newOrders.length > 0) {
             const first = newOrders[0];
             setNewOrderToast(`طلب جديد: ${first.customer_name} — ${first.customer_city}`);
             if (!muted) playBeep();
@@ -184,7 +186,7 @@ export default function AdminPage() {
               }
             }
           }
-          setKnownOrderIds(new Set(data.orders.map((o) => o.id)));
+          knownOrderIdsRef.current = new Set(data.orders.map((o) => o.id));
           return data.orders;
         });
       } catch {
@@ -193,7 +195,7 @@ export default function AdminPage() {
         if (!options.silent) setIsLoading(false);
       }
     },
-    [statusFilter, debouncedSearch, knownOrderIds, muted, handleLogout],
+    [statusFilter, debouncedSearch, muted, handleLogout],
   );
 
   const fetchAnalytics = useCallback(
