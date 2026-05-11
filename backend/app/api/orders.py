@@ -10,6 +10,7 @@ from app.services.order_service import OrderService
 from app.services.fraud import fraud_service
 from app.services.sheets import sheets_service
 from app.services.tracking import tracking_service
+from app.services.whatsapp import send_admin_whatsapp_notification
 from app.middleware.rate_limit import RateLimiter
 
 logger = logging.getLogger(__name__)
@@ -78,6 +79,7 @@ async def _post_order_tasks(order, order_data: OrderCreateSchema):
     tasks.append(tracking_service.send_fb_capi_event(order, phone_international))
     tasks.append(tracking_service.send_tiktok_capi_event(order, phone_international))
     tasks.append(tracking_service.send_snap_capi_event(order, phone_international))
+    tasks.append(send_admin_whatsapp_notification(order))
 
     results = await asyncio.gather(*tasks, return_exceptions=True)
     for i, result in enumerate(results):

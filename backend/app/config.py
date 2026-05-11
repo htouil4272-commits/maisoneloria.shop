@@ -35,14 +35,19 @@ class Settings(BaseSettings):
     GOOGLE_SHEETS_CREDENTIALS: str = ""
     GOOGLE_SHEETS_SPREADSHEET_ID: str = ""
 
-    FB_ACCESS_TOKEN: str = ""
-    FB_PIXEL_ID: str = "928755302819513"
+    META_PIXEL_ID: str = "928755302819513"
+    META_ACCESS_TOKEN: str = ""
+    META_TEST_EVENT_CODE: str = "TEST97254"
 
     TIKTOK_ACCESS_TOKEN: str = ""
     TIKTOK_PIXEL_ID: str = ""
 
     SNAP_ACCESS_TOKEN: str = ""
     SNAP_PIXEL_ID: str = ""
+
+    WHATSAPP_API_TOKEN: str = ""
+    WHATSAPP_PHONE_NUMBER_ID: str = ""
+    WHATSAPP_ADMIN_NUMBER: str = "212665114751"
 
     RATE_LIMIT_ORDERS_MAX: int = 5
     RATE_LIMIT_ORDERS_WINDOW: int = 600

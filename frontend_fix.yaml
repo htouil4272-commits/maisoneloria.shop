@@ -1,0 +1,50 @@
+http:
+  routers:
+    http-maisoneloria_maisoneloria-0:
+      service: maisoneloria_maisoneloria-fixed
+      rule: "Host(`www.maisoneloria.shop`) && PathPrefix(`/`)"
+      priority: 100
+      middlewares:
+        - redirect-to-https
+        - bad-gateway-error-page
+      entryPoints:
+        - http
+    https-maisoneloria_maisoneloria-0:
+      service: maisoneloria_maisoneloria-fixed
+      rule: "Host(`www.maisoneloria.shop`) && PathPrefix(`/`)"
+      priority: 100
+      middlewares:
+        - bad-gateway-error-page
+      tls:
+        certResolver: letsencrypt
+        domains:
+          - main: "www.maisoneloria.shop"
+      entryPoints:
+        - https
+    http-maisoneloria_maisoneloria-1:
+      service: maisoneloria_maisoneloria-fixed
+      rule: "Host(`maisoneloria.shop`) && PathPrefix(`/`)"
+      priority: 100
+      middlewares:
+        - redirect-to-https
+        - bad-gateway-error-page
+      entryPoints:
+        - http
+    https-maisoneloria_maisoneloria-1:
+      service: maisoneloria_maisoneloria-fixed
+      rule: "Host(`maisoneloria.shop`) && PathPrefix(`/`)"
+      priority: 100
+      middlewares:
+        - bad-gateway-error-page
+      tls:
+        certResolver: letsencrypt
+        domains:
+          - main: "maisoneloria.shop"
+      entryPoints:
+        - https
+  services:
+    maisoneloria_maisoneloria-fixed:
+      loadBalancer:
+        servers:
+          - url: "http://maisoneloria_maisoneloria:80/"
+        passHostHeader: true

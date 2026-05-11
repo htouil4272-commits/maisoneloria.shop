@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { validateMoroccanPhone } from '@/lib/utils';
 import { formatApiErrorBody } from '@/lib/http-errors';
 import {
-  WHATSAPP_NUMBER,
   PHONE_DISPLAY_INTERNATIONAL,
   PHONE_DISPLAY_NATIONAL,
   CONTACT_EMAIL,
@@ -201,24 +200,6 @@ export default function ContactPage() {
                 </li>
               </ul>
             </div>
-
-            {/* WhatsApp CTA */}
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('مرحبا، بغيت نستفسر...')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block card p-6 bg-[#25D366]/5 border-2 border-[#25D366]/20 hover:border-[#25D366]/40 transition-colors"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-[#25D366] rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-2xl">💬</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-primary">تواصل معانا على واتساب</h3>
-                  <p className="text-sm text-gray-600">رد سريع ومباشر — 24/7</p>
-                </div>
-              </div>
-            </a>
           </motion.div>
         </div>
       </div>

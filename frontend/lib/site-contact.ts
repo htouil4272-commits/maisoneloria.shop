@@ -9,9 +9,6 @@
  */
 export const MOROCCO_COUNTRY_CODE = '212';
 
-export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212754127109';
-
 /** عرض دولي */
 export const PHONE_DISPLAY_INTERNATIONAL = '+212 754 127 109';
 

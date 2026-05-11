@@ -31,6 +31,42 @@ async def record_event(
         )
         db.add(event)
         await db.commit()
+
+        # Intercept for Meta CAPI
+        client_ip = request.headers.get("X-Forwarded-For", request.client.host).split(",")[0].strip()
+        user_agent = request.headers.get("User-Agent", "")
+        
+        event_type_lower = event_data.event_type.lower()
+        if event_type_lower in ("addtocart", "initiatecheckout", "viewcontent"):
+            meta = event_data.metadata_json or {}
+            event_name_map = {
+                "addtocart": "AddToCart",
+                "initiatecheckout": "InitiateCheckout",
+                "viewcontent": "ViewContent"
+            }
+            event_name = event_name_map[event_type_lower]
+            event_id = meta.get("event_id")
+            if event_id:
+                from app.services.tracking import tracking_service
+                import asyncio
+                custom_data = {}
+                if "currency" in meta:
+                    custom_data["currency"] = meta["currency"]
+                if "value" in meta:
+                    custom_data["value"] = float(meta["value"])
+                if "content_ids" in meta:
+                    custom_data["content_ids"] = meta["content_ids"]
+                    
+                asyncio.create_task(
+                    tracking_service.send_meta_capi_event(
+                        event_name=event_name,
+                        event_id=event_id,
+                        ip_address=client_ip,
+                        user_agent=user_agent,
+                        custom_data=custom_data
+                    )
+                )
+
         return {"success": True}
     except Exception as e:
         logger.error(f"Failed to record analytics event: {e}")

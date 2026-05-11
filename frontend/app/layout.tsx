@@ -4,7 +4,6 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnnouncementBar from '@/components/layout/AnnouncementBar';
-import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import CartDrawer from '@/components/cart/CartDrawer';
 import CheckoutModal from '@/components/checkout/CheckoutModal';
 import ExitIntentPopup from '@/components/shared/ExitIntentPopup';
@@ -92,7 +91,6 @@ export default function RootLayout({
         <Footer />
         <CartDrawer />
         <CheckoutModal />
-        <WhatsAppButton />
         <ExitIntentPopup />
         <RecentPurchaseToast />
         <FacebookPixel />

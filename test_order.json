@@ -1,0 +1,18 @@
+{
+  "customer_name": "Test User",
+  "customer_phone": "0600000000",
+  "customer_city": "Casablanca",
+  "items": [
+    {
+      "id": "1",
+      "product_id": "1",
+      "product_name": "Test Product",
+      "variant": "Test Variant",
+      "quantity": 1,
+      "price": 100,
+      "image": "test"
+    }
+  ],
+  "total": 100,
+  "page_url": "test"
+}

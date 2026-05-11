@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { NAV_LINKS } from '@/lib/constants';
-import { WHATSAPP_NUMBER } from '@/lib/site-contact';
 
 function normalizePathname(path: string) {
   if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
@@ -120,15 +119,13 @@ export default function MobileMenu({ isOpen, onClose, currentPath }: MobileMenuP
               </nav>
 
               <div className="mt-8 p-5 bg-primary/5 rounded-2xl">
-                <p className="text-sm text-primary/70 mb-2">تواصل معانا</p>
+                <p className="text-sm text-primary/70 mb-2">تواصل معانا عبر البريد الإلكتروني</p>
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:contact@maisoneloria.shop"
                   className="flex items-center gap-2 text-primary font-medium"
                 >
-                  <span className="text-xl">💬</span>
-                  <span>واتساب</span>
+                  <span className="text-xl">✉️</span>
+                  <span>contact@maisoneloria.shop</span>
                 </a>
               </div>
             </div>

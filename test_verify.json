@@ -1,0 +1,18 @@
+{
+  "customer_name": "Test Verify",
+  "customer_phone": "0612345678",
+  "customer_city": "Rabat",
+  "items": [
+    {
+      "id": "1",
+      "product_id": "1",
+      "product_name": "Test Verify Product",
+      "variant": "None",
+      "quantity": 1,
+      "price": 150,
+      "image": "test.jpg"
+    }
+  ],
+  "total": 150,
+  "page_url": "/verify"
+}

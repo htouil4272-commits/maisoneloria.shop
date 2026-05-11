@@ -20,54 +20,80 @@ def format_phone_for_capi(moroccan_phone: str) -> str:
 
 
 class TrackingService:
-    async def send_fb_capi_event(self, order, phone_international: str):
-        if not settings.FB_ACCESS_TOKEN or not settings.FB_PIXEL_ID:
+    async def send_meta_capi_event(self, event_name: str, event_id: str, ip_address: str, user_agent: str, custom_data: dict, fbc: str = None, fbp: str = None, phone_international: str = None):
+        if not settings.META_ACCESS_TOKEN or not settings.META_PIXEL_ID:
             return
 
         try:
-            hashed_phone = hash_phone(phone_international)
             event_time = int(time.time())
+
+            user_data = {
+                "client_ip_address": ip_address,
+                "client_user_agent": user_agent,
+            }
+
+            if phone_international:
+                user_data["ph"] = [hash_phone(phone_international)]
+
+            if fbc:
+                user_data["fbc"] = fbc
+            if fbp:
+                user_data["fbp"] = fbp
 
             payload = {
                 "data": [
                     {
-                        "event_name": "Purchase",
+                        "event_name": event_name,
                         "event_time": event_time,
-                        "event_id": order.fb_event_id or order.order_number,
+                        "event_id": event_id,
                         "action_source": "website",
-                        "user_data": {
-                            "ph": [hashed_phone],
-                            "client_ip_address": order.ip_address,
-                            "client_user_agent": order.user_agent,
-                            "country": [hashlib.sha256("ma".encode()).hexdigest()],
-                        },
-                        "custom_data": {
-                            "currency": "MAD",
-                            "value": float(order.total),
-                            "order_id": order.order_number,
-                        },
+                        "user_data": user_data,
+                        "custom_data": custom_data,
                     }
                 ],
             }
 
-            if order.fbclid:
-                payload["data"][0]["user_data"]["fbc"] = f"fb.1.{event_time}.{order.fbclid}"
+            if settings.META_TEST_EVENT_CODE:
+                payload["test_event_code"] = settings.META_TEST_EVENT_CODE
 
-            url = f"https://graph.facebook.com/v18.0/{settings.FB_PIXEL_ID}/events"
-            params = {"access_token": settings.FB_ACCESS_TOKEN}
+            url = f"https://graph.facebook.com/v19.0/{settings.META_PIXEL_ID}/events"
+            params = {"access_token": settings.META_ACCESS_TOKEN}
 
             async with httpx.AsyncClient(timeout=10) as client:
                 response = await client.post(url, params=params, json=payload)
                 if response.status_code == 200:
-                    logger.info(f"FB CAPI event sent for {order.order_number}")
+                    logger.info(f"Meta CAPI event '{event_name}' sent successfully (event_id: {event_id})")
                 else:
-                    logger.error(f"FB CAPI error: {response.status_code} - {response.text}")
+                    logger.error(f"Meta CAPI error: {response.status_code} - {response.text}")
 
         except Exception as e:
-            logger.error(f"FB CAPI exception: {e}")
+            logger.error(f"Meta CAPI exception: {e}")
+
+    async def send_fb_capi_event(self, order, phone_international: str):
+        """Legacy wrapper used by OrderService for Purchase events."""
+        custom_data = {
+            "currency": "MAD",
+            "value": float(order.total),
+            "order_id": order.order_number,
+        }
+        
+        # Build fbc from fbclid if available
+        fbc = None
+        if getattr(order, 'fbclid', None):
+            fbc = f"fb.1.{int(time.time())}.{order.fbclid}"
+
+        await self.send_meta_capi_event(
+            event_name="Purchase",
+            event_id=order.fb_event_id or order.order_number,
+            ip_address=order.ip_address,
+            user_agent=order.user_agent,
+            custom_data=custom_data,
+            fbc=fbc,
+            phone_international=phone_international
+        )
 
     async def send_tiktok_capi_event(self, order, phone_international: str):
-        if not settings.TIKTOK_ACCESS_TOKEN or not settings.TIKTOK_PIXEL_ID:
+        if not settings.TIKTOK_ACCESS_TOKEN or not getattr(settings, 'TIKTOK_PIXEL_ID', None):
             return
 
         try:
@@ -114,7 +140,7 @@ class TrackingService:
             logger.error(f"TikTok CAPI exception: {e}")
 
     async def send_snap_capi_event(self, order, phone_international: str):
-        if not settings.SNAP_ACCESS_TOKEN or not settings.SNAP_PIXEL_ID:
+        if not getattr(settings, 'SNAP_ACCESS_TOKEN', None) or not getattr(settings, 'SNAP_PIXEL_ID', None):
             return
 
         try:

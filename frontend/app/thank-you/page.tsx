@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CartItem } from '@/lib/types';
 import { formatPrice } from '@/lib/utils';
-import { WHATSAPP_NUMBER } from '@/lib/site-contact';
 import { trackEvent } from '@/lib/tracking';
 
 export default function ThankYouPage() {
@@ -186,14 +185,6 @@ export default function ThankYouPage() {
         >
           <p className="text-gray-600 text-sm">شارك التجربة ديالك مع صحابك 💕</p>
           <div className="flex justify-center gap-3">
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('طلبت أغطية كراسي من ميزون إلوريا وعجبوني بزاف! 😍 شوفهم: https://maisoneloria.shop')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25D366] text-white px-6 py-2 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity"
-            >
-              واتساب 💬
-            </a>
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=https://maisoneloria.shop`}
               target="_blank"
