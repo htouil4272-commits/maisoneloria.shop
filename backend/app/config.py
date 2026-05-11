@@ -36,7 +36,7 @@ class Settings(BaseSettings):
     GOOGLE_SHEETS_SPREADSHEET_ID: str = ""
 
     FB_ACCESS_TOKEN: str = ""
-    FB_PIXEL_ID: str = "1544079200022148"
+    FB_PIXEL_ID: str = "928755302819513"
 
     TIKTOK_ACCESS_TOKEN: str = ""
     TIKTOK_PIXEL_ID: str = ""
