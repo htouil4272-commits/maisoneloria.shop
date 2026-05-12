@@ -3,7 +3,7 @@
 import Script from 'next/script';
 
 export default function FacebookPixel() {
-  const pixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID || '928755302819513';
+  const pixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID || '749884987768036';
 
   return (
     <>
