@@ -40,8 +40,9 @@ services:
       - TIKTOK_ACCESS_TOKEN=${TIKTOK_ACCESS_TOKEN:-}
       - SNAP_PIXEL_ID=${SNAP_PIXEL_ID:-}
       - SNAP_ACCESS_TOKEN=${SNAP_ACCESS_TOKEN:-}
-      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-change-me-in-production}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-Hamzaeloria01}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-0668110109zaki}
+      - ADMIN_TOKEN_SECRET=${ADMIN_TOKEN_SECRET:-604d2091c6e1c4a0058b871987d605bd241f17387c2fb8bb41753bb46fc201eb}
     volumes:
       - maxmind_data:/app/data
     restart: unless-stopped

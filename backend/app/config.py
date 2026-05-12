@@ -23,11 +23,11 @@ class Settings(BaseSettings):
         "http://localhost:3000,http://127.0.0.1:3000"
     )
 
-    ADMIN_USERNAME: str = ""
-    ADMIN_PASSWORD: str = ""
+    ADMIN_USERNAME: str = "Hamzaeloria01"
+    ADMIN_PASSWORD: str = "0668110109zaki"
     # Generate with: python -c "import secrets; print(secrets.token_hex(32))"
     # Must use only hex chars [0-9a-f] — avoid #, $, %, ^ etc. (shell-unsafe)
-    ADMIN_TOKEN_SECRET: str = ""
+    ADMIN_TOKEN_SECRET: str = "604d2091c6e1c4a0058b871987d605bd241f17387c2fb8bb41753bb46fc201eb"
 
     MAXMIND_LICENSE_KEY: str = ""
     MAXMIND_DB_PATH: str = "data/GeoLite2-City.mmdb"

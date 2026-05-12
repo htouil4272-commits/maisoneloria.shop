@@ -24,9 +24,9 @@ services:
       DEBUG: "false"
       DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://postgres:password@database:5432/maisoneloria}
       ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://maisoneloria.shop,https://www.maisoneloria.shop,https://api.maisoneloria.shop}
-      ADMIN_USERNAME: ${ADMIN_USERNAME:-}
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
-      ADMIN_TOKEN_SECRET: ${ADMIN_TOKEN_SECRET:-}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-Hamzaeloria01}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-0668110109zaki}
+      ADMIN_TOKEN_SECRET: ${ADMIN_TOKEN_SECRET:-604d2091c6e1c4a0058b871987d605bd241f17387c2fb8bb41753bb46fc201eb}
       MAXMIND_LICENSE_KEY: ${MAXMIND_LICENSE_KEY:-}
       MAXMIND_DB_PATH: ${MAXMIND_DB_PATH:-data/GeoLite2-City.mmdb}
       GOOGLE_SHEETS_CREDENTIALS: ${GOOGLE_SHEETS_CREDENTIALS:-}
